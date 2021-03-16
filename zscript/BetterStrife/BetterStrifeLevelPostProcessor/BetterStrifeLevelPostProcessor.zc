@@ -29,11 +29,39 @@
 // BetterStrifeLevelPostProcessor
 //
 //===========================================================================
-/*
+
 class BetterStrifeLevelPostProcessor : LevelPostProcessor
 {
 	protected void Apply(Name checksum, String mapname)
 	{
-    }
+		FixMAP19DeadEnd(checksum, mapname);
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	void FixMAP19DeadEnd(Name checksum, String mapname)
+	{
+		switch (checksum)
+		{
+		default:
+		case 'none':
+			return;
+		case '1240E48EE30E52D7742DC3785BC0C919': // strife1.wad map19 - Fortress: Security Complex
+			// Fix dead end caused by exiting Administration before destroying the computer
+			// https://doomwiki.org/wiki/Strife_dead_ends#Leave_Administration_early
+			// Just get rid of the barriers that prevent backtracking from The Bailey
+			SetLineSpecial(2249, 0);
+			OffsetSectorPlane(8, Sector.ceiling, 8);
+			SetSectorTexture(8, Sector.ceiling, "F_GENTAN");
+			OffsetSectorPlane(10, Sector.ceiling, 8);
+			SetSectorTexture(10, Sector.ceiling, "F_GENTAN");
+			ClearSectorTags(8);
+			ClearSectorTags(10);
+			break;
+		}
+	}
 }
-*/
