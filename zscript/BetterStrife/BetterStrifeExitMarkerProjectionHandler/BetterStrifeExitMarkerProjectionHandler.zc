@@ -26,36 +26,79 @@
 
 //===========================================================================
 //
-// BetterStrifeHandler
+// BetterStrifeExitMarkerProjectionHandler
 //
 //===========================================================================
 
-class BetterStrifeHandler : EventHandler
+class BetterStrifeExitMarkerProjectionHandler : StaticEventHandler
 {
-	Array<Line> markedExitLines;
-
-	//===========================================================================
-	//
-	//
-	//
-	//===========================================================================
-
-	override void WorldTick(void)
+	/*
+	override void UITick(void)
 	{
-		for (int i = 0; i < Level.Lines.Size(); i++)
-		{
-			Line ln = Level.Lines[i];
+		let sb = StrifeStatusBar(StatusBar);
+		if (!sb) return;
+		Console.Printf("%d", sb.PopHeight);
+	}
+	*/
 
-			if (ln.special == ACS_ExecuteAlways && ln.args[2] == 145)
+	override void RenderUnderlay(RenderEvent e)
+	{
+		PlayerInfo plr;
+		if (e.Camera is "PlayerPawn" && e.Camera == players[consoleplayer].camera && e.Camera.player)
+		{
+			plr = e.Camera.player;
+		}
+		if (!plr) return;
+
+		// draw exit map markers
+		DrawExitMapMarkers(e);
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	ui void DrawExitMapMarkers(RenderEvent e)
+	{
+		let sb = StrifeStatusBar(StatusBar);
+		if (!sb) return;
+		if (sb && sb.CurrentPop != 1 && sb.PopHeight == 0) return;
+
+		if (automapactive) return;
+
+		let mnu = Menu.GetCurrentMenu();
+		if (mnu) return;
+
+
+		PlayerPawn pmo = PlayerPawn(players[consoleplayer].mo);
+		if (!pmo) return;
+
+		if (!pmo.player) return;
+
+		BetterStrifeGutamaticsMatrix worldToClip = BetterStrifeGutamaticsMatrix.WorldToClip(e.ViewPos, e.ViewAngle, e.ViewPitch, e.ViewRoll, players[consoleplayer].FOV);
+
+		Actor projActor;
+		ThinkerIterator it = ThinkerIterator.Create("BetterStrifeExitMarker");
+		while ((projActor = Actor(it.Next())) != NULL)
+		{
+			if (projActor.bDormant) continue;
+
+			if (!BetterStrifeExitMarker(projActor).IsMarkerSeen()) continue;
+
+			Vector3 adjustedWorldPos = e.ViewPos + Level.Vec3Diff(e.ViewPos, projActor.Pos);
+			Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height)).AsVector3();
+			if (ndcPos.Z <= 1 && ndcPos.Z >= -1)
 			{
-				if (markedExitLines.Find(ln) == markedExitLines.Size())
+				TextureID tex = TexMan.CheckForTexture("SXITA0", TexMan.Type_Sprite);
+				if (tex.IsValid())
 				{
-					Vector2 xyPos = ln.v1.p + ln.delta / 2;
-					double zPos = Level.PointInSector(xyPos).floorplane.ZatPoint(xyPos);
-					Vector3 sPos = (xyPos.X, xyPos.Y, zPos);
-					Actor.Spawn("BetterStrifeExitMarker", sPos, NO_REPLACE);
-					markedExitLines.Push(ln);
-					//Console.Printf("spawned exit map marker at %d/%d/%d", sPos.X, sPos.Y, sPos.Z);
+					Vector2 drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
+					Screen.DrawTexture(tex, false,
+						drawPos.X,
+						drawPos.Y,
+						DTA_CleanNoMove, true);
 				}
 			}
 		}
