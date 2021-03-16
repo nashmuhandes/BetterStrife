@@ -115,7 +115,7 @@ class BetterStrifeHandler : EventHandler
 			Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height)).AsVector3();
 			if (ndcPos.Z <= 1 && ndcPos.Z >= -1)
 			{
-				TextureID tex = TexMan.CheckForTexture("SXITA0");
+				TextureID tex = TexMan.CheckForTexture("SXITA0", TexMan.Type_Sprite);
 				if (tex.IsValid())
 				{
 					Vector2 drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
