@@ -120,8 +120,8 @@ class BetterStrifeHandler : EventHandler
 				{
 					Vector2 drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
 					Screen.DrawTexture(tex, false,
-						drawPos.X * CleanXFac,
-						drawPos.Y * CleanYFac,
+						drawPos.X,
+						drawPos.Y,
 						DTA_CleanNoMove, true);
 				}
 			}
