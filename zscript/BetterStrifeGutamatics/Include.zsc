@@ -1,0 +1,4 @@
+#include "zscript/BetterStrifeGutamatics/GlobalMaths.zsc"
+#include "zscript/BetterStrifeGutamatics/Matrix.zsc"
+#include "zscript/BetterStrifeGutamatics/Quaternion.zsc"
+#include "zscript/BetterStrifeGutamatics/VectorUtil.zsc"

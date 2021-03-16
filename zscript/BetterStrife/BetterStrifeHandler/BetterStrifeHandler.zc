@@ -1,0 +1,143 @@
+// Copyright 2021 Nash Muhandes
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions
+// are met:
+//
+// 1. Redistributions of source code must retain the above copyright
+//    notice, this list of conditions and the following disclaimer.
+// 2. Redistributions in binary form must reproduce the above copyright
+//    notice, this list of conditions and the following disclaimer in the
+//    documentation and/or other materials provided with the distribution.
+// 3. The name of the author may not be used to endorse or promote products
+//    derived from this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+// OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+// THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+//===========================================================================
+//
+// BetterStrifeHandler
+//
+//===========================================================================
+
+class BetterStrifeHandler : EventHandler
+{
+	Array<Line> markedExitLines;
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	override void WorldTick(void)
+	{
+		for (int i = 0; i < Level.Lines.Size(); i++)
+		{
+			Line ln = Level.Lines[i];
+
+			if (ln.special == ACS_ExecuteAlways && ln.args[2] == 145)
+			{
+				if (markedExitLines.Find(ln) == markedExitLines.Size())
+				{
+					Vector2 xyPos = ln.v1.p + ln.delta / 2;
+					double zPos = Level.PointInSector(xyPos).floorplane.ZatPoint(xyPos);
+					Vector3 sPos = (xyPos.X, xyPos.Y, zPos);
+					Actor.Spawn("BetterStrifeExitMarker", sPos, NO_REPLACE);
+					markedExitLines.Push(ln);
+					//Console.Printf("spawned exit map marker at %d/%d/%d", sPos.X, sPos.Y, sPos.Z);
+				}
+			}
+		}
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	override void RenderUnderlay(RenderEvent e)
+	{
+		PlayerInfo plr;
+		if (e.Camera is "PlayerPawn" && e.Camera == players[consoleplayer].camera && e.Camera.player)
+		{
+			plr = e.Camera.player;
+		}
+		if (!plr) return;
+
+		// draw exit map markers
+		DrawExitMapMarkers(e);
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	ui void DrawExitMapMarkers(RenderEvent e)
+	{
+		// TO DO: make it so that this only appears when you pull up the objectives popup box
+
+		if (automapactive) return;
+
+		double alpha = 1.0;
+
+		let mnu = Menu.GetCurrentMenu();
+		if (mnu)
+		{
+			alpha = 0.2;
+
+			if (mnu is "ConversationMenu")
+			{
+				alpha = 0.0;
+			}
+		}
+
+		PlayerPawn pmo = PlayerPawn(players[consoleplayer].mo);
+		if (!pmo) return;
+
+		if (!pmo.player) return;
+
+		//if (!cvShowPlayerLocator) return;
+
+		//if (cvShowPlayerLocator && !cvShowPlayerLocator.GetBool()) return;
+
+		BetterStrifeGutamaticsMatrix worldToClip = BetterStrifeGutamaticsMatrix.WorldToClip(e.ViewPos, e.ViewAngle, e.ViewPitch, e.ViewRoll, players[consoleplayer].FOV);
+
+		Actor projActor;
+		ThinkerIterator it = ThinkerIterator.Create("BetterStrifeExitMarker");
+		while ((projActor = Actor(it.Next())) != NULL)
+		{
+			if (projActor.bDormant) continue;
+
+			if (!BetterStrifeExitMarker(projActor).IsMarkerSeen()) continue;
+
+			Vector3 adjustedWorldPos = e.ViewPos + Level.Vec3Diff(e.ViewPos, projActor.Pos);
+			Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height)).AsVector3();
+			if (ndcPos.Z <= 1 && ndcPos.Z >= -1)
+			{
+				TextureID tex = TexMan.CheckForTexture("SXITA0");
+				if (tex.IsValid())
+				{
+					Vector2 drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
+					Screen.DrawTexture(tex, false,
+						drawPos.X * CleanXFac,
+						drawPos.Y * CleanYFac,
+						DTA_CleanNoMove, true);
+				}
+			}
+		}
+	}
+}
