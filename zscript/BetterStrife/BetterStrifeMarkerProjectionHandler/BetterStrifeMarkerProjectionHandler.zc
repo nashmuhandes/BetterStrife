@@ -26,11 +26,11 @@
 
 //===========================================================================
 //
-// BetterStrifeExitMarkerProjectionHandler
+// BetterStrifeMarkerProjectionHandler
 //
 //===========================================================================
 
-class BetterStrifeExitMarkerProjectionHandler : StaticEventHandler
+class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 {
 	/*
 	override void UITick(void)

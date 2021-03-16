@@ -1,4 +1,4 @@
 GameInfo
 {
-	AddEventHandlers = "BetterStrifeHandler", "BetterStrifeExitMarkerProjectionHandler"
+	AddEventHandlers = "BetterStrifeHandler", "BetterStrifeMarkerProjectionHandler"
 }
