@@ -32,15 +32,6 @@
 
 class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 {
-	/*
-	override void UITick(void)
-	{
-		let sb = StrifeStatusBar(StatusBar);
-		if (!sb) return;
-		Console.Printf("%d", sb.PopHeight);
-	}
-	*/
-
 	override void RenderUnderlay(RenderEvent e)
 	{
 		PlayerInfo plr;
@@ -49,6 +40,18 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 			plr = e.Camera.player;
 		}
 		if (!plr) return;
+
+		/*
+		let sb = StrifeStatusBar(StatusBar);
+		if (sb)
+		{
+			Screen.DrawText(SmallFont, Font.CR_White,
+					Screen.GetWidth() / 2,
+					Screen.GetHeight() / 2,
+					String.Format("%d, %d", sb.CurrentPop, sb.PopHeight),
+					DTA_CleanNoMove, true);
+		}
+		*/
 
 		// draw exit map markers
 		DrawExitMapMarkers(e);
@@ -64,7 +67,6 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 	{
 		let sb = StrifeStatusBar(StatusBar);
 		if (!sb) return;
-		if (sb && sb.CurrentPop != 1 && sb.PopHeight == 0) return;
 
 		if (automapactive) return;
 
@@ -77,48 +79,51 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 
 		if (!pmo.player) return;
 
-		BetterStrifeGutamaticsMatrix worldToClip = BetterStrifeGutamaticsMatrix.WorldToClip(e.ViewPos, e.ViewAngle, e.ViewPitch, e.ViewRoll, players[consoleplayer].FOV);
-
-		Actor projActor;
-		ThinkerIterator it = ThinkerIterator.Create("BetterStrifeExitMarker");
-		while ((projActor = Actor(it.Next())) != NULL)
+		if (sb && sb.CurrentPop == 1)
 		{
-			if (projActor.bDormant) continue;
+			BetterStrifeGutamaticsMatrix worldToClip = BetterStrifeGutamaticsMatrix.WorldToClip(e.ViewPos, e.ViewAngle, e.ViewPitch, e.ViewRoll, players[consoleplayer].FOV);
 
-			if (!BetterStrifeExitMarker(projActor).IsMarkerSeen()) continue;
-
-			Vector3 adjustedWorldPos = e.ViewPos + Level.Vec3Diff(e.ViewPos, projActor.Pos);
-			Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height)).AsVector3();
-			if (ndcPos.Z <= 1 && ndcPos.Z >= -1)
+			Actor projActor;
+			ThinkerIterator it = ThinkerIterator.Create("BetterStrifeExitMarker");
+			while ((projActor = Actor(it.Next())) != NULL)
 			{
-				Vector2 drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
+				if (projActor.bDormant) continue;
 
-				// draw exit icon
-				TextureID tex = TexMan.CheckForTexture("SXITA0", TexMan.Type_Sprite);
-				if (tex.IsValid())
+				if (!BetterStrifeExitMarker(projActor).IsMarkerSeen()) continue;
+
+				Vector3 adjustedWorldPos = e.ViewPos + Level.Vec3Diff(e.ViewPos, projActor.Pos);
+				Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height)).AsVector3();
+				if (ndcPos.Z <= 1 && ndcPos.Z >= -1)
 				{
-					drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
-					Screen.DrawTexture(tex, false,
-						drawPos.X,
-						drawPos.Y,
+					Vector2 drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
+
+					// draw exit icon
+					TextureID tex = TexMan.CheckForTexture("SXITA0", TexMan.Type_Sprite);
+					if (tex.IsValid())
+					{
+						drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
+						Screen.DrawTexture(tex, false,
+							drawPos.X,
+							drawPos.Y,
+							DTA_CleanNoMove, true);
+					}
+
+					// draw level name
+					int exitTag = BetterStrifeExitMarker(projActor).exitTag;
+
+					String levelNumber = exitTag < 10 ? "0" .. String.Format("%d", exitTag) : String.Format("%d", exitTag);
+					String levelName = StringTable.Localize("$TXT_STRIFE_MAP" .. levelNumber);
+
+					Array<String> split;
+					levelName.Split(split, ":");
+					String levelNameSplit = split[1];
+
+					Screen.DrawText(SmallFont, Font.CR_Yellow,
+						drawPos.X + (SmallFont.StringWidth(" ") * CleanXFac),
+						drawPos.Y - (SmallFont.GetHeight() * CleanYFac / 2.0),
+						levelNameSplit,
 						DTA_CleanNoMove, true);
 				}
-
-				// draw level name
-				int exitTag = BetterStrifeExitMarker(projActor).exitTag;
-
-				String levelNumber = exitTag < 10 ? "0" .. String.Format("%d", exitTag) : String.Format("%d", exitTag);
-				String levelName = StringTable.Localize("$TXT_STRIFE_MAP" .. levelNumber);
-
-				Array<String> split;
-				levelName.Split(split, ":");
-				String levelNameSplit = split[1];
-
-				Screen.DrawText(SmallFont, Font.CR_Yellow,
-					drawPos.X + (SmallFont.StringWidth(" ") * CleanXFac),
-					drawPos.Y - (SmallFont.GetHeight() * CleanYFac / 2.0),
-					levelNameSplit,
-					DTA_CleanNoMove, true);
 			}
 		}
 	}
