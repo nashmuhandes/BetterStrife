@@ -59,7 +59,7 @@ class BetterStrifeHandler : EventHandler
 		for (int i = 0; i < Level.Lines.Size(); i++)
 		{
 			Line ln = Level.Lines[i];
-			if (ln.special == ACS_ExecuteAlways && ln.args[2] == 145)
+			if (ln.special == ACS_ExecuteAlways && (ln.args[2] == 145 || ln.args[2] == 186))
 			{
 				// make sure the line hasn't been added yet
 				if (markedExitLines.Find(ln) == markedExitLines.Size())
