@@ -54,6 +54,8 @@ class BetterStrifeHandler : EventHandler
 
 	void MarkExitLines(void)
 	{
+		if (Level.time == 0) return;
+
 		// look for lines to place an exit marker at.
 		// probably shouldn't do this every world tick...
 		for (int i = 0; i < Level.Lines.Size(); i++)
