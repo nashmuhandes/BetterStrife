@@ -80,6 +80,7 @@ class BetterStrifeHandler : EventHandler
 		ApplyActorBillboarding(mo);
 		FixMerchant(mo);
 		FixOracle(mo);
+		FixWaterFountain(mo);
 	}
 
 	override void WorldTick(void)
@@ -213,6 +214,14 @@ class BetterStrifeHandler : EventHandler
 			mo.A_GiveInventory("BetterStrifeOraclePlugin", 1);
 			mo.StartHealth = 1200;
 			mo.A_SetHealth(mo.GetMaxHealth(true));
+		}
+	}
+
+	void FixWaterFountain(Actor mo)
+	{
+		if (mo is "WaterFountain")
+		{
+			mo.ActiveSound = "world/waterfountain";
 		}
 	}
 
