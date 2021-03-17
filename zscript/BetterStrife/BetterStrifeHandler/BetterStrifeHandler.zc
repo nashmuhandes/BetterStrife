@@ -41,6 +41,13 @@ class BetterStrifeHandler : EventHandler
 	//
 	//===========================================================================
 
+	override void WorldThingSpawned(WorldEvent e)
+	{
+		if (!e.Thing) return;
+		Actor mo = e.Thing;
+		ApplyActorBillboarding(mo);
+	}
+
 	override void WorldTick(void)
 	{
 		MarkExitLines();
@@ -51,6 +58,82 @@ class BetterStrifeHandler : EventHandler
 	//
 	//
 	//===========================================================================
+
+	void ApplyActorBillboarding(Actor mo)
+	{
+		bool isProjectile =
+		(
+			mo.bMissile ||
+			mo is "FastProjectile" ||
+			mo is "SpectralLightningBase"
+		);
+
+		bool isFX =
+		(
+			// Strife
+			mo is "StrifePuff" ||
+			mo is "MaulerPuff" ||
+			mo is "PhosphorousFire" ||
+
+			// Misc
+			mo is "TeleportFog"
+		);
+
+		bool isBlood =
+		(
+			mo is "Blood"
+		);
+
+		bool isSmokeTrail =
+		(
+			mo is "RocketSmokeTrail" ||
+			mo is "GrenadeSmokeTrail" ||
+			mo is "RocketTrail"
+		);
+
+		bool isWaterSplashChunk =
+		(
+			mo is "WaterSplash" ||
+			mo is "LavaSmoke" ||
+			mo is "SludgeChunk" ||
+			mo is "BloodSplash" ||
+			mo is "SlimeChunk"
+		);
+
+		bool isBillboardedMonster =
+		(
+			mo is "Stalker" ||
+			mo is "Sentinel" ||
+			mo is "KlaxonWarningLight" ||
+			mo is "CeilingTurret" ||
+			mo is "SpectralMonster"
+		);
+
+		bool isGib =
+		(
+			mo is "Junk" ||
+			mo is "Meat"
+		);
+
+		bool isItem =
+		(
+			mo is "Inventory"
+		);
+
+		bool isExcluded =
+		(
+			mo is "SpectralLightningV1" ||
+			mo is "SpectralLightningV2" ||
+			mo is "SpectralLightningBigV1" ||
+			mo is "SpectralLightningBigV2"
+		);
+
+
+		if (isProjectile || isFX || isBlood || isSmokeTrail || isWaterSplashChunk || isBillboardedMonster || isGib || isItem)
+		{
+			mo.bForceXYBillboard = !isExcluded;
+		}
+	}
 
 	void MarkExitLines(void)
 	{
