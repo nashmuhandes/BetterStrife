@@ -41,17 +41,6 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 		}
 		if (!plr) return;
 
-		/*
-		let sb = StrifeStatusBar(StatusBar);
-		if (sb)
-		{
-			Screen.DrawText(SmallFont, Font.CR_White,
-					Screen.GetWidth() / 2,
-					Screen.GetHeight() / 2,
-					String.Format("%d, %d", sb.CurrentPop, sb.PopHeight),
-					DTA_CleanNoMove, true);
-		}
-		*/
 
 		// draw exit map markers
 		DrawExitMapMarkers(e);
@@ -79,6 +68,7 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 
 		if (!pmo.player) return;
 
+		// only show exit lines when the Objectives popup is open
 		if (sb && sb.CurrentPop == 1)
 		{
 			BetterStrifeGutamaticsMatrix worldToClip = BetterStrifeGutamaticsMatrix.WorldToClip(e.ViewPos, e.ViewAngle, e.ViewPitch, e.ViewRoll, players[consoleplayer].FOV);
@@ -87,8 +77,10 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 			ThinkerIterator it = ThinkerIterator.Create("BetterStrifeExitMarker");
 			while ((projActor = Actor(it.Next())) != NULL)
 			{
+				// don't draw deactivated markers
 				if (projActor.bDormant) continue;
 
+				// don't draw if the marker hasn't been seen (duh)
 				if (!BetterStrifeExitMarker(projActor).IsMarkerSeen()) continue;
 
 				Vector3 adjustedWorldPos = e.ViewPos + Level.Vec3Diff(e.ViewPos, projActor.Pos);
@@ -111,9 +103,11 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 					// draw level name
 					int exitTag = BetterStrifeExitMarker(projActor).exitTag;
 
+					// prepend 0 to the level number if necessary
 					String levelNumber = exitTag < 10 ? "0" .. String.Format("%d", exitTag) : String.Format("%d", exitTag);
 					String levelName = StringTable.Localize("$TXT_STRIFE_MAP" .. levelNumber);
 
+					// strip the "Area xx:" part of the level name
 					Array<String> split;
 					levelName.Split(split, ":");
 					String levelNameSplit = split[1];
