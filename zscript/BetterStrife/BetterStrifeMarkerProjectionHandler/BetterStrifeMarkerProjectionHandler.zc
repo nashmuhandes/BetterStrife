@@ -91,15 +91,34 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 			Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height)).AsVector3();
 			if (ndcPos.Z <= 1 && ndcPos.Z >= -1)
 			{
+				Vector2 drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
+
+				// draw exit icon
 				TextureID tex = TexMan.CheckForTexture("SXITA0", TexMan.Type_Sprite);
 				if (tex.IsValid())
 				{
-					Vector2 drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
+					drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
 					Screen.DrawTexture(tex, false,
 						drawPos.X,
 						drawPos.Y,
 						DTA_CleanNoMove, true);
 				}
+
+				// draw level name
+				int exitTag = BetterStrifeExitMarker(projActor).exitTag;
+
+				String levelNumber = exitTag < 10 ? "0" .. String.Format("%d", exitTag) : String.Format("%d", exitTag);
+				String levelName = StringTable.Localize("$TXT_STRIFE_MAP" .. levelNumber);
+
+				Array<String> split;
+				levelName.Split(split, ":");
+				String levelNameSplit = split[1];
+
+				Screen.DrawText(SmallFont, Font.CR_Yellow,
+					drawPos.X + (SmallFont.StringWidth(" ") * CleanXFac),
+					drawPos.Y - (SmallFont.GetHeight() * CleanYFac / 2.0),
+					levelNameSplit,
+					DTA_CleanNoMove, true);
 			}
 		}
 	}

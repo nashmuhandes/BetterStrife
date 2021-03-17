@@ -38,6 +38,8 @@ class BetterStrifeExitMarker : MapMarker
 	//Array<PlayerPawn> playersSeen;
 	bool seen;
 
+	int exitTag;
+
 	//===========================================================================
 	//
 	//

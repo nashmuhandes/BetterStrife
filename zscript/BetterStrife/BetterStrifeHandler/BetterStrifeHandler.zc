@@ -53,7 +53,12 @@ class BetterStrifeHandler : EventHandler
 					Vector2 xyPos = ln.v1.p + ln.delta / 2;
 					double zPos = Level.PointInSector(xyPos).floorplane.ZatPoint(xyPos);
 					Vector3 sPos = (xyPos.X, xyPos.Y, zPos);
-					Actor.Spawn("BetterStrifeExitMarker", sPos, NO_REPLACE);
+					let marker = BetterStrifeExitMarker(Actor.Spawn("BetterStrifeExitMarker", sPos, NO_REPLACE));
+					if (marker)
+					{
+						int tag = ln.args[3];
+						marker.exitTag = tag / 100;
+					}
 					markedExitLines.Push(ln);
 					//Console.Printf("spawned exit map marker at %d/%d/%d", sPos.X, sPos.Y, sPos.Z);
 				}
