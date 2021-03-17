@@ -41,6 +41,38 @@ class BetterStrifeHandler : EventHandler
 	//
 	//===========================================================================
 
+	override void PlayerEntered(PlayerEvent e)
+	{
+		let pmo = players[e.PlayerNumber].mo;
+		if (pmo)
+		{
+			SetupPlayer(pmo);
+		}
+	}
+
+	override void PlayerRespawned(PlayerEvent e)
+	{
+		let pmo = players[e.PlayerNumber].mo;
+		if (pmo)
+		{
+			ResurrectPlayer(pmo);
+		}
+	}
+
+	override void PlayerDied(PlayerEvent e)
+	{
+	}
+
+	override void PlayerDisconnected(PlayerEvent e)
+	{
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
 	override void WorldThingSpawned(WorldEvent e)
 	{
 		if (!e.Thing) return;
@@ -53,6 +85,26 @@ class BetterStrifeHandler : EventHandler
 	override void WorldTick(void)
 	{
 		MarkExitLines();
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	void SetupPlayer(PlayerPawn pmo)
+	{
+		if (!pmo) return;
+		//Console.Printf("SetupPlayer() running for player %d", pmo.PlayerNumber() + 1);
+		pmo.JumpZ *= 1.00000000001;
+	}
+
+	void ResurrectPlayer(PlayerPawn pmo)
+	{
+		if (!pmo) return;
+		//Console.Printf("ResurrectPlayer() running for player %d", pmo.PlayerNumber() + 1);
+		SetupPlayer(pmo);
 	}
 
 	//===========================================================================
