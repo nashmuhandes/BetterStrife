@@ -46,6 +46,7 @@ class BetterStrifeHandler : EventHandler
 		if (!e.Thing) return;
 		Actor mo = e.Thing;
 		ApplyActorBillboarding(mo);
+		FixMerchant(mo);
 	}
 
 	override void WorldTick(void)
@@ -132,6 +133,17 @@ class BetterStrifeHandler : EventHandler
 		if (isProjectile || isFX || isBlood || isSmokeTrail || isWaterSplashChunk || isBillboardedMonster || isGib || isItem)
 		{
 			mo.bForceXYBillboard = !isExcluded;
+		}
+	}
+
+	void FixMerchant(Actor mo)
+	{
+		if (mo is "Merchant")
+		{
+			mo.bIsMonster = true;
+			mo.bFriendly = true;
+			mo.StartHealth = 20;
+			mo.A_SetHealth(mo.GetMaxHealth(true));
 		}
 	}
 
