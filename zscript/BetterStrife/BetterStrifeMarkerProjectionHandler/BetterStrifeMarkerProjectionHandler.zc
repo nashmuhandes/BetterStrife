@@ -92,7 +92,7 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 				if (!BetterStrifeExitMarker(projActor).IsMarkerSeen()) continue;
 
 				Vector3 adjustedWorldPos = e.ViewPos + Level.Vec3Diff(e.ViewPos, projActor.Pos);
-				Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height)).AsVector3();
+				Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height * 0.5)).AsVector3();
 				if (ndcPos.Z <= 1 && ndcPos.Z >= -1)
 				{
 					Vector2 drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
