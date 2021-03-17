@@ -49,7 +49,9 @@ class BetterStrifeExitMarker : MapMarker
 	Default
 	{
 		Height 56;
-		+MOVEWITHSECTOR
+		-NOBLOCKMAP
+		-SHOOTABLE
+		-SOLID
 	}
 
 	//===========================================================================

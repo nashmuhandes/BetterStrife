@@ -76,6 +76,28 @@ class BetterStrifeHandler : EventHandler
 						// store tagged exit so that the map name can be read later
 						int tag = ln.args[3];
 						marker.exitTag = tag / 100;
+
+						// look for other markers that are too close
+						BlockThingsIterator it = BlockThingsIterator.Create(marker, 64.);
+						while (it.Next())
+						{
+							let otherMarker = it.Thing;
+							if (!(otherMarker is "BetterStrifeExitMarker")) continue;
+
+							// skip self
+							if (otherMarker == marker) continue;
+
+							// too far, good
+							if (marker.Distance2DSquared(otherMarker) > 64. * 64.)
+							{
+								continue;
+							}
+							// too close, destroy
+							else if (marker.Distance2DSquared(otherMarker) <= 64. * 64.)
+							{
+								otherMarker.Destroy();
+							}
+						}
 					}
 
 					// add to list of marked lines
