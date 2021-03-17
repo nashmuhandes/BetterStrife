@@ -131,6 +131,7 @@ class BetterStrifeHandler : EventHandler
 			mo is "PhosphorousFire" ||
 
 			// Misc
+			mo is "GlassJunk" ||
 			mo is "TeleportFog"
 		);
 
