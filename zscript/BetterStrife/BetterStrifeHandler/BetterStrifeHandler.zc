@@ -47,6 +47,7 @@ class BetterStrifeHandler : EventHandler
 		Actor mo = e.Thing;
 		ApplyActorBillboarding(mo);
 		FixMerchant(mo);
+		FixOracle(mo);
 	}
 
 	override void WorldTick(void)
@@ -143,6 +144,16 @@ class BetterStrifeHandler : EventHandler
 			mo.bIsMonster = true;
 			mo.bFriendly = true;
 			mo.StartHealth = 20;
+			mo.A_SetHealth(mo.GetMaxHealth(true));
+		}
+	}
+
+	void FixOracle(Actor mo)
+	{
+		if (mo is "Oracle")
+		{
+			mo.A_GiveInventory("BetterStrifeOraclePlugin", 1);
+			mo.StartHealth = 1200;
 			mo.A_SetHealth(mo.GetMaxHealth(true));
 		}
 	}
