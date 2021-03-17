@@ -71,6 +71,15 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 		// only show exit lines when the Objectives popup is open
 		if (sb && sb.CurrentPop == 1)
 		{
+			// store old view clip
+			int ox, oy, ow, oh;
+			[ox, oy, ow, oh] = Screen.GetClipRect();
+
+			// temporarily set new view clip
+			int nx, ny, nw, nh;
+			[nx, ny, nw, nh] = Screen.GetViewWindow();
+			Screen.SetClipRect(nx, ny, nw, nh);
+
 			BetterStrifeGutamaticsMatrix worldToClip = BetterStrifeGutamaticsMatrix.WorldToClip(e.ViewPos, e.ViewAngle, e.ViewPitch, e.ViewRoll, players[consoleplayer].FOV);
 
 			Actor projActor;
@@ -119,6 +128,9 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 						DTA_CleanNoMove, true);
 				}
 			}
+
+			// restore view clip
+			Screen.SetClipRect(ox, oy, ow, oh);
 		}
 	}
 }
