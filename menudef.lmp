@@ -22,7 +22,7 @@ OptionMenu "BetterStrifeOptionMenu"
 
 	StaticText "$BETTERSTRIFEMNU_CONTROLS_TITLE", 1
 	StaticTextSwitchable "$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
-	BetterStrifeControl "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "$BETTERSTRIFEMNU_HELPTEXT_CONTROLS_FLASHLIGHT", "use BetterStrifePlayerFlashlight"
+	BetterStrifeControl "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "", "use BetterStrifePlayerFlashlight"
 }
 
 //===========================================================================
@@ -43,5 +43,5 @@ OptionMenu "BetterStrifeControlsMenu"
 	StaticTextSwitchable "$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
 
 	StaticText ""
-	BetterStrifeControl "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "$BETTERSTRIFEMNU_HELPTEXT_CONTROLS_FLASHLIGHT", "use BetterStrifePlayerFlashlight"
+	Control "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "use BetterStrifePlayerFlashlight"
 }
