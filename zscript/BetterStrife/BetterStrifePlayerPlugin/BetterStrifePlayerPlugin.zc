@@ -1,0 +1,152 @@
+// Copyright 2021 Nash Muhandes
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions
+// are met:
+//
+// 1. Redistributions of source code must retain the above copyright
+//    notice, this list of conditions and the following disclaimer.
+// 2. Redistributions in binary form must reproduce the above copyright
+//    notice, this list of conditions and the following disclaimer in the
+//    documentation and/or other materials provided with the distribution.
+// 3. The name of the author may not be used to endorse or promote products
+//    derived from this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+// OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+// THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+//===========================================================================
+//
+// BetterStrifePlayerPlugin
+//
+//===========================================================================
+
+class BetterStrifePlayerPlugin : Inventory
+{
+	DynamicLight flashlight;
+	bool isFlashlightOn;
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	Default
+	{
+		Inventory.MaxAmount 1;
+		+Inventory.UNDROPPABLE
+		+Inventory.UNTOSSABLE
+		+Inventory.AUTOACTIVATE
+		-Inventory.INVBAR
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	override bool TryPickup(in out Actor toucher)
+	{
+		if (!(toucher is "PlayerPawn") || (toucher is "PlayerPawn" && !toucher.player))
+		{
+			GoAwayAndDie();
+			return false;
+		}
+		return Super.TryPickup(toucher);
+	}
+
+	override void DoEffect(void)
+	{
+		if (!Owner) return;
+		if (Owner && !(Owner is "PlayerPawn")) return;
+
+		UpdateFlashlight();
+
+		Super.DoEffect();
+	}
+
+	override void OnDestroy(void)
+	{
+		if (flashlight) flashlight.Destroy();
+		Super.OnDestroy();
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	clearscope static BetterStrifePlayerPlugin Find(Actor a)
+	{
+		BetterStrifePlayerPlugin plugin = BetterStrifePlayerPlugin(a.FindInventory("BetterStrifePlayerPlugin", true));
+		return plugin;
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	void SpawnFlashlight(void)
+	{
+		if (!flashlight)
+		{
+			flashlight = DynamicLight(Owner.Spawn("DynamicLight", Pos, NO_REPLACE));
+
+			if (flashlight)
+			{
+
+				// initialize dynamic light stuff
+				flashlight.args[0] = 173;
+				flashlight.args[1] = 204;
+				flashlight.args[2] = 211;
+				flashlight.args[3] = 256;
+				flashlight.bAttenuate = true;
+				flashlight.bDontLightSelf = true;
+				flashlight.bSpot = true;
+				flashlight.bInterpolateAngles = true;
+				if (flashlight.bSpot)
+				{
+					flashlight.SpotInnerAngle = 15.0;
+					flashlight.SpotOuterAngle = 25.0;
+				}
+
+				UpdateFlashlight();
+			}
+		}
+	}
+
+	void DestroyFlashlight(void)
+	{
+		if (flashlight)
+		{
+			flashlight.Destroy();
+		}
+	}
+
+	void UpdateFlashlight(void)
+	{
+		if (flashlight)
+		{
+			double ofs = 7.85;
+			double xof = ofs * cos(Angle -90.0);
+			double yof = ofs * sin(Angle -90.0);
+			flashlight.SetOrigin(Owner.Vec2OffsetZ(xof, yof, Owner.player.viewz), true);
+			flashlight.A_SetAngle(Owner.Angle + ofs, SPF_INTERPOLATE);
+			flashlight.A_SetPitch(Owner.Pitch, SPF_INTERPOLATE);
+		}
+	}
+}

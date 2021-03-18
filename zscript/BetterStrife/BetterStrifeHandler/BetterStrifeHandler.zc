@@ -88,6 +88,51 @@ class BetterStrifeHandler : EventHandler
 		MarkExitLines();
 	}
 
+	override void WorldUnloaded(WorldEvent e)
+	{
+		// destroy player flashlight dynamic lights when leaving the level
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			if (playeringame[i])
+			{
+				let pmo = players[i].mo;
+				if (pmo)
+				{
+					let plugin = BetterStrifePlayerPlugin.Find(pmo);
+					if (plugin && plugin.flashlight)
+					{
+						plugin.flashlight.Destroy();
+					}
+				}
+			}
+		}
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	override void NetworkProcess(ConsoleEvent e)
+	{
+		PlayerPawn pmo = PlayerPawn(players[e.Player].mo);
+		if (!pmo) return;
+		if (pmo && !pmo.player) return;
+
+		bool isConsolePlayer = (pmo == PlayerPawn(players[consoleplayer].mo));
+
+		//===========================================================================
+		//
+		// EV_ToggleFlashlight
+		//
+		//===========================================================================
+		if (e.Name == 'EV_ToggleFlashlight')
+		{
+			ToggleFlashlight(pmo);
+		}
+	}
+
 	//===========================================================================
 	//
 	//
@@ -98,7 +143,22 @@ class BetterStrifeHandler : EventHandler
 	{
 		if (!pmo) return;
 		//Console.Printf("SetupPlayer() running for player %d", pmo.PlayerNumber() + 1);
+
+		// enable player plugin
+		pmo.A_GiveInventory("BetterStrifePlayerPlugin", 1);
+
+		// give flashlight toggler
+		pmo.A_GiveInventory("BetterStrifePlayerFlashlight", 1);
+
+		// increase JumpZ just enough to enable the squatting animation
 		pmo.JumpZ *= 1.00000000001;
+
+		// if flashlight is avaiable and is turned on, spawn the dynamic light
+		let plugin = BetterStrifePlayerPlugin.Find(pmo);
+		if (plugin && plugin.isFlashLightOn && !plugin.flashlight)
+		{
+			plugin.SpawnFlashlight();
+		}
 	}
 
 	void ResurrectPlayer(PlayerPawn pmo)
@@ -106,6 +166,29 @@ class BetterStrifeHandler : EventHandler
 		if (!pmo) return;
 		//Console.Printf("ResurrectPlayer() running for player %d", pmo.PlayerNumber() + 1);
 		SetupPlayer(pmo);
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	void ToggleFlashlight(PlayerPawn pmo)
+	{
+		let plugin = BetterStrifePlayerPlugin.Find(pmo);
+		if (!plugin) return;
+
+		plugin.isFlashlightOn = !plugin.isFlashlightOn;
+
+		if (plugin.isFlashlightOn)
+		{
+			plugin.SpawnFlashlight();
+		}
+		else
+		{
+			plugin.DestroyFlashlight();
+		}
 	}
 
 	//===========================================================================

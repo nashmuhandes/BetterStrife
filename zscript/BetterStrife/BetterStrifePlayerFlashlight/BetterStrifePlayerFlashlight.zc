@@ -1,0 +1,34 @@
+class BetterStrifePlayerFlashlight : Inventory
+{
+	Default
+	{
+		Tag "$BETTERSTRIFE_FLASHLIGHT";
+		Inventory.MaxAmount 1;
+		Inventory.PickUpMessage "";
+		Inventory.Icon "graphics/I_Flashlight.png";
+		+Inventory.UNDROPPABLE
+		+Inventory.INVBAR
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//
+	//===========================================================================
+
+	override bool Use(bool pickup)
+	{
+		if (Owner == null) return true;
+
+		if (Owner == players[consoleplayer].mo)
+		{
+			// just use some absurd channel number for the sound lol
+			Owner.A_StartSound("switches/normbutn", 55555, volume: 0.5);
+
+			EventHandler.SendNetworkEvent("EV_ToggleFlashlight");
+		}
+
+		return false;
+	}
+}
