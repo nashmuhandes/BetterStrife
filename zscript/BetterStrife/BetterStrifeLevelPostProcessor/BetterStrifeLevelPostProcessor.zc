@@ -50,6 +50,10 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 		default:
 		case 'none':
 			return;
+		case '28CB8D6614024C51C8DB00C7ADBFD857': // strife1.wad map11 - Borderlands
+			// Fix New Front Base teleporter flat offset
+			Level.Sectors[224].AddXOffset(Sector.floor, -24.0);
+			break;
 		case '1240E48EE30E52D7742DC3785BC0C919': // strife1.wad map19 - Fortress: Security Complex
 			// Fix dead end caused by exiting Administration before destroying the computer
 			// https://doomwiki.org/wiki/Strife_dead_ends#Leave_Administration_early
