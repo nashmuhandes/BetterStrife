@@ -50,6 +50,17 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 		default:
 		case 'none':
 			return;
+		case '4A79D4C48352804FAB3557EE423ADAFE': // strife1.wad map07 - Castle
+			// Fix missing textures on the platform just before the entrance to The Programmer's Keep
+			SetWallTexture(2778, Line.back, Side.bottom, "CONCRT01");
+			SetWallTexture(2779, Line.back, Side.bottom, "CONCRT01");
+			SetWallTexture(2780, Line.back, Side.bottom, "CONCRT01");
+			SetWallTexture(2781, Line.back, Side.bottom, "CONCRT01");
+			SetLineFlags(2778, Line.ML_DONTPEGTOP | Line.ML_DONTPEGBOTTOM);
+			SetLineFlags(2779, Line.ML_DONTPEGTOP | Line.ML_DONTPEGBOTTOM);
+			SetLineFlags(2780, Line.ML_DONTPEGTOP | Line.ML_DONTPEGBOTTOM);
+			SetLineFlags(2781, Line.ML_DONTPEGTOP | Line.ML_DONTPEGBOTTOM);
+			break;
 		case '28CB8D6614024C51C8DB00C7ADBFD857': // strife1.wad map11 - Borderlands
 			// Fix New Front Base teleporter flat offset
 			Level.Sectors[224].AddXOffset(Sector.floor, -24.0);
