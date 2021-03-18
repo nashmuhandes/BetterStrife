@@ -7,7 +7,9 @@ BETTERSTRIFE_FLASHLIGHT = "Head-Mounted Light";
 OPTMNU_BETTERSTRIFE = "Customize Better Strife";
 
 BETTERSTRIFEMNU_TITLE = "Better Strife Options";
-BETTERSTRIFEMNU_CONTROLS_TITLE = "Better Strife Controls";
+
+BETTERSTRIFEMNU_EXITMARKERS = "Level Exit Markers";
+BETTERSTRIFEMNU_HELPTEXT_EXITMARKERS = "Marks the level's exits on the automap. Press the objectives popup key to show their locations on the screen.";
 
 BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT = "Toggle head-mounted light";
 BETTERSTRIFEMNU_CONTROLS_USEHEALTH = "Use health items";
