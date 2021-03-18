@@ -131,6 +131,19 @@ class BetterStrifeHandler : EventHandler
 		{
 			ToggleFlashlight(pmo);
 		}
+		//===========================================================================
+		//
+		// EV_UseHealth
+		//
+		//===========================================================================
+		else if (e.Name == 'EV_UseHealth')
+		{
+			let plugin = BetterStrifePlayerPlugin.Find(pmo);
+			if (plugin)
+			{
+				plugin.UseHealthItems();
+			}
+		}
 	}
 
 	//===========================================================================

@@ -1,1 +1,2 @@
 DefaultBind F "use BetterStrifePlayerFlashlight"
+DefaultBind H "netevent EV_UseHealth"

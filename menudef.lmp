@@ -19,10 +19,6 @@ OptionMenu "BetterStrifeOptionMenu"
 	Position -32
 
 	StaticText ""
-
-	StaticText "$BETTERSTRIFEMNU_CONTROLS_TITLE", 1
-	StaticTextSwitchable "$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
-	BetterStrifeControl "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "", "use BetterStrifePlayerFlashlight"
 }
 
 //===========================================================================
@@ -31,17 +27,9 @@ OptionMenu "BetterStrifeOptionMenu"
 //
 //===========================================================================
 
-AddOptionMenu "CustomizeControls" after "ChatControlsMenu"
+AddOptionMenu "InventoryControlsMenu" after "invuseall"
 {
-	Submenu "$BETTERSTRIFEMNU_CONTROLS_TITLE", "BetterStrifeControlsMenu"
-}
-
-OptionMenu "BetterStrifeControlsMenu"
-{
-	Title "$BETTERSTRIFEMNU_CONTROLS_TITLE"
-	ScrollTop 2
-	StaticTextSwitchable "$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
-
 	StaticText ""
+	Control "$BETTERSTRIFEMNU_CONTROLS_USEHEALTH", "netevent EV_UseHealth"
 	Control "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "use BetterStrifePlayerFlashlight"
 }

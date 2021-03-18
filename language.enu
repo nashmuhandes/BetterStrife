@@ -9,4 +9,5 @@ OPTMNU_BETTERSTRIFE = "Customize Better Strife";
 BETTERSTRIFEMNU_TITLE = "Better Strife Options";
 BETTERSTRIFEMNU_CONTROLS_TITLE = "Better Strife Controls";
 
-BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT = "Toggle Head-Mounted Light";
+BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT = "Toggle head-mounted light";
+BETTERSTRIFEMNU_CONTROLS_USEHEALTH = "Use health items";

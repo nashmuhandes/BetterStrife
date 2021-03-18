@@ -149,4 +149,50 @@ class BetterStrifePlayerPlugin : Inventory
 			flashlight.A_SetPitch(Owner.Pitch, SPF_INTERPOLATE);
 		}
 	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	void UseHealthItems(void)
+	{
+		Array<Inventory> Items;
+
+		for (Inventory inv = Owner.Inv; inv != NULL; inv = inv.Inv)
+		{
+			let hp = HealthPickup(inv);
+			if (hp && hp.Amount > 0)
+			{
+				if (hp.autousemode == 3) Items.Push(inv);
+			}
+		}
+
+		while (Items.Size() > 0)
+		{
+			int maxhealth = 0;
+			int index = -1;
+
+			// Find the largest item in the list
+			for (int i = 0; i < Items.Size(); i++)
+			{
+				if (Items[i].health > maxhealth)
+				{
+					index = i;
+					maxhealth = Items[i].Amount;
+				}
+			}
+
+			while (Owner.player.health < PlayerPawn(Owner).GetMaxHealth(true))
+			{
+				let item = Items[index];
+				if (item == NULL || !Owner.UseInventory(item))
+					break;
+			}
+			if (Owner.player.health >= PlayerPawn(Owner).GetMaxHealth(true)) return;
+			// Using all of this item was not enough so delete it and restart with the next best one
+			Items.Delete(index);
+		}
+	}
 }
