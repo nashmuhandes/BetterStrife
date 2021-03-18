@@ -1,0 +1,47 @@
+AddOptionMenu "OptionsMenu"
+{
+	StaticText ""
+	StaticText "Better Strife v0.1"
+	Submenu "$OPTMNU_BETTERSTRIFE", "BetterStrifeOptionMenu"
+}
+
+AddOptionMenu "OptionsMenuSimple"
+{
+	StaticText ""
+	StaticText "Better Strife v0.1"
+	Submenu "$OPTMNU_BETTERSTRIFE", "BetterStrifeOptionMenu"
+}
+
+OptionMenu "BetterStrifeOptionMenu"
+{
+	Class "BetterStrifeOptionMenu"
+	Title "$BETTERSTRIFEMNU_TITLE"
+	Position -32
+
+	StaticText ""
+
+	StaticText "$BETTERSTRIFEMNU_CONTROLS_TITLE", 1
+	StaticTextSwitchable "$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
+	BetterStrifeControl "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "$BETTERSTRIFEMNU_HELPTEXT_CONTROLS_FLASHLIGHT", "use BetterStrifePlayerFlashlight"
+}
+
+//===========================================================================
+//
+//
+//
+//===========================================================================
+
+AddOptionMenu "CustomizeControls" after "ChatControlsMenu"
+{
+	Submenu "$BETTERSTRIFEMNU_CONTROLS_TITLE", "BetterStrifeControlsMenu"
+}
+
+OptionMenu "BetterStrifeControlsMenu"
+{
+	Title "$BETTERSTRIFEMNU_CONTROLS_TITLE"
+	ScrollTop 2
+	StaticTextSwitchable "$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
+
+	StaticText ""
+	BetterStrifeControl "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "$BETTERSTRIFEMNU_HELPTEXT_CONTROLS_FLASHLIGHT", "use BetterStrifePlayerFlashlight"
+}

@@ -8,3 +8,5 @@ version "4.5.0"
 #include "zscript/BetterStrife/BetterStrifePlayerFlashlight/BetterStrifePlayerFlashlight.zc"
 #include "zscript/BetterStrife/BetterStrifeExitMarker/BetterStrifeExitMarker.zc"
 #include "zscript/BetterStrife/BetterStrifeOraclePlugin/BetterStrifeOraclePlugin.zc"
+
+#include "zscript/BetterStrife/BetterStrifeOptionMenu/BetterStrifeOptionMenu.zc"
