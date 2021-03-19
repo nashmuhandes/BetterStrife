@@ -92,6 +92,18 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 				// don't draw if the marker hasn't been seen (duh)
 				if (!BetterStrifeExitMarker(projActor).IsMarkerSeen()) continue;
 
+				// fade alpha by distance
+				double alpha = 1.0;
+				double maxDist = 1000.0;
+				double distFade = pmo.Distance3D(projActor);
+				double distFarFadeStart = maxDist * 0.5;
+				if (distFade >= distFarFadeStart)
+				{
+					double fade = 1.0 - (distFade - distFarFadeStart) / distFarFadeStart;
+					alpha *= fade;
+				}
+				if (alpha < 0.2) alpha = 0.2;
+
 				Vector3 adjustedWorldPos = e.ViewPos + Level.Vec3Diff(e.ViewPos, projActor.Pos);
 				Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height * 0.5)).AsVector3();
 				if (ndcPos.Z <= 1 && ndcPos.Z >= -1)
@@ -106,6 +118,7 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 						Screen.DrawTexture(tex, false,
 							drawPos.X,
 							drawPos.Y,
+							DTA_Alpha, alpha,
 							DTA_CleanNoMove, true);
 					}
 
@@ -131,6 +144,7 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 						drawPos.X + (SmallFont.StringWidth(" ") * CleanXFac),
 						drawPos.Y - (SmallFont.GetHeight() * CleanYFac / 2.0),
 						levelNameSplit,
+						DTA_Alpha, alpha,
 						DTA_CleanNoMove, true);
 				}
 			}
