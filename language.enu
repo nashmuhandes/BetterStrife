@@ -11,6 +11,12 @@ BETTERSTRIFEMNU_TITLE = "Better Strife Options";
 BETTERSTRIFEMNU_EXITMARKERS = "Level exit markers";
 BETTERSTRIFEMNU_HELPTEXT_EXITMARKERS = "Marks the level's exits on the automap. Press the objectives popup key to show their locations on the screen.";
 
+BETTERSTRIFEMNU_OBJECTIVEEXITMARKERS = "Objectives popup shows exit markers";
+BETTERSTRIFEMNU_HELPTEXT_OBJECTIVEEXITMARKERS = "When showing objectives, also show exit markers on the screen.";
+
+BETTERSTRIFEMNU_ALWAYSSHOWEXITMARKERS = "Always show exit markers";
+BETTERSTRIFEMNU_HELPTEXT_ALWAYSSHOWEXITMARKERS = "Always show exit markers on the screen".;
+
 BETTERSTRIFEMNU_FLASHLIGHTENABLED = "Head-mounted light";
 BETTERSTRIFEMNU_HELPTEXT_FLASHLIGHTENABLED = "Enables head-mounted light. Can be toggled by activating the item on the inventory bar, or by pressing the hotkey.";
 
