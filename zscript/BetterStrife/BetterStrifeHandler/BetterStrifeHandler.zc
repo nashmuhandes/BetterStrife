@@ -356,7 +356,8 @@ class BetterStrifeHandler : EventHandler
 						marker.exitTag = tag / 100;
 
 						// look for other markers that are too close
-						BlockThingsIterator it = BlockThingsIterator.Create(marker, 64.);
+						double mDist = 64.;
+						BlockThingsIterator it = BlockThingsIterator.Create(marker, mDist);
 						while (it.Next())
 						{
 							let otherMarker = it.Thing;
@@ -366,12 +367,12 @@ class BetterStrifeHandler : EventHandler
 							if (otherMarker == marker) continue;
 
 							// too far, good
-							if (marker.Distance2DSquared(otherMarker) > 64. * 64.)
+							if (marker.Distance2DSquared(otherMarker) > mDist * mDist)
 							{
 								continue;
 							}
 							// too close, destroy
-							else if (marker.Distance2DSquared(otherMarker) <= 64. * 64.)
+							else if (marker.Distance2DSquared(otherMarker) <= mDist * mDist)
 							{
 								otherMarker.Destroy();
 							}
