@@ -21,6 +21,14 @@ OptionMenu "BetterStrifeOptionMenu"
 	StaticText ""
 	BetterStrifeOption "$BETTERSTRIFEMNU_FLASHLIGHTENABLED", "$BETTERSTRIFEMNU_HELPTEXT_FLASHLIGHTENABLED", "betterstrife_flashlight", "OnOff"
 	BetterStrifeOption "$BETTERSTRIFEMNU_EXITMARKERS", "$BETTERSTRIFEMNU_HELPTEXT_EXITMARKERS", "betterstrife_exitmapmarkers", "OnOff"
+
+	StaticText ""
+
+	StaticText "$OPTMNU_BETTERSTRIFECUSTOMIZECONTROLS", 1
+	StaticTextSwitchable "$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
+	StaticText ""
+	BetterStrifeControl "$BETTERSTRIFEMNU_CONTROLS_USEHEALTH", "", "netevent EV_UseHealth"
+	BetterStrifeControl "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "", "use BetterStrifePlayerFlashlight"
 }
 
 //===========================================================================
@@ -29,8 +37,10 @@ OptionMenu "BetterStrifeOptionMenu"
 //
 //===========================================================================
 
-AddOptionMenu "InventoryControlsMenu" after "invuseall"
+AddOptionMenu "InventoryControlsMenu" after "weapdrop"
 {
+	StaticText ""
+	StaticText "$OPTMNU_BETTERSTRIFECUSTOMIZECONTROLS", 1
 	StaticText ""
 	Control "$BETTERSTRIFEMNU_CONTROLS_USEHEALTH", "netevent EV_UseHealth"
 	Control "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "use BetterStrifePlayerFlashlight"
