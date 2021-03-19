@@ -25,7 +25,6 @@ class BetterStrifePlayerFlashlight : Inventory
 		{
 			// just use some absurd channel number for the sound lol
 			Owner.A_StartSound("switches/normbutn", 55555, volume: 0.5);
-
 			EventHandler.SendNetworkEvent("EV_ToggleFlashlight");
 		}
 

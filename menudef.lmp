@@ -19,6 +19,7 @@ OptionMenu "BetterStrifeOptionMenu"
 	Position -32
 
 	StaticText ""
+	BetterStrifeOption "$BETTERSTRIFEMNU_FLASHLIGHTENABLED", "$BETTERSTRIFEMNU_HELPTEXT_FLASHLIGHTENABLED", "betterstrife_flashlight", "OnOff"
 	BetterStrifeOption "$BETTERSTRIFEMNU_EXITMARKERS", "$BETTERSTRIFEMNU_HELPTEXT_EXITMARKERS", "betterstrife_exitmapmarkers", "OnOff"
 }
 

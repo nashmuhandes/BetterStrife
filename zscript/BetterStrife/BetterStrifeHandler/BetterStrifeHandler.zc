@@ -160,9 +160,6 @@ class BetterStrifeHandler : EventHandler
 		// enable player plugin
 		pmo.A_GiveInventory("BetterStrifePlayerPlugin", 1);
 
-		// give flashlight toggler
-		pmo.A_GiveInventory("BetterStrifePlayerFlashlight", 1);
-
 		// increase JumpZ just enough to enable the squatting animation
 		pmo.JumpZ *= 1.00000000001;
 	}
@@ -184,7 +181,6 @@ class BetterStrifeHandler : EventHandler
 	{
 		let plugin = BetterStrifePlayerPlugin.Find(pmo);
 		if (!plugin) return;
-
 		plugin.isFlashlightOn = !plugin.isFlashlightOn;
 	}
 

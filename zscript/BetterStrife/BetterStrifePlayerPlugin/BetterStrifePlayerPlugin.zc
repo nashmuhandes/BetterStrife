@@ -32,6 +32,7 @@
 
 class BetterStrifePlayerPlugin : Inventory
 {
+	transient CVar cvFlashlightEnabled;
 	bool isFlashlightOn;
 
 	//===========================================================================
@@ -67,14 +68,7 @@ class BetterStrifePlayerPlugin : Inventory
 
 	override void Tick(void)
 	{
-		if (isFlashlightOn)
-		{
-			SpawnFlashlight();
-		}
-		else
-		{
-			DestroyFlashlight();
-		}
+		UpdateFlashlight();
 		Super.Tick();
 	}
 
@@ -121,6 +115,48 @@ class BetterStrifePlayerPlugin : Inventory
 	void DestroyFlashlight(void)
 	{
 		Owner.A_RemoveLight('BetterStrifePlayerFlashlightLight');
+	}
+
+	void UpdateFlashlight(void)
+	{
+		if (!Owner) return;
+		if (Owner && !Owner.player) return;
+
+		if (!cvFlashlightEnabled)
+		{
+			cvFlashlightEnabled = CVar.GetCVar("betterstrife_flashlight", Owner.player);
+		}
+		if (!cvFlashlightEnabled) return;
+
+		// flashlight setting is enabled
+		if (cvFlashlightEnabled.GetBool())
+		{
+			// give the flashlight toggler
+			if (!Owner.FindInventory("BetterStrifePlayerFlashlight", true))
+			{
+				Owner.A_GiveInventory("BetterStrifePlayerFlashlight", 1);
+			}
+
+			// spawn or despawn the actual light
+			if (isFlashlightOn)
+			{
+				SpawnFlashlight();
+			}
+			else
+			{
+				DestroyFlashlight();
+			}
+		}
+		// flashlight setting is disabled
+		else
+		{
+			if (Owner.FindInventory("BetterStrifePlayerFlashlight", true))
+			{
+				Owner.A_TakeInventory("BetterStrifePlayerFlashlight", 0x7FFFFFFF);
+			}
+			isFlashlightOn = false;
+			DestroyFlashlight();
+		}
 	}
 
 	//===========================================================================
