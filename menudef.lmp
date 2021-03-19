@@ -20,7 +20,10 @@ OptionMenu "BetterStrifeOptionMenu"
 
 	StaticText ""
 	BetterStrifeOption "$BETTERSTRIFEMNU_FLASHLIGHTENABLED", "$BETTERSTRIFEMNU_HELPTEXT_FLASHLIGHTENABLED", "betterstrife_flashlight", "OnOff"
-	BetterStrifeOption "$BETTERSTRIFEMNU_EXITMARKERS", "$BETTERSTRIFEMNU_HELPTEXT_EXITMARKERS", "betterstrife_exitmapmarkers", "OnOff"
+
+	StaticText ""
+	StaticText "$STRIFECOOPMNU_EXITMARKERS_TITLE", 1
+	BetterStrifeOption "$BETTERSTRIFEMNU_ENABLEEXITMARKERS", "$BETTERSTRIFEMNU_HELPTEXT_ENABLEEXITMARKERS", "betterstrife_exitmapmarkers", "OnOff"
 	BetterStrifeOption "$BETTERSTRIFEMNU_OBJECTIVEEXITMARKERS", "$BETTERSTRIFEMNU_HELPTEXT_OBJECTIVEEXITMARKERS", "betterstrife_objectivepopupexitmarkers", "OnOff"
 	BetterStrifeOption "$BETTERSTRIFEMNU_ALWAYSSHOWEXITMARKERS", "$BETTERSTRIFEMNU_HELPTEXT_ALWAYSSHOWEXITMARKERS", "betterstrife_alwaysshowexitmarkers", "OnOff"
 
