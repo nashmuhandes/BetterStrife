@@ -24,7 +24,7 @@ OptionMenu "BetterStrifeOptionMenu"
 
 	StaticText ""
 
-	StaticText "$OPTMNU_BETTERSTRIFECUSTOMIZECONTROLS", 1
+	StaticText "$STRIFECOOPMNU_CONTROLS_TITLE", 1
 	StaticTextSwitchable "$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
 	StaticText ""
 	BetterStrifeControl "$BETTERSTRIFEMNU_CONTROLS_USEHEALTH", "", "netevent EV_UseHealth"
@@ -37,10 +37,17 @@ OptionMenu "BetterStrifeOptionMenu"
 //
 //===========================================================================
 
-AddOptionMenu "InventoryControlsMenu" after "weapdrop"
+AddOptionMenu "CustomizeControls" after "ChatControlsMenu"
 {
-	StaticText ""
-	StaticText "$OPTMNU_BETTERSTRIFECUSTOMIZECONTROLS", 1
+	Submenu "$STRIFECOOPMNU_CONTROLS_TITLE", "BetterStrifeControlsMenu"
+}
+
+OptionMenu "BetterStrifeControlsMenu"
+{
+	Title "$STRIFECOOPMNU_CONTROLS_TITLE"
+	ScrollTop 2
+	StaticTextSwitchable "$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
+
 	StaticText ""
 	Control "$BETTERSTRIFEMNU_CONTROLS_USEHEALTH", "netevent EV_UseHealth"
 	Control "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "use BetterStrifePlayerFlashlight"
