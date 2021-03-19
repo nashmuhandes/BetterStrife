@@ -32,7 +32,6 @@
 
 class BetterStrifePlayerPlugin : Inventory
 {
-	DynamicLight flashlight;
 	bool isFlashlightOn;
 
 	//===========================================================================
@@ -66,20 +65,17 @@ class BetterStrifePlayerPlugin : Inventory
 		return Super.TryPickup(toucher);
 	}
 
-	override void DoEffect(void)
+	override void Tick(void)
 	{
-		if (!Owner) return;
-		if (Owner && !(Owner is "PlayerPawn")) return;
-
-		UpdateFlashlight();
-
-		Super.DoEffect();
-	}
-
-	override void OnDestroy(void)
-	{
-		if (flashlight) flashlight.Destroy();
-		Super.OnDestroy();
+		if (isFlashlightOn)
+		{
+			SpawnFlashlight();
+		}
+		else
+		{
+			DestroyFlashlight();
+		}
+		Super.Tick();
 	}
 
 	//===========================================================================
@@ -102,52 +98,29 @@ class BetterStrifePlayerPlugin : Inventory
 
 	void SpawnFlashlight(void)
 	{
-		if (!flashlight)
-		{
-			flashlight = DynamicLight(Owner.Spawn("DynamicLight", Pos, NO_REPLACE));
-
-			if (flashlight)
-			{
-
-				// initialize dynamic light stuff
-				flashlight.args[0] = 173;
-				flashlight.args[1] = 204;
-				flashlight.args[2] = 211;
-				flashlight.args[3] = 256;
-				flashlight.bAttenuate = true;
-				flashlight.bDontLightSelf = true;
-				flashlight.bSpot = true;
-				flashlight.bInterpolateAngles = true;
-				if (flashlight.bSpot)
-				{
-					flashlight.SpotInnerAngle = 15.0;
-					flashlight.SpotOuterAngle = 25.0;
-				}
-
-				UpdateFlashlight();
-			}
-		}
+		Owner.A_AttachLight
+		(
+			'BetterStrifePlayerFlashlightLight',
+			DynamicLight.PointLight,
+			Color(173, 204, 211),
+			256.,
+			0.,
+			flags: DynamicLight.LF_ATTENUATE | DynamicLight.LF_DONTLIGHTSELF | DynamicLight.LF_SPOT,
+			ofs:
+			(
+				0.0,
+				7.85,
+				PlayerPawn(Owner).ViewHeight
+			),
+			spoti: 15.0,
+			spoto: 25.0,
+			spotp: Owner.Pitch
+		);
 	}
 
 	void DestroyFlashlight(void)
 	{
-		if (flashlight)
-		{
-			flashlight.Destroy();
-		}
-	}
-
-	void UpdateFlashlight(void)
-	{
-		if (flashlight)
-		{
-			double ofs = 7.85;
-			double xof = ofs * cos(Angle -90.0);
-			double yof = ofs * sin(Angle -90.0);
-			flashlight.SetOrigin(Owner.Vec2OffsetZ(xof, yof, Owner.player.viewz), true);
-			flashlight.A_SetAngle(Owner.Angle + ofs, SPF_INTERPOLATE);
-			flashlight.A_SetPitch(Owner.Pitch, SPF_INTERPOLATE);
-		}
+		Owner.A_RemoveLight('BetterStrifePlayerFlashlightLight');
 	}
 
 	//===========================================================================

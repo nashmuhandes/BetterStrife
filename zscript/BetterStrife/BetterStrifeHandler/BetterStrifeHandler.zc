@@ -99,9 +99,9 @@ class BetterStrifeHandler : EventHandler
 				if (pmo)
 				{
 					let plugin = BetterStrifePlayerPlugin.Find(pmo);
-					if (plugin && plugin.flashlight)
+					if (plugin)
 					{
-						plugin.flashlight.Destroy();
+						plugin.DestroyFlashlight();
 					}
 				}
 			}
@@ -165,13 +165,6 @@ class BetterStrifeHandler : EventHandler
 
 		// increase JumpZ just enough to enable the squatting animation
 		pmo.JumpZ *= 1.00000000001;
-
-		// if flashlight is avaiable and is turned on, spawn the dynamic light
-		let plugin = BetterStrifePlayerPlugin.Find(pmo);
-		if (plugin && plugin.isFlashLightOn && !plugin.flashlight)
-		{
-			plugin.SpawnFlashlight();
-		}
 	}
 
 	void ResurrectPlayer(PlayerPawn pmo)
@@ -193,15 +186,6 @@ class BetterStrifeHandler : EventHandler
 		if (!plugin) return;
 
 		plugin.isFlashlightOn = !plugin.isFlashlightOn;
-
-		if (plugin.isFlashlightOn)
-		{
-			plugin.SpawnFlashlight();
-		}
-		else
-		{
-			plugin.DestroyFlashlight();
-		}
 	}
 
 	//===========================================================================
