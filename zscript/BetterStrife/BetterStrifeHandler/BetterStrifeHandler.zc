@@ -336,6 +336,29 @@ class BetterStrifeHandler : EventHandler
 		// probably shouldn't do this every world tick...
 		for (int i = 0; i < Level.Lines.Size(); i++)
 		{
+			// some specific lines on certain levels need to be skipped
+			// to prevent excess markers from being spawned
+			bool skipThisLine = false;
+			switch (Level.levelnum)
+			{
+			case 16:
+				if (i == 2286 || i == 2287)
+				{
+					skipThisLine = true;
+				}
+				break;
+			case 17:
+				if (i == 1253 || i == 1254)
+				{
+					skipThisLine = true;
+				}
+				break;
+			default:
+				break;
+			}
+
+			if (skipThisLine) continue;
+
 			Line ln = Level.Lines[i];
 			if (ln.special == ACS_ExecuteAlways && (ln.args[2] == 145 || ln.args[2] == 186))
 			{
