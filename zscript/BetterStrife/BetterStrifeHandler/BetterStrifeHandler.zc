@@ -65,6 +65,16 @@ class BetterStrifeHandler : EventHandler
 
 	override void PlayerDisconnected(PlayerEvent e)
 	{
+		let pmo = players[e.PlayerNumber].mo;
+		if (pmo)
+		{
+			let plugin = BetterStrifePlayerPlugin.Find(pmo);
+			if (plugin)
+			{
+				plugin.isFlashlightOn = false;
+				plugin.DestroyFlashlight();
+			}
+		}
 	}
 
 	//===========================================================================
