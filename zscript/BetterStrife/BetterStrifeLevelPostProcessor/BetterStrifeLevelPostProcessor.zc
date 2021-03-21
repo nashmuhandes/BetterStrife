@@ -82,6 +82,10 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 			ClearSectorTags(8);
 			ClearSectorTags(10);
 
+		case '252AF75417C87B680AD2CA48E52DC716': // strife1.wad map30 - Abandoned Front Base
+			// Fix prison teleporter flat offset
+			Level.Sectors[38].AddXOffset(Sector.floor, 32.0);
+
 			break;
 		}
 	}
