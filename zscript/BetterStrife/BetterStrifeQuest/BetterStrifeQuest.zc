@@ -77,6 +77,10 @@ class BetterStrifeQuest : Thinker
 		CQ_FIND_PROGRAMMER_1 = 38,
 		CQ_KILL_PROGRAMMER = 45,
 		CQ_TALK_TO_MACIL_4 = CQ_KILL_PROGRAMMER,
+		CQ_SEEK_ORACLE_1 = 1019,
+		CQ_SEEK_ORACLE_2 = 48,
+		CQ_SEEK_ORACLE_3 = 47,
+		CQ_SEEK_ORACLE_4 = 50,
 	}
 
 	bool initDone;

@@ -127,6 +127,9 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (4736, 4928, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
 			t = AddThing(16666, (4736, 4928, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
 
+			// Borderlands (seek the Oracle)
+			t = AddThing(16666, (4192, 7040, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+
 			break;
 
 		case '20C20E1FC803F192613A52A62872BCDE': // strife1.wad map03 - Front Base
@@ -308,12 +311,37 @@ extend class BetterStrifeLevelPostProcessor
 			// Macil (just woke up after killing The Programmer)
 			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_4);
 
+			// Exit to town (seek the Oracle)
+			t = AddThing(16666, (-576, 8960, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_1);
+			t = AddThing(16666, (-576, 8960, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_2);
+			t = AddThing(16666, (-576, 8960, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+			t = AddThing(16666, (-576, 8960, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+
+			// Trainers (seek the Oracle)
+			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_1);
+			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_1);
+			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_2);
+			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_2);
+			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+
 			break;
 
 		case '28CB8D6614024C51C8DB00C7ADBFD857': // strife1.wad map11 - Borderlands
+			// Cave to the Oracle's temple
+			t = AddThing(16666, (-1024, 2944, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+
+			// Stairway to the Oracle's temple
+			t = AddThing(16666, (-1376, 5280, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+
 			break;
 
 		case '66375224D5815F4FFCB1AEB9D39DFA8C': // strife1.wad map12 - The Temple of the Oracle
+			// The Oracle (first time)
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+
 			break;
 
 		case 'FB1FAC7C198518B892EE6A6CD8113548': // strife1.wad map13 - Catacombs
