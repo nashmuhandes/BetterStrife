@@ -80,6 +80,17 @@ extend class BetterStrifeLevelPostProcessor
 		case '8AB955C176204FC3DC8008A01BDDEE87': // strife1.wad map04 - Power Station
 			t = AddThing(16666, (2272, 4424, 0), BetterStrifeQuest.CQ_FINDDERWIN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 9);
 			t = AddThing(16666, (576, 3040, 0), BetterStrifeQuest.CQ_GOTDERWINSEAR); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 9);
+			t = AddThing(16666, (2176, 3712, 0), BetterStrifeQuest.CQ_DESTROYPOWERCRYSTAL);
+			t = AddThing(16666, (-32, 4224, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOTECHNICIAN);
+			t = AddThing(16666, (-1024, 2056, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOTECHNICIAN);
+			t = AddThing(16666, (-2232, 5160, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK1);
+			t = AddThing(16666, (-832, 2464, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK1);
+			t = AddThing(16666, (-400, 3392, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK1);
+			t = AddThing(16666, (-2256, 3200, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK1);
+			t = AddThing(16666, (-3064, 4224, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK2); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 14);
+			t = AddThing(16666, (-2560, 4224, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK2); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 14);
+			t = AddThing(16666, (-1312, 4224, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK2); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 14);
+			t = AddThing(16666, (576, 3040, 0), BetterStrifeQuest.CQ_POWERSTATIONPOWERCRYSTALDESTROYED);
 			break;
 
 		case '8DC5B4A41E35089C9789F7EC6393A015': // strife1.wad map05 - Prison
