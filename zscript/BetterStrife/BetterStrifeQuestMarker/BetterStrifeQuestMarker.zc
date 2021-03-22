@@ -40,6 +40,18 @@ class BetterStrifeQuestMarker : MapMarker
 	// Glue this quest marker to this actor
 	//Actor marked;
 
+	// Hide this quest marker if this quest item is obtained
+	int hideIfQuestItem;
+
+	// Filter visbility based on quest item instead of quest number
+	int showIfQuestItem;
+
+	enum EQuestItemVisibility
+	{
+		HideIfQuestItemCheck = 3,
+		ShowIfQuestItemCheck = 4
+	}
+
 	//===========================================================================
 	//
 	//
@@ -63,11 +75,15 @@ class BetterStrifeQuestMarker : MapMarker
 		// Thing's angle is the current quest
 		markerQuestNum = int(Angle);
 
-		/*
-		if (args[4] > 0)
+		if (args[HideIfQuestItemCheck] != 0)
 		{
+			hideIfQuestItem = args[HideIfQuestItemCheck];
 		}
-		*/
+
+		if (args[ShowIfQuestItemCheck] != 0)
+		{
+			showIfQuestItem = args[ShowIfQuestItemCheck];
+		}
 
 		Super.BeginPlay();
 	}
@@ -96,6 +112,29 @@ class BetterStrifeQuestMarker : MapMarker
 			Deactivate(self);
 		}
 
+		if (showIfQuestItem != 0)
+		{
+			if (HasQuestItem(showIfQuestItem) && markerQuestNum == quest.GetCurrentQuest())
+			{
+				// enable quest marker
+				Deactivate(self);
+			}
+			else
+			{
+				// disable quest marker
+				Activate(self);
+			}
+		}
+
+		if (hideIfQuestItem != 0)
+		{
+			if (HasQuestItem(hideIfQuestItem))
+			{
+				// disable quest marker
+				Activate(self);
+			}
+		}
+
 		/*
 		if (marked)
 		{
@@ -116,6 +155,48 @@ class BetterStrifeQuestMarker : MapMarker
 	{
 		if (!quest) quest = BetterStrifeQuest.GetInstance();
 		if (!quest) ThrowAbortException("%s at %d/%d/%d could not get quest instance", self.Pos.X, self.Pos.Y, self.Pos.Z, self.GetClassName());
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	bool HasQuestItem(int id)
+	{
+		bool result = false;
+
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			if (playeringame[i])
+			{
+				let pmo = PlayerPawn(players[i].mo);
+				if (pmo)
+				{
+					if (result)
+					{
+						break;
+					}
+
+					for (Inventory item = pmo.Inv; item != NULL; item = item.Inv)
+					{
+						if (item is "QuestItem")
+						{
+							String clsName = item.GetClassName();
+							int cqid = clsName.Mid("QuestItem".Length()).ToInt();
+							if (cqid == id)
+							{
+								result = true;
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		return result;
 	}
 
 	//===========================================================================

@@ -45,32 +45,34 @@ extend class BetterStrifeLevelPostProcessor
 			return;
 
 		case '92DD353943BE589C175FEFC969597950': // strife1.wad map01 - Sanctuary
-			AddThing(16666, (3168, 5584, 0), BetterStrifeQuest.CQ_GETBELDINSRING);
+			t = AddThing(16666, (3168, 5584, 0), BetterStrifeQuest.CQ_GETBELDINSRING); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 1);
+			t = AddThing(16666, (3224, 5080, 0), BetterStrifeQuest.CQ_FOUNDBELDINSRING); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 1);
 			break;
 
 		case '22DC1F95CD9A03D23467FD638264FFBC': // strife1.wad map02 - Town
-			AddThing(16666, (3288, 4040, 0), BetterStrifeQuest.CQ_FINDHELP);
-			AddThing(16666, (1808, 6048, 0), BetterStrifeQuest.CQ_GETBELDINSRING);
-			AddThing(16666, (1456, 4704, 0), BetterStrifeQuest.CQ_LOOKFORREBELBASE1);
-			AddThing(16666, (448, 4320, 0), BetterStrifeQuest.CQ_LOOKFORREBELBASE2);
-			AddThing(16666, (16, 3760, 0), BetterStrifeQuest.CQ_LOOKFORREBELBASE3);
-			AddThing(16666, (32, 5696, 0), BetterStrifeQuest.CQ_VISITIRALE1);
-			AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TALKTOGOVERNOR1);
-			AddThing(16666, (3336, 4680, 0), BetterStrifeQuest.CQ_TALKTOMACGUFFIN);
-			AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_FOUNDBROKENCOUPLING);
-			AddThing(16666, (-784, 5056, 0), BetterStrifeQuest.CQ_GOTOPRISON);
+			t = AddThing(16666, (3288, 4040, 0), BetterStrifeQuest.CQ_FINDHELP);
+			t = AddThing(16666, (1808, 6048, 0), BetterStrifeQuest.CQ_GETBELDINSRING); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 1);
+			t = AddThing(16666, (3288, 4040, 0), BetterStrifeQuest.CQ_FOUNDBELDINSRING); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 1);
+			t = AddThing(16666, (1456, 4704, 0), BetterStrifeQuest.CQ_LOOKFORREBELBASE1);
+			t = AddThing(16666, (448, 4320, 0), BetterStrifeQuest.CQ_LOOKFORREBELBASE2);
+			t = AddThing(16666, (16, 3760, 0), BetterStrifeQuest.CQ_LOOKFORREBELBASE3);
+			t = AddThing(16666, (32, 5696, 0), BetterStrifeQuest.CQ_VISITIRALE1);
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TALKTOGOVERNOR1);
+			t = AddThing(16666, (3336, 4680, 0), BetterStrifeQuest.CQ_TALKTOMACGUFFIN);
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_FOUNDBROKENCOUPLING);
+			t = AddThing(16666, (-784, 5056, 0), BetterStrifeQuest.CQ_GOTOPRISON);
 			break;
 
 		case '20C20E1FC803F192613A52A62872BCDE': // strife1.wad map03 - Front Base
-			AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALKTOMACIL1);
-			AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_VISITIRALE1);
+			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALKTOMACIL1);
+			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_VISITIRALE1);
 			break;
 
 		case '8AB955C176204FC3DC8008A01BDDEE87': // strife1.wad map04 - Power Station
 			break;
 
 		case '8DC5B4A41E35089C9789F7EC6393A015': // strife1.wad map05 - Prison
-			AddThing(16666, (832, -272, 0), BetterStrifeQuest.CQ_TALKTOWARDEN);
+			t = AddThing(16666, (832, -272, 0), BetterStrifeQuest.CQ_TALKTOWARDEN);
 			break;
 
 		case 'ED6BA7CD9388DBC9F30363EF24DBACDF': // strife1.wad map06 - Sewers
