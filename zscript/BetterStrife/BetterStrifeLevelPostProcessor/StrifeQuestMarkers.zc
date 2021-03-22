@@ -342,6 +342,7 @@ extend class BetterStrifeLevelPostProcessor
 
 			// Entrance to The Bailey (after getting the key from the Keymaster)
 			t = AddThing(16666, (704, 6944, 0), BetterStrifeQuest.CQ_GOT_KEY_FROM_KEYMASTER);
+			t = AddThing(16666, (704, 6944, 0), BetterStrifeQuest.CQ_GO_TO_THE_BAILEY_1);
 
 			break;
 
@@ -368,6 +369,13 @@ extend class BetterStrifeLevelPostProcessor
 			break;
 
 		case 'F61264F1BCEC279E03BEF14CC45D98AB': // strife1.wad map17 - Fortress: The Bailey
+			// First time entering The Bailey
+			t = AddThing(16666, (192, -32, 0), BetterStrifeQuest.CQ_GOT_KEY_FROM_KEYMASTER);
+			t = AddThing(16666, (192, -32, 0), BetterStrifeQuest.CQ_GO_TO_THE_BAILEY_1);
+
+			// Quincy (hospital)
+			t = AddThing(16666, (-280, 1212, 0), BetterStrifeQuest.CQ_TALK_TO_QUINCY);
+
 			break;
 
 		case 'E6D6F6266DCB70D2792006D740F43473': // strife1.wad map18 - Fortress: Stores

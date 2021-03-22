@@ -85,6 +85,7 @@ class BetterStrifeQuest : Thinker
 		CQ_GO_TO_KEYMASTER_2 = 56,
 		CQ_GOT_KEY_FROM_KEYMASTER = 1021,
 		CQ_GO_TO_THE_BAILEY_1 = 57,
+		CQ_TALK_TO_QUINCY = 59,
 	}
 
 	bool initDone;
