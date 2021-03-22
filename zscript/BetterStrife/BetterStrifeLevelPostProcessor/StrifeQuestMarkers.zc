@@ -139,6 +139,12 @@ extend class BetterStrifeLevelPostProcessor
 			// Technician
 			t = AddThing(16666, (-1024, 2056, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_TECHNICIAN);
 
+			// Technician that has the store room key
+			t = AddThing(16666, (-384, 4912, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_TECHNICIAN);
+
+			// Store room
+			t = AddThing(16666, (2192, 3456, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_TECHNICIAN);
+
 			// Switch to computer tech guy
 			t = AddThing(16666, (-832, 2464, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_1);
 
