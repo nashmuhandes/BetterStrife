@@ -60,12 +60,15 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TALKTOGOVERNOR1);
 			t = AddThing(16666, (3336, 4680, 0), BetterStrifeQuest.CQ_TALKTOMACGUFFIN);
 			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_FOUNDBROKENCOUPLING);
+			t = AddThing(16666, (384, 4160, 0), BetterStrifeQuest.CQ_DESTROYEDFRONTCOUPLING);
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TOOKOUTSCANNINGTEAM);
 			t = AddThing(16666, (-784, 5056, 0), BetterStrifeQuest.CQ_GOTOPRISON);
 			break;
 
 		case '20C20E1FC803F192613A52A62872BCDE': // strife1.wad map03 - Front Base
 			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALKTOMACIL1);
 			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_VISITIRALE1);
+			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALKTOMACIL2);
 			break;
 
 		case '8AB955C176204FC3DC8008A01BDDEE87': // strife1.wad map04 - Power Station
@@ -73,6 +76,12 @@ extend class BetterStrifeLevelPostProcessor
 
 		case '8DC5B4A41E35089C9789F7EC6393A015': // strife1.wad map05 - Prison
 			t = AddThing(16666, (832, -272, 0), BetterStrifeQuest.CQ_TALKTOWARDEN);
+			t = AddThing(16666, (-368, -640, 0), BetterStrifeQuest.CQ_DONETALKINGTOWARDEN);
+			t = AddThing(16666, (-222, 1730, 0), BetterStrifeQuest.CQ_BROKEINTOPRISON);
+			t = AddThing(16666, (-222, 1730, 0), BetterStrifeQuest.CQ_BROKEINTOPRISON);
+			t = AddThing(16666, (-240, 3792, 0), BetterStrifeQuest.CQ_LOOKFORJUDGE);
+			t = AddThing(16666, (-64, 1376, 0), BetterStrifeQuest.CQ_CUTJUDGESHAND);
+			t = AddThing(16666, (-3040, 1568, 0), BetterStrifeQuest.CQ_FREEDPRISONERS);
 			break;
 
 		case 'ED6BA7CD9388DBC9F30363EF24DBACDF': // strife1.wad map06 - Sewers
