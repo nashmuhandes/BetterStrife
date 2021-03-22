@@ -153,6 +153,12 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
 			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
 
+			// Trainers (after accepting castle assault mission)
+			t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
+			t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
+			t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+			t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
 			break;
 
 		case '8AB955C176204FC3DC8008A01BDDEE87': // strife1.wad map04 - Power Station
@@ -264,6 +270,9 @@ extend class BetterStrifeLevelPostProcessor
 
 			// Entrance back to the sewers through the reclamation tank
 			t = AddThing(16666, (-512, 0, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_CONTROLS); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Castle entrance (just entered from the front gate)
+			t = AddThing(16666, (-2528, 1856, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
 
 			// False Programmer (computer room)
 			t = AddThing(16666, (-1016, 2640, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
