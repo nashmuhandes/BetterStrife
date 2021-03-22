@@ -49,6 +49,7 @@ extend class BetterStrifeLevelPostProcessor
 
 		case '22DC1F95CD9A03D23467FD638264FFBC': // strife1.wad map02 - Town
 			AddThing(16666, (3288, 4040, 272), BetterStrifeQuest.CQ_FINDHELP);
+			AddThing(16666, (1858, 5698, -32), BetterStrifeQuest.CQ_GETBELDINSRING);
 			break;
 
 		case '20C20E1FC803F192613A52A62872BCDE': // strife1.wad map03 - Front Base

@@ -1,9 +1,12 @@
 class BetterStrifeQuest : Thinker
 {
+	// Values correspond to the respective log numbers defined in the Strife IWAD.
+	// This is the best way I can think of that doesn't force me to invest so much
+	// time into defining the quest statuses by hand.
 	enum ECurrentQuest
 	{
-		CQ_NONE,
-		CQ_FINDHELP,
+		CQ_FINDHELP = 0,
+		CQ_GETBELDINSRING = 1003,
 	}
 
 	bool initDone;
