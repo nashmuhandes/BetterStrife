@@ -111,6 +111,18 @@ extend class BetterStrifeLevelPostProcessor
 			// Sewer entrance
 			t = AddThing(16666, (556, 3272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
 
+			// Guard with uniform (for Weran's quest)
+			t = AddThing(16666, (768, 2848, 0), BetterStrifeQuest.CQ_GET_UNIFORM_FOR_WERAN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 15);
+
+			// Entrance to sewer (after picking up the guard's uniform)
+			t = AddThing(16666, (1232, 2720, 0), BetterStrifeQuest.CQ_GET_UNIFORM_FOR_WERAN); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 15);
+
+			// Irale (after obtaining flamethrower parts
+			t = AddThing(16666, (-48, 5528, 0), BetterStrifeQuest.CQ_HELPED_WERAN);
+
+			// Front Base (after destroying the castle gate controls)
+			t = AddThing(16666, (-360, 3448, 0), BetterStrifeQuest.CQ_DESTROYED_CASTLE_GATE_CONTROLS);
+
 			break;
 
 		case '20C20E1FC803F192613A52A62872BCDE': // strife1.wad map03 - Front Base
@@ -129,6 +141,9 @@ extend class BetterStrifeLevelPostProcessor
 
 			// Exit to town (after accepting the mission to destroy the power crystal)
 			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
+
+			// Macil (after destroying the gate controls)
+			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_3);
 
 			break;
 
@@ -202,9 +217,46 @@ extend class BetterStrifeLevelPostProcessor
 			break;
 
 		case 'ED6BA7CD9388DBC9F30363EF24DBACDF': // strife1.wad map06 - Sewers
+			// Weran (first time)
+			t = AddThing(16666, (3680, 96, 0), BetterStrifeQuest.CQ_LOOK_FOR_WERAN_1);
+
+			// Exit to town (after accepting Weran's quest to get the uniform)
+			t = AddThing(16666, (3440, 1824, 0), BetterStrifeQuest.CQ_GET_UNIFORM_FOR_WERAN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 15);
+
+			// Weran (after getting the guard's uniform)
+			t = AddThing(16666, (3680, 96, 0), BetterStrifeQuest.CQ_GET_UNIFORM_FOR_WERAN); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 15);
+
+			// Exit to castle reclamation tank (after giving the guard's uniform to Weran)
+			t = AddThing(16666, (7200, 1408, 0), BetterStrifeQuest.CQ_HELPED_WERAN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+			t = AddThing(16666, (7200, 1408, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_CONTROLS); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Switch that opens the exit stairway to the castle reclamation tank
+			t = AddThing(16666, (7000, 888, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_CONTROLS); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Valve that raises access to the gate controls
+			t = AddThing(16666, (8400, 3696, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_CONTROLS); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Castle gate controls
+			t = AddThing(16666, (5952, 3384, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_CONTROLS); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Teleporter shortcut back to town (after destroying the gate controls)
+			t = AddThing(16666, (6720, 768, 0), BetterStrifeQuest.CQ_DESTROYED_CASTLE_GATE_CONTROLS);
+
+			// Exit to town (after destroying the gate controls)
+			t = AddThing(16666, (3440, 1824, 0), BetterStrifeQuest.CQ_DESTROYED_CASTLE_GATE_CONTROLS);
+
 			break;
 
 		case '4A79D4C48352804FAB3557EE423ADAFE': // strife1.wad map07 - Castle
+			// Switch that opens the bars to the reclamation tank
+			t = AddThing(16666, (-80, -1456, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_CONTROLS); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Valve that drains the reclamation tank
+			t = AddThing(16666, (-112, 96, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_CONTROLS); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Entrance back to the sewers through the reclamation tank
+			t = AddThing(16666, (-512, 0, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_CONTROLS); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
 			break;
 
 		case 'D1377FAF42EA65955466169020CE5744': // strife1.wad map08 - Audience Chamber
