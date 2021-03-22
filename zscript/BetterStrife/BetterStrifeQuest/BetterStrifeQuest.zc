@@ -56,6 +56,19 @@ class BetterStrifeQuest : Thinker
 	//
 	//===========================================================================
 
+	static clearscope int GetQuestLogNumber(void)
+	{
+		// FIX ME: this currently only checks quest status on the first player lol
+		PlayerInfo plr = players[0];
+		if (playeringame[0] && plr)
+		{
+			String txt = plr.LogText;
+			int num = txt.Mid("\$TXT_ILOG".Length()).ToInt();
+			return num;
+		}
+		return -1;
+	}
+
 	void SetQuest(int q)
 	{
 		currentQuest = q;

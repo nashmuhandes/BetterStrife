@@ -44,9 +44,11 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 		}
 		if (!plr) return;
 
-
 		// draw exit map markers
 		DrawExitMapMarkers(e);
+
+		// draw quest markers
+		DrawQuestMarkers(e);
 	}
 
 	//===========================================================================
@@ -64,7 +66,6 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 
 		let mnu = Menu.GetCurrentMenu();
 		if (mnu) return;
-
 
 		PlayerPawn pmo = PlayerPawn(players[consoleplayer].mo);
 		if (!pmo) return;
@@ -171,6 +172,139 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 						levelNameSplit,
 						DTA_Alpha, alpha,
 						DTA_CleanNoMove, true);
+				}
+			}
+
+			// restore view clip
+			Screen.SetClipRect(ox, oy, ow, oh);
+		}
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	ui void DrawQuestMarkers(RenderEvent e)
+	{
+		let sb = StrifeStatusBar(StatusBar);
+		if (!sb) return;
+
+		if (automapactive) return;
+
+		let mnu = Menu.GetCurrentMenu();
+		if (mnu) return;
+
+		PlayerPawn pmo = PlayerPawn(players[consoleplayer].mo);
+		if (!pmo) return;
+
+		if (!pmo.player) return;
+
+		// cache CVars
+		/*
+		if (!cvObjectiveExitMarkers) cvObjectiveExitMarkers = CVar.GetCVar("betterstrife_objectivepopupexitmarkers", pmo.player);
+		if (!cvObjectiveExitMarkers) return;
+		if (!cvAlwaysShowExitMarkers) cvAlwaysShowExitMarkers = CVar.GetCVar("betterstrife_alwaysshowexitmarkers", pmo.player);
+		if (!cvAlwaysShowExitMarkers) return;
+		*/
+
+		//bool showQuestMarkers = false;
+		bool showQuestMarkers = true;
+
+		/*
+		// only show exit lines when the Objectives popup is open...
+		if (cvObjectiveExitMarkers.GetBool())
+		{
+			if (sb && sb.CurrentPop == 1)
+			{
+				showQuestMarkers = true;
+			}
+		}
+
+		// ... or optionally, always show exit markers
+		if (cvAlwaysShowExitMarkers.GetBool())
+		{
+			showQuestMarkers = true;
+		}
+		*/
+
+		if (showQuestMarkers)
+		{
+			// store old view clip
+			int ox, oy, ow, oh;
+			[ox, oy, ow, oh] = Screen.GetClipRect();
+
+			// temporarily set new view clip
+			int nx, ny, nw, nh;
+			[nx, ny, nw, nh] = Screen.GetViewWindow();
+			Screen.SetClipRect(nx, ny, nw, nh);
+
+			BetterStrifeGutamaticsMatrix worldToClip = BetterStrifeGutamaticsMatrix.WorldToClip(e.ViewPos, e.ViewAngle, e.ViewPitch, e.ViewRoll, players[consoleplayer].FOV);
+
+			Actor projActor;
+			ThinkerIterator it = ThinkerIterator.Create("BetterStrifeQuestMarker");
+			while ((projActor = Actor(it.Next())) != NULL)
+			{
+				// don't draw deactivated markers
+				if (projActor.bDormant) continue;
+
+				// fade alpha by distance
+				double alpha = 1.0;
+				double maxDist = 1000.0;
+				double distFade = pmo.Distance3D(projActor);
+				double distFarFadeStart = maxDist * 0.5;
+				if (distFade >= distFarFadeStart)
+				{
+					double fade = 1.0 - (distFade - distFarFadeStart) / distFarFadeStart;
+					alpha *= fade;
+				}
+				if (alpha < 0.2) alpha = 0.2;
+
+				Vector3 adjustedWorldPos = e.ViewPos + Level.Vec3Diff(e.ViewPos, projActor.Pos);
+				Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height * 0.5)).AsVector3();
+				if (ndcPos.Z <= 1 && ndcPos.Z >= -1)
+				{
+					Vector2 drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
+
+					// draw quest marker icon
+					TextureID tex = TexMan.CheckForTexture("QMRKA0", TexMan.Type_Sprite);
+					if (tex.IsValid())
+					{
+						drawPos = BetterStrifeGutamaticsGlobalMaths.NDCToViewPort(ndcPos);
+						Screen.DrawTexture(tex, false,
+							drawPos.X,
+							drawPos.Y,
+							DTA_Alpha, alpha,
+							DTA_CleanNoMove, true);
+					}
+
+					// draw level name
+					/*
+					int exitTag = BetterStrifeExitMarker(projActor).exitTag;
+
+					// prepend 0 to the level number if necessary
+					String levelNumber = exitTag < 10 ? "0" .. String.Format("%d", exitTag) : String.Format("%d", exitTag);
+					String levelName = StringTable.Localize("$TXT_STRIFE_MAP" .. levelNumber);
+
+					// strip the "Area xx:" part of the level name
+					Array<String> split;
+					levelName.Split(split, ":");
+					String levelNameSplit = "";
+					for (int i = 1; i < split.Size(); i++)
+					{
+						// hack to re-add the colon for the first part of the name lol
+						levelNameSplit = levelNameSplit .. split[i];
+						if (split.Size() > 1 && i == 1 && i < split.Size() - 1) levelNameSplit = levelNameSplit .. ":";
+					}
+
+					Screen.DrawText(SmallFont, Font.CR_Yellow,
+						drawPos.X + (SmallFont.StringWidth(" ") * CleanXFac),
+						drawPos.Y - (SmallFont.GetHeight() * CleanYFac / 2.0),
+						levelNameSplit,
+						DTA_Alpha, alpha,
+						DTA_CleanNoMove, true);
+					*/
 				}
 			}
 

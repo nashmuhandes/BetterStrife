@@ -38,7 +38,19 @@ class BetterStrifeQuestMarker : MapMarker
 	int markerQuestNum;
 
 	// Glue this quest marker to this actor
-	Actor marked;
+	//Actor marked;
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	Default
+	{
+		Radius 4;
+		Height 8;
+	}
 
 	//===========================================================================
 	//
