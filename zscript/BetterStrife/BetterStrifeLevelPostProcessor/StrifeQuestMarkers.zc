@@ -123,6 +123,10 @@ extend class BetterStrifeLevelPostProcessor
 			// Front Base (after destroying the castle gate controls)
 			t = AddThing(16666, (-360, 3448, 0), BetterStrifeQuest.CQ_DESTROYED_CASTLE_GATE_CONTROLS);
 
+			// Castle entrance (after accepting castle assault mission)
+			t = AddThing(16666, (4736, 4928, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
+			t = AddThing(16666, (4736, 4928, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
 			break;
 
 		case '20C20E1FC803F192613A52A62872BCDE': // strife1.wad map03 - Front Base
@@ -144,6 +148,10 @@ extend class BetterStrifeLevelPostProcessor
 
 			// Macil (after destroying the gate controls)
 			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_3);
+
+			// Exit to town (after accepting castle assault mission)
+			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
+			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
 
 			break;
 
@@ -257,15 +265,40 @@ extend class BetterStrifeLevelPostProcessor
 			// Entrance back to the sewers through the reclamation tank
 			t = AddThing(16666, (-512, 0, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_CONTROLS); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
 
+			// False Programmer (computer room)
+			t = AddThing(16666, (-1016, 2640, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Audience Chamber entrance
+			t = AddThing(16666, (2688, 2464, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Training Facility entrance
+			t = AddThing(16666, (1024, -800, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Switches that open the way to The Programmer's Keep
+			t = AddThing(16666, (3104, 1168, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+			t = AddThing(16666, (3106, 754, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Entrance to The Programmer's Keep
+			t = AddThing(16666, (4272, 960, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
 			break;
 
 		case 'D1377FAF42EA65955466169020CE5744': // strife1.wad map08 - Audience Chamber
+			// False Programmer (gives silver key)
+			t = AddThing(16666, (1216, 2976, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
 			break;
 
 		case '9DA85A8D59EFE7C8B80A0DF6DD9C40AB': // strife1.wad map09 - Castle: Programmer's Keep
+			// The Programmer
+			t = AddThing(16666, (5376, 2240, 0), BetterStrifeQuest.CQ_KILL_PROGRAMMER);
+
 			break;
 
 		case '39C594CAC07EE51C80F757DA465FCC94': // strife1.wad map10 - New Front Base
+			// Macil (just woke up after killing The Programmer)
+			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_4);
+
 			break;
 
 		case '28CB8D6614024C51C8DB00C7ADBFD857': // strife1.wad map11 - Borderlands
@@ -329,6 +362,30 @@ extend class BetterStrifeLevelPostProcessor
 			break;
 
 		case 'BA63176C687188C5C847306B3F516D3A': // strife1.wad map31 - Training Facility
+			// Exit to castle
+			t = AddThing(16666, (2368, 1760, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Armory
+			t = AddThing(16666, (2672, -240, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Switch 1
+			t = AddThing(16666, (992, -160, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Switch 2
+			t = AddThing(16666, (1168, 1216, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Switch 3
+			t = AddThing(16666, (800, 656, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Lift
+			//t = AddThing(16666, (-720, 1456, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Final switch (opens the door to the upgrade)
+			t = AddThing(16666, (80, 448, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Stat upgrade switch (training complete!)
+			t = AddThing(16666, (2176, 624, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
 			break;
 
 		// The demo version maps included in the commercial Strife IWAD are considered unplayable.
