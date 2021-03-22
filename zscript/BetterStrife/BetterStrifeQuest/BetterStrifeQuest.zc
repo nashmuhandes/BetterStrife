@@ -81,6 +81,8 @@ class BetterStrifeQuest : Thinker
 		CQ_SEEK_ORACLE_2 = 48,
 		CQ_SEEK_ORACLE_3 = 47,
 		CQ_SEEK_ORACLE_4 = 50,
+		CQ_GO_TO_KEYMASTER = 1020,
+		CQ_GOT_KEY_FROM_KEYMASTER = 1021,
 	}
 
 	bool initDone;

@@ -336,6 +336,12 @@ extend class BetterStrifeLevelPostProcessor
 			// Stairway to the Oracle's temple
 			t = AddThing(16666, (-1376, 5280, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
 
+			// Keymaster
+			t = AddThing(16666, (1952, 3392, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER);
+
+			// Entrance to The Bailey (after getting the key from the Keymaster)
+			t = AddThing(16666, (704, 6944, 0), BetterStrifeQuest.CQ_GOT_KEY_FROM_KEYMASTER);
+
 			break;
 
 		case '66375224D5815F4FFCB1AEB9D39DFA8C': // strife1.wad map12 - The Temple of the Oracle
