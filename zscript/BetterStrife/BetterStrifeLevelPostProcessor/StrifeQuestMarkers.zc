@@ -337,7 +337,8 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (-1376, 5280, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
 
 			// Keymaster
-			t = AddThing(16666, (1952, 3392, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER);
+			t = AddThing(16666, (1952, 3392, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER_1);
+			t = AddThing(16666, (1952, 3392, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER_2);
 
 			// Entrance to The Bailey (after getting the key from the Keymaster)
 			t = AddThing(16666, (704, 6944, 0), BetterStrifeQuest.CQ_GOT_KEY_FROM_KEYMASTER);
@@ -347,6 +348,10 @@ extend class BetterStrifeLevelPostProcessor
 		case '66375224D5815F4FFCB1AEB9D39DFA8C': // strife1.wad map12 - The Temple of the Oracle
 			// The Oracle (first time)
 			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+
+			// Teleporter to Borderlands (after accepting The Oracle's first quest)
+			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER_1);
+			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER_2);
 
 			break;
 
