@@ -26,6 +26,7 @@ class BetterStrifeQuest : Thinker
 		CQ_CUTJUDGESHAND = 20,
 		CQ_FREEDPRISONERS = 21,
 		CQ_TALKTOMACIL2 = CQ_FREEDPRISONERS,
+		CQ_DESTROYPOWERCRYSTAL = 1011,
 	}
 
 	bool initDone;

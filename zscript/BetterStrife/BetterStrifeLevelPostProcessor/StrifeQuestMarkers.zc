@@ -63,12 +63,16 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (384, 4160, 0), BetterStrifeQuest.CQ_DESTROYEDFRONTCOUPLING);
 			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TOOKOUTSCANNINGTEAM);
 			t = AddThing(16666, (-784, 5056, 0), BetterStrifeQuest.CQ_GOTOPRISON);
+			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_DESTROYPOWERCRYSTAL);
 			break;
 
 		case '20C20E1FC803F192613A52A62872BCDE': // strife1.wad map03 - Front Base
 			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALKTOMACIL1);
 			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_VISITIRALE1);
 			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALKTOMACIL2);
+			t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_DESTROYPOWERCRYSTAL);
+			t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_DESTROYPOWERCRYSTAL);
+			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_DESTROYPOWERCRYSTAL);
 			break;
 
 		case '8AB955C176204FC3DC8008A01BDDEE87': // strife1.wad map04 - Power Station
