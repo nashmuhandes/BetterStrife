@@ -376,12 +376,22 @@ extend class BetterStrifeLevelPostProcessor
 			// Quincy (hospital)
 			t = AddThing(16666, (-280, 1212, 0), BetterStrifeQuest.CQ_TALK_TO_QUINCY);
 
+			// Security Complex
+			t = AddThing(16666, (1664, 608, 0), BetterStrifeQuest.CQ_SECURITY_COMPLEX_1);
+
 			break;
 
 		case 'E6D6F6266DCB70D2792006D740F43473': // strife1.wad map18 - Fortress: Stores
 			break;
 
 		case '1240E48EE30E52D7742DC3785BC0C919': // strife1.wad map19 - Fortress: Security Complex
+			// First time entering Security Complex
+			t = AddThing(16666, (1016, 3248, 0), BetterStrifeQuest.CQ_SECURITY_COMPLEX_1);
+			t = AddThing(16666, (256, 392, 0), BetterStrifeQuest.CQ_SECURITY_COMPLEX_1);
+
+			// Don't give up, straight ahead
+			t = AddThing(16666, (256, -768, 0), BetterStrifeQuest.CQ_SECURITY_COMPLEX_2);
+
 			break;
 
 		case 'D8B1AB710958A1205098FE224B9189DE': // strife1.wad map20 - Factory: Receiving
