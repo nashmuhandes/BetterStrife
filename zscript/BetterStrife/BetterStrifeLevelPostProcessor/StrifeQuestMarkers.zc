@@ -62,6 +62,8 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_FOUNDBROKENCOUPLING);
 			t = AddThing(16666, (384, 4160, 0), BetterStrifeQuest.CQ_DESTROYEDFRONTCOUPLING);
 			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TOOKOUTSCANNINGTEAM);
+			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_FINDDERWIN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 9);
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_GOTDERWINSEAR); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 9);
 			t = AddThing(16666, (-784, 5056, 0), BetterStrifeQuest.CQ_GOTOPRISON);
 			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_DESTROYPOWERCRYSTAL);
 			break;
@@ -76,6 +78,8 @@ extend class BetterStrifeLevelPostProcessor
 			break;
 
 		case '8AB955C176204FC3DC8008A01BDDEE87': // strife1.wad map04 - Power Station
+			t = AddThing(16666, (2272, 4424, 0), BetterStrifeQuest.CQ_FINDDERWIN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 9);
+			t = AddThing(16666, (576, 3040, 0), BetterStrifeQuest.CQ_GOTDERWINSEAR); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 9);
 			break;
 
 		case '8DC5B4A41E35089C9789F7EC6393A015': // strife1.wad map05 - Prison
