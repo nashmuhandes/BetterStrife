@@ -1,0 +1,66 @@
+class BetterStrifeQuest : Thinker
+{
+	enum ECurrentQuest
+	{
+		CQ_NONE,
+		CQ_FINDHELP,
+	}
+
+	bool initDone;
+	int currentQuest;
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	BetterStrifeQuest Init(void)
+	{
+		ChangeStatNum(STAT_STATIC);
+
+		if (!initDone)
+		{
+			// set the first quest when starting the game
+			if (Level.totaltime == 0)
+			{
+				currentQuest = CQ_FINDHELP;
+			}
+
+			initDone = true;
+		}
+
+		return self;
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	static clearscope BetterStrifeQuest GetInstance(void)
+	{
+		ThinkerIterator it = ThinkerIterator.Create("BetterStrifeQuest", STAT_STATIC);
+		let p = BetterStrifeQuest(it.Next());
+		if (p) return p;
+		else return NULL;
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	void SetQuest(int q)
+	{
+		currentQuest = q;
+	}
+
+	clearscope int GetCurrentQuest(void)
+	{
+		return currentQuest;
+	}
+
+}

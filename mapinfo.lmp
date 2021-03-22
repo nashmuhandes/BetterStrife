@@ -1,4 +1,12 @@
 GameInfo
 {
-	AddEventHandlers = "BetterStrifeHandler", "BetterStrifeMarkerProjectionHandler"
+	AddEventHandlers =
+		"BetterStrifeHandler",
+		"BetterStrifeMarkerProjectionHandler",
+		"BetterStrifeQuestHandler"
+}
+
+DoomEdNums
+{
+	16666 = "BetterStrifeQuestMarker"
 }

@@ -1,0 +1,155 @@
+// Copyright 2021 Nash Muhandes
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions
+// are met:
+//
+// 1. Redistributions of source code must retain the above copyright
+//    notice, this list of conditions and the following disclaimer.
+// 2. Redistributions in binary form must reproduce the above copyright
+//    notice, this list of conditions and the following disclaimer in the
+//    documentation and/or other materials provided with the distribution.
+// 3. The name of the author may not be used to endorse or promote products
+//    derived from this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+// OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+// THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+//===========================================================================
+//
+// Strife: Quest for the Sigil
+// Quest markers
+//
+//===========================================================================
+
+extend class BetterStrifeLevelPostProcessor
+{
+	void SpawnStrifeQuestMarkers(Name checksum, String mapname)
+	{
+		int t;
+		int p;
+
+		switch (checksum)
+		{
+		default:
+		case 'none':
+			return;
+
+		case '92DD353943BE589C175FEFC969597950': // strife1.wad map01 - Sanctuary
+			break;
+
+		case '22DC1F95CD9A03D23467FD638264FFBC': // strife1.wad map02 - Town
+			AddThing(16666, (3288, 4040, 272), BetterStrifeQuest.CQ_FINDHELP);
+			break;
+
+		case '20C20E1FC803F192613A52A62872BCDE': // strife1.wad map03 - Front Base
+			break;
+
+		case '8AB955C176204FC3DC8008A01BDDEE87': // strife1.wad map04 - Power Station
+			break;
+
+		case '8DC5B4A41E35089C9789F7EC6393A015': // strife1.wad map05 - Prison
+			break;
+
+		case 'ED6BA7CD9388DBC9F30363EF24DBACDF': // strife1.wad map06 - Sewers
+			break;
+
+		case '4A79D4C48352804FAB3557EE423ADAFE': // strife1.wad map07 - Castle
+			break;
+
+		case 'D1377FAF42EA65955466169020CE5744': // strife1.wad map08 - Audience Chamber
+			break;
+
+		case '9DA85A8D59EFE7C8B80A0DF6DD9C40AB': // strife1.wad map09 - Castle: Programmer's Keep
+			break;
+
+		case '39C594CAC07EE51C80F757DA465FCC94': // strife1.wad map10 - New Front Base
+			break;
+
+		case '28CB8D6614024C51C8DB00C7ADBFD857': // strife1.wad map11 - Borderlands
+			break;
+
+		case '66375224D5815F4FFCB1AEB9D39DFA8C': // strife1.wad map12 - The Temple of the Oracle
+			break;
+
+		case 'FB1FAC7C198518B892EE6A6CD8113548': // strife1.wad map13 - Catacombs
+			break;
+
+		case 'EFBF3805358AA81DF2251889BFC5DD78': // strife1.wad map14 - Mines
+			break;
+
+		case '8D7A24B169717907DDA8399D8C1655DF': // strife1.wad map15 - Fortress: Administration
+			break;
+
+		case 'E3E6ABE44B1C034F19385AD1B19BEC97': // strife1.wad map16 - Fortress: Bishop's Tower
+			break;
+
+		case 'F61264F1BCEC279E03BEF14CC45D98AB': // strife1.wad map17 - Fortress: The Bailey
+			break;
+
+		case 'E6D6F6266DCB70D2792006D740F43473': // strife1.wad map18 - Fortress: Stores
+			break;
+
+		case '1240E48EE30E52D7742DC3785BC0C919': // strife1.wad map19 - Fortress: Security Complex
+			break;
+
+		case 'D8B1AB710958A1205098FE224B9189DE': // strife1.wad map20 - Factory: Receiving
+			break;
+
+		case 'D5FD90FA7A8133E7BFED682D3D313962': // strife1.wad map21 - Factory: Manufacturing
+			break;
+
+		case '088F331310F54154443B15EE81AF8BFD': // strife1.wad map22 - Factory: Forge
+			break;
+
+		case '777F7085371D7020872E10089AADB764': // strife1.wad map23 - Order Commons
+			break;
+
+		case '935024573889AB8CD873A17B21041857': // strife1.wad map24 - Factory: Conversion Chapel
+			break;
+
+		case '08A5B44623FFF504462EDC1CA36B1997': // strife1.wad map25 - Catacombs: Ruined Temple
+			break;
+
+		case '85D7183042B90FCC7CCC820FE2FA7B77': // strife1.wad map26 - Proving Grounds
+			break;
+
+		case 'BAF651138A21FB03AB920FA626F6E64D': // strife1.wad map27 - The Lab
+			break;
+
+		case '840DE1C6C218D9C367E930C89EBDC40A': // strife1.wad map28 - Alien Ship
+			break;
+
+		case '775CBC35C0A58326FE87AAD638FF9E2A': // strife1.wad map29 - Entity's Lair
+			break;
+
+		case '252AF75417C87B680AD2CA48E52DC716': // strife1.wad map30 - Abandoned Front Base
+			break;
+
+		case 'BA63176C687188C5C847306B3F516D3A': // strife1.wad map31 - Training Facility
+			break;
+
+		// The demo version maps included in the commercial Strife IWAD are considered unplayable.
+		// No patching needed.
+		/*
+		case 'BB98350389778448D05D2C45E9EE5061': // strife1.wad map32 - Sanctuary (demo version)
+			break;
+
+		case '8E2AA70FBF70C9C68A39A7B0A45480AD': // strife1.wad map33 - Town (demo version)
+			break;
+
+		case 'B8B1BFA787E35850EAA95430B0713B88': // strife1.wad map34 - Movement Base (demo version)
+			break;
+		*/
+		}
+	}
+}

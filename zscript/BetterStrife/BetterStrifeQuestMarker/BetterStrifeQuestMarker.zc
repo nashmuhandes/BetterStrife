@@ -1,0 +1,119 @@
+// Copyright 2021 Nash Muhandes
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions
+// are met:
+//
+// 1. Redistributions of source code must retain the above copyright
+//    notice, this list of conditions and the following disclaimer.
+// 2. Redistributions in binary form must reproduce the above copyright
+//    notice, this list of conditions and the following disclaimer in the
+//    documentation and/or other materials provided with the distribution.
+// 3. The name of the author may not be used to endorse or promote products
+//    derived from this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+// OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+// THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+//===========================================================================
+//
+// BetterStrifeQuestMarker
+//
+//===========================================================================
+
+class BetterStrifeQuestMarker : MapMarker
+{
+	BetterStrifeQuest quest;
+
+	// Which quest does this marker belong to?
+	int markerQuestNum;
+
+	// Glue this quest marker to this actor
+	Actor marked;
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	override void BeginPlay(void)
+	{
+		// Thing's angle is the current quest
+		markerQuestNum = int(Angle);
+
+		/*
+		if (args[4] > 0)
+		{
+		}
+		*/
+
+		Super.BeginPlay();
+	}
+
+	override void PostBeginPlay(void)
+	{
+		Super.PostBeginPlay();
+		GetQuestInstance();
+	}
+
+	override void Tick(void)
+	{
+		// deactivate this quest marker if the current quest does not match.
+		// yes, Activate()/Deactivate() functionality is reversed.
+		// source: https://zdoom.org/wiki/Classes:MapMarker
+		if (markerQuestNum != quest.GetCurrentQuest())
+		{
+			// disable quest marker
+			Activate(self);
+		}
+		else
+		{
+			// enable quest marker
+			Deactivate(self);
+		}
+
+		/*
+		if (marked)
+		{
+			SetOrigin(marked.Pos, true);
+		}
+		*/
+
+		Super.Tick();
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	void GetQuestInstance(void)
+	{
+		if (!quest) quest = BetterStrifeQuest.GetInstance();
+		if (!quest) ThrowAbortException("%s at %d/%d/%d could not get quest instance", self.Pos.X, self.Pos.Y, self.Pos.Z, self.GetClassName());
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	States
+	{
+	Spawn:
+		QMRK A -1;
+		Stop;
+	}
+}
