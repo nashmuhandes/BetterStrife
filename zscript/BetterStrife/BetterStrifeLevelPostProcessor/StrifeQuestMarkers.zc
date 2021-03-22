@@ -46,143 +46,143 @@ extend class BetterStrifeLevelPostProcessor
 
 		case '92DD353943BE589C175FEFC969597950': // strife1.wad map01 - Sanctuary
 			// Beldin
-			t = AddThing(16666, (3168, 5584, 0), BetterStrifeQuest.CQ_GETBELDINSRING); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 1);
+			t = AddThing(16666, (3168, 5584, 0), BetterStrifeQuest.CQ_GET_BELDINS_RING); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 1);
 
 			// Sanctuary exit after getting Beldin's ring
-			t = AddThing(16666, (3224, 5080, 0), BetterStrifeQuest.CQ_FOUNDBELDINSRING); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 1);
+			t = AddThing(16666, (3224, 5080, 0), BetterStrifeQuest.CQ_FOUND_BELDINS_RING); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 1);
 
 			break;
 
 		case '22DC1F95CD9A03D23467FD638264FFBC': // strife1.wad map02 - Town
 			// Rowan (start of the game)
-			t = AddThing(16666, (3288, 4040, 0), BetterStrifeQuest.CQ_FINDHELP);
+			t = AddThing(16666, (3288, 4040, 0), BetterStrifeQuest.CQ_FIND_HELP);
 
 			// Entrance to Sanctuary
-			t = AddThing(16666, (1808, 6048, 0), BetterStrifeQuest.CQ_GETBELDINSRING); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 1);
+			t = AddThing(16666, (1808, 6048, 0), BetterStrifeQuest.CQ_GET_BELDINS_RING); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 1);
 
 			// Rowan (after getting Beldin's ring)
-			t = AddThing(16666, (3288, 4040, 0), BetterStrifeQuest.CQ_FOUNDBELDINSRING); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 1);
+			t = AddThing(16666, (3288, 4040, 0), BetterStrifeQuest.CQ_FOUND_BELDINS_RING); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 1);
 
 			// Bridge
-			t = AddThing(16666, (1456, 4704, 0), BetterStrifeQuest.CQ_LOOKFORREBELBASE1);
+			t = AddThing(16666, (1456, 4704, 0), BetterStrifeQuest.CQ_LOOK_FOR_FRONT_BASE_1);
 
 			// Town hall
-			t = AddThing(16666, (448, 4320, 0), BetterStrifeQuest.CQ_LOOKFORREBELBASE2);
+			t = AddThing(16666, (448, 4320, 0), BetterStrifeQuest.CQ_LOOK_FOR_FRONT_BASE_2);
 
 			// Geoff
-			t = AddThing(16666, (16, 3760, 0), BetterStrifeQuest.CQ_LOOKFORREBELBASE3);
+			t = AddThing(16666, (16, 3760, 0), BetterStrifeQuest.CQ_LOOK_FOR_FRONT_BASE_3);
 
 			// Irale's shop
-			t = AddThing(16666, (32, 5696, 0), BetterStrifeQuest.CQ_VISITIRALE1);
+			t = AddThing(16666, (32, 5696, 0), BetterStrifeQuest.CQ_VISIT_IRALE_1);
 
 			// Governor (first time)
-			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TALKTOGOVERNOR1);
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TALK_TO_GOVERNOR_1);
 
 			// MacGuffin
-			t = AddThing(16666, (3336, 4680, 0), BetterStrifeQuest.CQ_TALKTOMACGUFFIN);
+			t = AddThing(16666, (3336, 4680, 0), BetterStrifeQuest.CQ_TALK_TO_MACGUFFIN);
 
 			// Governer (after picking up broken coupling)
-			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_FOUNDBROKENCOUPLING);
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_FOUND_BROKEN_COUPLING);
 
 			// Town hall (after destroying The Front's coupling)
-			t = AddThing(16666, (384, 4160, 0), BetterStrifeQuest.CQ_DESTROYEDFRONTCOUPLING);
+			t = AddThing(16666, (384, 4160, 0), BetterStrifeQuest.CQ_DESTROYED_FRONTS_COUPLING);
 
 			// Governor (after taking out the scanning team)
-			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TOOKOUTSCANNINGTEAM);
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TOOK_OUT_SCANNING_TEAM);
 
 			// Power station entrance (after accepting quest to kill Derwin)
-			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_FINDDERWIN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 9);
+			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_FIND_DERWIN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 9);
 
 			// Governor (after getting Derwin's ear)
-			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_GOTDERWINSEAR); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 9);
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_GOT_DERWINS_EAR); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 9);
 
 			// Prison entrance
-			t = AddThing(16666, (-784, 5056, 0), BetterStrifeQuest.CQ_GOTOPRISON);
+			t = AddThing(16666, (-784, 5056, 0), BetterStrifeQuest.CQ_GO_TO_PRISON);
 
 			// Power station entrance (after accepting mission from Macil to destroy the power crystal)
-			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_DESTROYPOWERCRYSTAL);
+			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_DESTROYED_POWER_CRYSTAL);
 
 			break;
 
 		case '20C20E1FC803F192613A52A62872BCDE': // strife1.wad map03 - Front Base
 			// Macil (first time)
-			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALKTOMACIL1);
+			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_1);
 
 			// Exit to town (after accepting Macil's first mission to talk to the Governor)
-			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_VISITIRALE1);
+			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_VISIT_IRALE_1);
 
 			// Macil (after freeing the prisoners)
-			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALKTOMACIL2);
+			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_2);
 
 			// Trainers (after accepting the mission to destroy the power crystal)
-			t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_DESTROYPOWERCRYSTAL);
-			t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_DESTROYPOWERCRYSTAL);
+			t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_DESTROYED_POWER_CRYSTAL);
+			t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_DESTROYED_POWER_CRYSTAL);
 
 			// Exit to town (after accepting the mission to destroy the power crystal)
-			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_DESTROYPOWERCRYSTAL);
+			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_DESTROYED_POWER_CRYSTAL);
 
 			break;
 
 		case '8AB955C176204FC3DC8008A01BDDEE87': // strife1.wad map04 - Power Station
 			// Derwin
-			t = AddThing(16666, (2272, 4424, 0), BetterStrifeQuest.CQ_FINDDERWIN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 9);
+			t = AddThing(16666, (2272, 4424, 0), BetterStrifeQuest.CQ_FIND_DERWIN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 9);
 
 			// Exit to town (after getting Derwin's ear)
-			t = AddThing(16666, (576, 3040, 0), BetterStrifeQuest.CQ_GOTDERWINSEAR); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 9);
+			t = AddThing(16666, (576, 3040, 0), BetterStrifeQuest.CQ_GOT_DERWINS_EAR); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 9);
 
 			// Worner
-			t = AddThing(16666, (2176, 3712, 0), BetterStrifeQuest.CQ_DESTROYPOWERCRYSTAL);
+			t = AddThing(16666, (2176, 3712, 0), BetterStrifeQuest.CQ_DESTROYED_POWER_CRYSTAL);
 
 			// Front door entrance to reactor core (after getting the passcard from Worner)
-			t = AddThing(16666, (-32, 4224, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOTECHNICIAN);
+			t = AddThing(16666, (-32, 4224, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_TECHNICIAN);
 
 			// Technician
-			t = AddThing(16666, (-1024, 2056, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOTECHNICIAN);
+			t = AddThing(16666, (-1024, 2056, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_TECHNICIAN);
 
 			// Switch to computer tech guy
-			t = AddThing(16666, (-832, 2464, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK1);
+			t = AddThing(16666, (-832, 2464, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_1);
 
 			// Switch inside suicide room
-			t = AddThing(16666, (-400, 3392, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK1);
+			t = AddThing(16666, (-400, 3392, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_1);
 
 			// Terminal that drops the coolant level when destroyed
-			t = AddThing(16666, (-2256, 3200, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK1);
+			t = AddThing(16666, (-2256, 3200, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_1);
 
 			// Sammis
-			t = AddThing(16666, (-2232, 5160, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK1);
+			t = AddThing(16666, (-2232, 5160, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_1);
 
 			// Ketrick
-			t = AddThing(16666, (-3064, 4224, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK2); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 14);
+			t = AddThing(16666, (-3064, 4224, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_2); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 14);
 
 			// Power crystal
-			t = AddThing(16666, (-2560, 4224, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK2); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 14);
+			t = AddThing(16666, (-2560, 4224, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_2); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 14);
 
 			// Reactor core doorway (after destroying the power crystal)
-			t = AddThing(16666, (-1312, 4224, 0), BetterStrifeQuest.CQ_POWERSTATIONTALKTOKETRICK2); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 14);
+			t = AddThing(16666, (-1312, 4224, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_2); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 14);
 
 			// Exit to town (after destroying the power crystal)
-			t = AddThing(16666, (576, 3040, 0), BetterStrifeQuest.CQ_POWERSTATIONPOWERCRYSTALDESTROYED);
+			t = AddThing(16666, (576, 3040, 0), BetterStrifeQuest.CQ_POWER_STATION_GET_OUT);
 
 			break;
 
 		case '8DC5B4A41E35089C9789F7EC6393A015': // strife1.wad map05 - Prison
 			// Warden Montag
-			t = AddThing(16666, (832, -272, 0), BetterStrifeQuest.CQ_TALKTOWARDEN);
+			t = AddThing(16666, (832, -272, 0), BetterStrifeQuest.CQ_TALK_TO_WARDEN);
 
 			// Entrance to prison (after talking to the warden)
-			t = AddThing(16666, (-368, -640, 0), BetterStrifeQuest.CQ_DONETALKINGTOWARDEN);
+			t = AddThing(16666, (-368, -640, 0), BetterStrifeQuest.CQ_DONE_TALKING_TO_WARDEN);
 
 			// Door to control area (after crossing the green line and Blackbird says "guess there's no free lunch"
-			t = AddThing(16666, (-222, 1730, 0), BetterStrifeQuest.CQ_BROKEINTOPRISON);
+			t = AddThing(16666, (-222, 1730, 0), BetterStrifeQuest.CQ_BROKE_INTO_PRISON);
 
 			// Judge Wolenick
-			t = AddThing(16666, (-240, 3792, 0), BetterStrifeQuest.CQ_LOOKFORJUDGE); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 12);
+			t = AddThing(16666, (-240, 3792, 0), BetterStrifeQuest.CQ_LOOK_FOR_JUDGE); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 12);
 
 			// Switch to free the prisoners
-			t = AddThing(16666, (-64, 1376, 0), BetterStrifeQuest.CQ_CUTJUDGESHAND);
+			t = AddThing(16666, (-64, 1376, 0), BetterStrifeQuest.CQ_CUT_JUDGES_HAND);
 
 			// Teleporter back to The Front Base (after freeing the prisoners)
-			t = AddThing(16666, (-3040, 1568, 0), BetterStrifeQuest.CQ_FREEDPRISONERS);
+			t = AddThing(16666, (-3040, 1568, 0), BetterStrifeQuest.CQ_FREED_PRISONERS);
 
 			break;
 
