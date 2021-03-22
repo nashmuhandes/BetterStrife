@@ -87,7 +87,7 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (-368, -640, 0), BetterStrifeQuest.CQ_DONETALKINGTOWARDEN);
 			t = AddThing(16666, (-222, 1730, 0), BetterStrifeQuest.CQ_BROKEINTOPRISON);
 			t = AddThing(16666, (-222, 1730, 0), BetterStrifeQuest.CQ_BROKEINTOPRISON);
-			t = AddThing(16666, (-240, 3792, 0), BetterStrifeQuest.CQ_LOOKFORJUDGE);
+			t = AddThing(16666, (-240, 3792, 0), BetterStrifeQuest.CQ_LOOKFORJUDGE); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 12);
 			t = AddThing(16666, (-64, 1376, 0), BetterStrifeQuest.CQ_CUTJUDGESHAND);
 			t = AddThing(16666, (-3040, 1568, 0), BetterStrifeQuest.CQ_FREEDPRISONERS);
 			break;
