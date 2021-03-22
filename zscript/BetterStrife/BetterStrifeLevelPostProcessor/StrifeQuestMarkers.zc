@@ -100,7 +100,7 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (-784, 5056, 0), BetterStrifeQuest.CQ_GO_TO_PRISON);
 
 			// Power station entrance (after accepting mission from Macil to destroy the power crystal)
-			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_DESTROYED_POWER_CRYSTAL);
+			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
 
 			// Trainers; Medic and Irale, respectively (after destroying the power crystal and before the sewer mission)
 			t = AddThing(16666, (440, 5272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_1);
@@ -124,11 +124,11 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_2);
 
 			// Trainers (after accepting the mission to destroy the power crystal)
-			t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_DESTROYED_POWER_CRYSTAL);
-			t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_DESTROYED_POWER_CRYSTAL);
+			t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
+			t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
 
 			// Exit to town (after accepting the mission to destroy the power crystal)
-			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_DESTROYED_POWER_CRYSTAL);
+			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
 
 			break;
 
@@ -140,7 +140,7 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (576, 3040, 0), BetterStrifeQuest.CQ_GOT_DERWINS_EAR); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 9);
 
 			// Worner
-			t = AddThing(16666, (2176, 3712, 0), BetterStrifeQuest.CQ_DESTROYED_POWER_CRYSTAL);
+			t = AddThing(16666, (2176, 3712, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
 
 			// Front door entrance to reactor core (after getting the passcard from Worner)
 			t = AddThing(16666, (-32, 4224, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_TECHNICIAN);
