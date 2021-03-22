@@ -45,9 +45,17 @@ class BetterStrifeQuestHandler : EventHandler
 		CreateQuest();
 	}
 
+	override void WorldLoaded(WorldEvent e)
+	{
+		if (!quest) quest = BetterStrifeQuest.GetInstance();
+	}
+
 	override void WorldTick(void)
 	{
-		UpdateQuest();
+		if (quest)
+		{
+			quest.Tick();
+		}
 	}
 
 	//===========================================================================
@@ -67,11 +75,6 @@ class BetterStrifeQuestHandler : EventHandler
 				quest = new("BetterStrifeQuest").Init();
 			}
 		}
-	}
-
-	void UpdateQuest(void)
-	{
-		quest.SetQuest(quest.GetQuestLogNumber());
 	}
 
 	//===========================================================================

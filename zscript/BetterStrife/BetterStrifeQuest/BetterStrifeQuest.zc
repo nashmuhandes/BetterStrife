@@ -79,4 +79,29 @@ class BetterStrifeQuest : Thinker
 		return currentQuest;
 	}
 
+	void UpdateQuest(void)
+	{
+		SetQuest(GetQuestLogNumber());
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	override void Tick(void)
+	{
+		UpdateQuest();
+		/*
+		ThinkerIterator it = ThinkerIterator.Create("BetterStrifeQuestMarker");
+		Actor mo;
+		int count;
+		while (mo = Actor(it.Next()))
+		{
+			count++;
+		}
+		Console.Printf("%d quest markers in this map", count);
+		*/
+	}
 }

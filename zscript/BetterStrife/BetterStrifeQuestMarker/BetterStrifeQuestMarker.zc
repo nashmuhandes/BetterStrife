@@ -80,6 +80,8 @@ class BetterStrifeQuestMarker : MapMarker
 
 	override void Tick(void)
 	{
+		GetQuestInstance();
+
 		// deactivate this quest marker if the current quest does not match.
 		// yes, Activate()/Deactivate() functionality is reversed.
 		// source: https://zdoom.org/wiki/Classes:MapMarker
