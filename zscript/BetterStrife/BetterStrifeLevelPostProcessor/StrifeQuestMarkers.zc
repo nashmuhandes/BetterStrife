@@ -102,6 +102,15 @@ extend class BetterStrifeLevelPostProcessor
 			// Power station entrance (after accepting mission from Macil to destroy the power crystal)
 			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_DESTROYED_POWER_CRYSTAL);
 
+			// Trainers; Medic and Irale, respectively (after destroying the power crystal and before the sewer mission)
+			t = AddThing(16666, (440, 5272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_1);
+			t = AddThing(16666, (-48, 5528, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_1);
+			t = AddThing(16666, (440, 5272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
+			t = AddThing(16666, (-48, 5528, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
+
+			// Sewer entrance
+			t = AddThing(16666, (556, 3272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
+
 			break;
 
 		case '20C20E1FC803F192613A52A62872BCDE': // strife1.wad map03 - Front Base
