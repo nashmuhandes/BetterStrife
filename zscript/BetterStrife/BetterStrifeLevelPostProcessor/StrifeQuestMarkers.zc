@@ -337,6 +337,15 @@ extend class BetterStrifeLevelPostProcessor
 			// Teleporter to the Borderlands (after killing Macil)
 			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_KILLED_MACIL);
 
+			// Teleporter to the Borderlands (accept Macil's quest to kill the Oracle)
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_MACIL_KILL_ORACLE);
+
+			// Macil (killed the Oracle for Macil)
+			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_MACIL_KILLED_ORACLE);
+
+			// Teleporter to the Borderlands (find Richter)
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_FIND_RICHTER);
+
 			break;
 
 		case '28CB8D6614024C51C8DB00C7ADBFD857': // strife1.wad map11 - Borderlands
@@ -366,6 +375,15 @@ extend class BetterStrifeLevelPostProcessor
 			// Teleporter to the Oracle (after killing Macil)
 			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_KILLED_MACIL);
 
+			// Teleporter to the Oracle (accept Macil's quest to kill the Oracle)
+			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_MACIL_KILL_ORACLE);
+
+			// Teleporter to New Front Base (killed the Oracle for Macil)
+			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_MACIL_KILLED_ORACLE);
+
+			// Teleporter to Order Commons (find Richter)
+			t = AddThing(16666, (2769, 2992, 0), BetterStrifeQuest.CQ_FIND_RICHTER);
+
 			break;
 
 		case '66375224D5815F4FFCB1AEB9D39DFA8C': // strife1.wad map12 - The Temple of the Oracle
@@ -393,6 +411,12 @@ extend class BetterStrifeLevelPostProcessor
 
 			// Teleporter to Proving Grounds (killed the Oracle)
 			t = AddThing(16666, (-1280, 5440, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+
+			// The Oracle (accept Macil's quest to kill the Oracle)
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_MACIL_KILL_ORACLE);
+
+			// Teleporter to Borderlands (killed the Oracle for Macil)
+			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_MACIL_KILLED_ORACLE);
 
 			break;
 
@@ -498,6 +522,9 @@ extend class BetterStrifeLevelPostProcessor
 			break;
 
 		case '777F7085371D7020872E10089AADB764': // strife1.wad map23 - Order Commons
+			// Richter (first time)
+			t = AddThing(16666, (449, -735, 0), BetterStrifeQuest.CQ_FIND_RICHTER);
+
 			break;
 
 		case '935024573889AB8CD873A17B21041857': // strife1.wad map24 - Factory: Conversion Chapel
