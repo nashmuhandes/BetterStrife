@@ -328,29 +328,29 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
 
 			// Macil (kill Macil quest)
-			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_KILL_MACIL);
+			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
 
 			// Trainers (kill Macil quest)
-			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_KILL_MACIL);
-			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_KILL_MACIL);
+			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
+			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
 
 			// Teleporter to the Borderlands (after killing Macil)
-			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_KILLED_MACIL);
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_BAD_KILLED_MACIL);
 
 			// Teleporter to the Borderlands (accept Macil's quest to kill the Oracle)
-			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_MACIL_KILL_ORACLE);
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_GOOD_KILL_ORACLE);
 
 			// Macil (killed the Oracle for Macil)
-			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_MACIL_KILLED_ORACLE);
+			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_GOOD_KILLED_ORACLE);
 
 			// Teleporter to the Borderlands (find Richter)
-			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_FIND_RICHTER);
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_GOOD_FIND_RICHTER);
 
 			// Macil (after destroying the converter)
-			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
 
 			// Teleporter to the Borderlands (killed Macil)
-			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
 
 			break;
 
@@ -367,7 +367,7 @@ extend class BetterStrifeLevelPostProcessor
 
 			// Entrance to The Bailey (after getting the key from the Keymaster)
 			t = AddThing(16666, (704, 6944, 0), BetterStrifeQuest.CQ_GOT_KEY_FROM_KEYMASTER);
-			t = AddThing(16666, (704, 6944, 0), BetterStrifeQuest.CQ_GO_TO_THE_BAILEY_1);
+			t = AddThing(16666, (704, 6944, 0), BetterStrifeQuest.CQ_GO_TO_THE_BAILEY);
 
 			// Cave to the Oracle's temple (after killing The Bishop)
 			t = AddThing(16666, (-1024, 2944, 0), BetterStrifeQuest.CQ_KILLED_THE_BISHOP);
@@ -376,25 +376,25 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_ENERGY_REPORT_ORACLE);
 
 			// Teleporter to New Front Base (kill Macil quest)
-			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_KILL_MACIL);
+			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
 
 			// Teleporter to the Oracle (after killing Macil)
-			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_KILLED_MACIL);
+			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_BAD_KILLED_MACIL);
 
 			// Teleporter to the Oracle (accept Macil's quest to kill the Oracle)
-			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_MACIL_KILL_ORACLE);
+			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_GOOD_KILL_ORACLE);
 
 			// Teleporter to New Front Base (killed the Oracle for Macil)
-			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_MACIL_KILLED_ORACLE);
+			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_GOOD_KILLED_ORACLE);
 
 			// Exit to Order Commons (find Richter)
-			t = AddThing(16666, (2769, 2992, 0), BetterStrifeQuest.CQ_FIND_RICHTER);
+			t = AddThing(16666, (2769, 2992, 0), BetterStrifeQuest.CQ_GOOD_FIND_RICHTER);
 
 			// Teleporter to New Front Base (after destroying the converter)
-			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
 
 			// Exit to Order Commons (after killing Macil)
-			t = AddThing(16666, (2769, 2992, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
+			t = AddThing(16666, (2769, 2992, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
 
 			break;
 
@@ -410,65 +410,65 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_ENERGY_REPORT_ORACLE);
 
 			// Teleporter to Borderlands (kill Macil quest)
-			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_KILL_MACIL);
+			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
 
 			// The Oracle (after killing Macil)
-			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_KILLED_MACIL);
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_BAD_KILLED_MACIL);
 
 			// Teleporter to Proving Grounds (after accepting The Oracle's quest to kill the Loremaster)
-			t = AddThing(16666, (-1280, 5440, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			t = AddThing(16666, (-1280, 5440, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
 
 			// The Oracle (after killing the Loremaster)
-			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_LOREMASTER);
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_BAD_KILLED_LOREMASTER);
 
 			// Teleporter to Proving Grounds (killed the Oracle)
-			t = AddThing(16666, (-1280, 5440, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+			t = AddThing(16666, (-1280, 5440, 0), BetterStrifeQuest.CQ_BAD_KILLED_ORACLE);
 
 			// The Oracle (accept Macil's quest to kill the Oracle)
-			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_MACIL_KILL_ORACLE);
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_GOOD_KILL_ORACLE);
 
 			// Teleporter to Borderlands (killed the Oracle for Macil)
-			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_MACIL_KILLED_ORACLE);
+			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_GOOD_KILLED_ORACLE);
 
 			break;
 
 		case 'FB1FAC7C198518B892EE6A6CD8113548': // strife1.wad map13 - Catacombs
 			// Switches to progress the level (find mine key)
-			t = AddThing(16666, (-695, 1194, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_1);
-			t = AddThing(16666, (-1259, -455, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_1);
+			t = AddThing(16666, (-695, 1194, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_1);
+			t = AddThing(16666, (-1259, -455, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_1);
 
 			// Exit to the ruined temple (find mine key)
-			t = AddThing(16666, (-2018, -1445, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_1);
+			t = AddThing(16666, (-2018, -1445, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_1);
 
 			// Exit to Order Commons (after getting the mine key)
-			t = AddThing(16666, (1037, 1094, 0), BetterStrifeQuest.CQ_GOT_MINE_KEY);
+			t = AddThing(16666, (1037, 1094, 0), BetterStrifeQuest.CQ_GOOD_GOT_MINE_KEY);
 
 			break;
 
 		case 'EFBF3805358AA81DF2251889BFC5DD78': // strife1.wad map14 - Mines
 			// Enter mine for the first time (after getting key)
-			t = AddThing(16666, (-195, 2970, 0), BetterStrifeQuest.CQ_GOT_MINE_KEY);
+			t = AddThing(16666, (-195, 2970, 0), BetterStrifeQuest.CQ_GOOD_GOT_MINE_KEY);
 
 			// Degnin Ore
-			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_LOOK_FOR_ORE);
-			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_LOOK_FOR_ORE_AND_TRANSMITTER_1);
-			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_LOOK_FOR_ORE_AND_TRANSMITTER_2);
+			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_GOOD_LOOK_FOR_ORE);
+			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_GOOD_LOOK_FOR_ORE_AND_TRANSMITTER_1);
+			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_GOOD_LOOK_FOR_ORE_AND_TRANSMITTER_2);
 
 			// Transmitter
-			t = AddThing(16666, (1408, 887, 0), BetterStrifeQuest.CQ_LOOK_FOR_ORE_AND_TRANSMITTER_1);
-			t = AddThing(16666, (1408, 887, 0), BetterStrifeQuest.CQ_LOOK_FOR_ORE_AND_TRANSMITTER_2);
+			t = AddThing(16666, (1408, 887, 0), BetterStrifeQuest.CQ_GOOD_LOOK_FOR_ORE_AND_TRANSMITTER_1);
+			t = AddThing(16666, (1408, 887, 0), BetterStrifeQuest.CQ_GOOD_LOOK_FOR_ORE_AND_TRANSMITTER_2);
 
 			// After blowing the transmitter, back to the Order Commons (non-stealthy way)
-			t = AddThing(16666, (-224, 3824, 0), BetterStrifeQuest.CQ_DESTROYED_TRANSMITTER);
+			t = AddThing(16666, (-224, 3824, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_TRANSMITTER);
 
 			// After blowing the transmitter, through Factory: Receiving (stealthier way)
-			t = AddThing(16666, (2736, -576, 0), BetterStrifeQuest.CQ_DESTROYED_TRANSMITTER);
+			t = AddThing(16666, (2736, -576, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_TRANSMITTER);
 
 			// Order Commons (after destroying converter)
-			t = AddThing(16666, (-224, 3824, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+			t = AddThing(16666, (-224, 3824, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
 
 			// To Factory: Receiving (after killing Macil)
-			t = AddThing(16666, (2736, -576, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
+			t = AddThing(16666, (2736, -576, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
 
 			break;
 
@@ -529,13 +529,13 @@ extend class BetterStrifeLevelPostProcessor
 		case 'F61264F1BCEC279E03BEF14CC45D98AB': // strife1.wad map17 - Fortress: The Bailey
 			// First time entering The Bailey
 			t = AddThing(16666, (192, -32, 0), BetterStrifeQuest.CQ_GOT_KEY_FROM_KEYMASTER);
-			t = AddThing(16666, (192, -32, 0), BetterStrifeQuest.CQ_GO_TO_THE_BAILEY_1);
+			t = AddThing(16666, (192, -32, 0), BetterStrifeQuest.CQ_GO_TO_THE_BAILEY);
 
 			// Quincy (hospital)
 			t = AddThing(16666, (-280, 1212, 0), BetterStrifeQuest.CQ_TALK_TO_QUINCY);
 
 			// Security Complex
-			t = AddThing(16666, (1664, 608, 0), BetterStrifeQuest.CQ_SECURITY_COMPLEX_1);
+			t = AddThing(16666, (1664, 608, 0), BetterStrifeQuest.CQ_GO_TO_SECURITY_COMPLEX);
 
 			// Entrance to The Bishop's Tower (after blowing up the computer)
 			t = AddThing(16666, (-608, 3248, 0), BetterStrifeQuest.CQ_GET_OUT_OF_ADMIN);
@@ -550,8 +550,8 @@ extend class BetterStrifeLevelPostProcessor
 
 		case '1240E48EE30E52D7742DC3785BC0C919': // strife1.wad map19 - Fortress: Security Complex
 			// First time entering Security Complex
-			t = AddThing(16666, (1016, 3248, 0), BetterStrifeQuest.CQ_SECURITY_COMPLEX_1);
-			t = AddThing(16666, (256, 392, 0), BetterStrifeQuest.CQ_SECURITY_COMPLEX_1);
+			t = AddThing(16666, (1016, 3248, 0), BetterStrifeQuest.CQ_GO_TO_SECURITY_COMPLEX);
+			t = AddThing(16666, (256, 392, 0), BetterStrifeQuest.CQ_GO_TO_SECURITY_COMPLEX);
 
 			// Don't give up, straight ahead
 			t = AddThing(16666, (256, -768, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
@@ -560,19 +560,19 @@ extend class BetterStrifeLevelPostProcessor
 
 		case 'D8B1AB710958A1205098FE224B9189DE': // strife1.wad map20 - Factory: Receiving
 			// First time entering factory after destroying the transmitter
-			t = AddThing(16666, (-930, -1154, 0), BetterStrifeQuest.CQ_DESTROYED_TRANSMITTER);
+			t = AddThing(16666, (-930, -1154, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_TRANSMITTER);
 
 			// Entrance to Conversion Chapel
-			t = AddThing(16666, (-2767, -1152, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-2767, -1152, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
 
 			// Exit to Order Commons (after destroying converter)
-			t = AddThing(16666, (-256, -368, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+			t = AddThing(16666, (-256, -368, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
 
 			// Exit to Mines (after destroying converter)
-			t = AddThing(16666, (-3556, -2368, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+			t = AddThing(16666, (-3556, -2368, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
 
 			// To Factory: Manufacturing (after killing Macil)
-			t = AddThing(16666, (-256, -4160, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
+			t = AddThing(16666, (-256, -4160, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
 
 			break;
 
@@ -584,119 +584,119 @@ extend class BetterStrifeLevelPostProcessor
 
 		case '777F7085371D7020872E10089AADB764': // strife1.wad map23 - Order Commons
 			// Richter (first time)
-			t = AddThing(16666, (449, -735, 0), BetterStrifeQuest.CQ_FIND_RICHTER);
+			t = AddThing(16666, (449, -735, 0), BetterStrifeQuest.CQ_GOOD_FIND_RICHTER);
 
 			// Exit to Catacombs (find mine key)
-			t = AddThing(16666, (2477, 1121, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_1);
+			t = AddThing(16666, (2477, 1121, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_1);
 
 			// Exit to mines (after getting the mine key)
-			t = AddThing(16666, (1600, -1811, 0), BetterStrifeQuest.CQ_GOT_MINE_KEY);
+			t = AddThing(16666, (1600, -1811, 0), BetterStrifeQuest.CQ_GOOD_GOT_MINE_KEY);
 
 			// Exit to factory (after blowing up the transmitter)
-			t = AddThing(16666, (2552, -1920, 0), BetterStrifeQuest.CQ_DESTROYED_TRANSMITTER);
+			t = AddThing(16666, (2552, -1920, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_TRANSMITTER);
 
 			// Exit to Borderlands (after destroying converter)
-			t = AddThing(16666, (-376, 928, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+			t = AddThing(16666, (-376, 928, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
 
 			// Exit to mines (after killing Macil)
-			t = AddThing(16666, (1600, -1811, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
+			t = AddThing(16666, (1600, -1811, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
 
 			// Exit to factory (after killing Macil)
-			t = AddThing(16666, (2552, -1920, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
+			t = AddThing(16666, (2552, -1920, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
 
 			break;
 
 		case '935024573889AB8CD873A17B21041857': // strife1.wad map24 - Factory: Conversion Chapel
 			// Markers needed to progress the level
-			t = AddThing(16666, (-1504, 2864, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
-			t = AddThing(16666, (-1504, 2080, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
-			t = AddThing(16666, (-2114, 3055, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
-			t = AddThing(16666, (-1504, 3612, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
-			t = AddThing(16666, (-2033, -450, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
-			t = AddThing(16666, (-769, -448, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-1504, 2864, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-1504, 2080, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-2114, 3055, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-1504, 3612, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-2033, -450, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-769, -448, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
 
 			// Chapel Key
-			t = AddThing(16666, (-2656, 3616, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-2656, 3616, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
 
 			// Red Crystal Key
-			t = AddThing(16666, (-1536, 5944, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-1536, 5944, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
 
 			// Blue Crystal Key
-			t = AddThing(16666, (-1472, -1608, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-1472, -1608, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
 
 			// Red and Blue Crystal switches
-			t = AddThing(16666, (-860, 1136, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
-			t = AddThing(16666, (-860, 782, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-860, 1136, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-860, 782, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
 
 			// The Converter
-			t = AddThing(16666, (2046, 943, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
-			t = AddThing(16666, (2046, 943, 0), BetterStrifeQuest.CQ_DESTROY_CONVERTER);
+			t = AddThing(16666, (2046, 943, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (2046, 943, 0), BetterStrifeQuest.CQ_GOOD_DESTROY_CONVERTER);
 
 			// Exit to Factory: Receiving (after destorying the converter)
-			t = AddThing(16666, (-2432, 960, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+			t = AddThing(16666, (-2432, 960, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
 
 			break;
 
 		case '08A5B44623FFF504462EDC1CA36B1997': // strife1.wad map25 - Catacombs: Ruined Temple
 			// Altar
-			t = AddThing(16666, (3021, 1451, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_1);
+			t = AddThing(16666, (3021, 1451, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_1);
 
 			// Mine key (near the Spectre)
-			t = AddThing(16666, (1972, 588, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_2);
+			t = AddThing(16666, (1972, 588, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_2);
 
 			// Exit to Catacombs (after getting the mine key)
-			t = AddThing(16666, (4148, 2264, 0), BetterStrifeQuest.CQ_GOT_MINE_KEY);
+			t = AddThing(16666, (4148, 2264, 0), BetterStrifeQuest.CQ_GOOD_GOT_MINE_KEY);
 
 			break;
 
 		case '85D7183042B90FCC7CCC820FE2FA7B77': // strife1.wad map26 - Proving Grounds
 			// Markers to progress the level, listed in sequencial order
 			// (Can't be bothered to label them here, I f#@king hate this level LOL
-			t = AddThing(16666, (128, 832, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
-			t = AddThing(16666, (464, 2464, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
-			t = AddThing(16666, (2720, 928, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
-			t = AddThing(16666, (1824, 1680, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
-			t = AddThing(16666, (2592, 3360, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
-			t = AddThing(16666, (1472, 2736, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
-			t = AddThing(16666, (2720, 3360, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
-			t = AddThing(16666, (2176, 2736, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
-			//t = AddThing(16666, (2400, 1696, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
-			//t = AddThing(16666, (1824, 1824, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
-			//t = AddThing(16666, (3008, 3392, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
-			t = AddThing(16666, (3680, 1760, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			t = AddThing(16666, (128, 832, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (464, 2464, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (2720, 928, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (1824, 1680, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (2592, 3360, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (1472, 2736, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (2720, 3360, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (2176, 2736, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			//t = AddThing(16666, (2400, 1696, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			//t = AddThing(16666, (1824, 1824, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			//t = AddThing(16666, (3008, 3392, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (3680, 1760, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
 
 			// Exit to The Lab
-			t = AddThing(16666, (1824, 3472, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			t = AddThing(16666, (1824, 3472, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
 
 			// Back to the Oracle's temple (killed The Loremaster for the Oracle)
-			t = AddThing(16666, (1632, -96, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_LOREMASTER);
+			t = AddThing(16666, (1632, -96, 0), BetterStrifeQuest.CQ_BAD_KILLED_LOREMASTER);
 
 			// Exit to The Lab (killed the Oracle)
-			t = AddThing(16666, (1824, 3472, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+			t = AddThing(16666, (1824, 3472, 0), BetterStrifeQuest.CQ_BAD_KILLED_ORACLE);
 
 			break;
 
 		case 'BAF651138A21FB03AB920FA626F6E64D': // strife1.wad map27 - The Lab
 			// Back to Proving Grounds (killed The Loremaster for the Oracle)
-			t = AddThing(16666, (2496, -808, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_LOREMASTER);
+			t = AddThing(16666, (2496, -808, 0), BetterStrifeQuest.CQ_BAD_KILLED_LOREMASTER);
 
 			// Sigil switch thing (killed the Oracle)
-			t = AddThing(16666, (2496, 1352, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+			t = AddThing(16666, (2496, 1352, 0), BetterStrifeQuest.CQ_BAD_KILLED_ORACLE);
 
 			// Alien Ship (killed the Oracle)
-			t = AddThing(16666, (2496, 2656, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+			t = AddThing(16666, (2496, 2656, 0), BetterStrifeQuest.CQ_BAD_KILLED_ORACLE);
 
 			break;
 
 		case '840DE1C6C218D9C367E930C89EBDC40A': // strife1.wad map28 - Alien Ship
 			// Exit to Entity's Lair (killed the Oracle)
-			t = AddThing(16666, (7488, 1632, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+			t = AddThing(16666, (7488, 1632, 0), BetterStrifeQuest.CQ_BAD_KILLED_ORACLE);
 
 			break;
 
 		case '775CBC35C0A58326FE87AAD638FF9E2A': // strife1.wad map29 - Entity's Lair
 			// The Entity (killed the Oracle)
-			t = AddThing(16666, (-20448, 13792, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+			t = AddThing(16666, (-20448, 13792, 0), BetterStrifeQuest.CQ_BAD_KILLED_ORACLE);
 
 			break;
 
