@@ -164,20 +164,7 @@ class BetterStrifeQuest : Thinker
 	//
 	//===========================================================================
 
-	static clearscope int GetQuestLogNumber(void)
-	{
-		// FIX ME: this currently only checks quest status on the first player lol
-		PlayerInfo plr = players[0];
-		if (playeringame[0] && plr)
-		{
-			String txt = plr.LogText;
-			int num = txt.Mid("\$TXT_ILOG".Length()).ToInt();
-			return num;
-		}
-		return -1;
-	}
-
-	void SetQuest(int q)
+	void SetCurrentQuest(int q)
 	{
 		currentQuest = q;
 	}
@@ -185,31 +172,5 @@ class BetterStrifeQuest : Thinker
 	clearscope int GetCurrentQuest(void)
 	{
 		return currentQuest;
-	}
-
-	void UpdateQuest(void)
-	{
-		SetQuest(GetQuestLogNumber());
-	}
-
-	//===========================================================================
-	//
-	//
-	//
-	//===========================================================================
-
-	override void Tick(void)
-	{
-		UpdateQuest();
-		/*
-		ThinkerIterator it = ThinkerIterator.Create("BetterStrifeQuestMarker");
-		Actor mo;
-		int count;
-		while (mo = Actor(it.Next()))
-		{
-			count++;
-		}
-		Console.Printf("%d quest markers in this map", count);
-		*/
 	}
 }

@@ -52,10 +52,7 @@ class BetterStrifeQuestHandler : EventHandler
 
 	override void WorldTick(void)
 	{
-		if (quest)
-		{
-			quest.Tick();
-		}
+		UpdateQuest();
 	}
 
 	//===========================================================================
@@ -77,30 +74,17 @@ class BetterStrifeQuestHandler : EventHandler
 		}
 	}
 
-	//===========================================================================
-	//
-	//
-	//
-	//===========================================================================
-
-	bool HasQuestItem(class<QuestItem> qi)
+	void UpdateQuest(void)
 	{
-		bool result = false;
+		PlayerInfo plr = players[consoleplayer];
 
-		for (int i = 0; i < MAXPLAYERS; i++)
+		if (playeringame[consoleplayer] && plr)
 		{
-			if (playeringame[i])
-			{
-				let pmo = PlayerPawn(players[i].mo);
-				if (pmo && pmo.CountInv(qi) > 0)
-				{
-					// someone has the quest item, no need to continue searching
-					result = true;
-					break;
-				}
-			}
-		}
+			// get the log number
+			String txt = plr.LogText;
+			int num = txt.Mid("\$TXT_ILOG".Length()).ToInt();
 
-		return result;
+			quest.SetCurrentQuest(num);
+		}
 	}
 }
