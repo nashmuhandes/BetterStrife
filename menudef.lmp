@@ -20,6 +20,7 @@ OptionMenu "BetterStrifeOptionMenu"
 
 	StaticText ""
 	BetterStrifeOption "$BETTERSTRIFEMNU_FLASHLIGHTENABLED", "$BETTERSTRIFEMNU_HELPTEXT_FLASHLIGHTENABLED", "betterstrife_flashlight", "OnOff"
+	BetterStrifeOption "$BETTERSTRIFEMNU_QUESTMARKERS", "$BETTERSTRIFEMNU_HELPTEXT_QUESTMARKERS", "betterstrife_questmarkers", "MarkerValues"
 
 	StaticText ""
 	StaticText "$STRIFECOOPMNU_EXITMARKERS_TITLE", 1
@@ -56,4 +57,17 @@ OptionMenu "BetterStrifeControlsMenu"
 	StaticText ""
 	Control "$BETTERSTRIFEMNU_CONTROLS_USEHEALTH", "netevent EV_UseHealth"
 	Control "$BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT", "use BetterStrifePlayerFlashlight"
+}
+
+//===========================================================================
+//
+//
+//
+//===========================================================================
+
+OptionValue "MarkerValues"
+{
+	0, "$OPTVAL_OFF"
+	1, "$CNTRLMNU_MISSION"
+	2, "$OPTVAL_ALWAYS"
 }

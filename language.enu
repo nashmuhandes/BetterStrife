@@ -8,6 +8,9 @@ OPTMNU_BETTERSTRIFE = "Customize Better Strife";
 
 BETTERSTRIFEMNU_TITLE = "Better Strife Options";
 
+BETTERSTRIFEMNU_QUESTMARKERS = "Quest markers";
+BETTERSTRIFEMNU_HELPTEXT_QUESTMARKERS = "Show quest markers on the screen.";
+
 STRIFECOOPMNU_EXITMARKERS_TITLE = "Level Exit Markers";
 
 BETTERSTRIFEMNU_ENABLEEXITMARKERS = "Enable level exit markers";
