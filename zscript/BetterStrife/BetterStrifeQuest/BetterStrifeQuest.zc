@@ -87,7 +87,9 @@ class BetterStrifeQuest : Thinker
 		CQ_GO_TO_THE_BAILEY_1 = 57,
 		CQ_TALK_TO_QUINCY = 59,
 		CQ_SECURITY_COMPLEX_1 = 1022,
-		CQ_SECURITY_COMPLEX_2 = 64,
+		CQ_DONT_GIVE_UP = 64,
+		CQ_VERY_IMPRESSIVE = 70,
+		CQ_GET_OUT_OF_ADMIN = 211,
 	}
 
 	bool initDone;

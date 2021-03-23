@@ -363,6 +363,27 @@ extend class BetterStrifeLevelPostProcessor
 			break;
 
 		case '8D7A24B169717907DDA8399D8C1655DF': // strife1.wad map15 - Fortress: Administration
+			// The various switches needed to progress to the computer core
+			t = AddThing(16666, (3872, -2528, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+			t = AddThing(16666, (6560, 160, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+			t = AddThing(16666, (6416, -224, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+			t = AddThing(16666, (4320, -496, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+
+			// Switch that exposes the computer (very impressive, let's blow it up)
+			t = AddThing(16666, (6816, 928, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+
+			// Core Key
+			t = AddThing(16666, (2952, 1368, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+
+			// Very impressive, let's blow it up!
+			t = AddThing(16666, (7104, 936, 0), BetterStrifeQuest.CQ_VERY_IMPRESSIVE); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 27);
+
+			// Get out of admin after blowing up the computer
+			t = AddThing(16666, (4928, -832, 0), BetterStrifeQuest.CQ_VERY_IMPRESSIVE); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 27);
+
+			// Exit to The Bailey (after blowing up the computer
+			t = AddThing(16666, (3936, -3600, 0), BetterStrifeQuest.CQ_GET_OUT_OF_ADMIN);
+
 			break;
 
 		case 'E3E6ABE44B1C034F19385AD1B19BEC97': // strife1.wad map16 - Fortress: Bishop's Tower
@@ -379,6 +400,9 @@ extend class BetterStrifeLevelPostProcessor
 			// Security Complex
 			t = AddThing(16666, (1664, 608, 0), BetterStrifeQuest.CQ_SECURITY_COMPLEX_1);
 
+			// Entrance to The Bishop's Tower (after blowing up the computer)
+			t = AddThing(16666, (-608, 3248, 0), BetterStrifeQuest.CQ_GET_OUT_OF_ADMIN);
+
 			break;
 
 		case 'E6D6F6266DCB70D2792006D740F43473': // strife1.wad map18 - Fortress: Stores
@@ -390,7 +414,7 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (256, 392, 0), BetterStrifeQuest.CQ_SECURITY_COMPLEX_1);
 
 			// Don't give up, straight ahead
-			t = AddThing(16666, (256, -768, 0), BetterStrifeQuest.CQ_SECURITY_COMPLEX_2);
+			t = AddThing(16666, (256, -768, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
 
 			break;
 
