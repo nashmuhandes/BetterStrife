@@ -92,6 +92,7 @@ class BetterStrifeQuest : Thinker
 		CQ_GET_OUT_OF_ADMIN = 211,
 		CQ_FIND_THE_BISHOP = 120,
 		CQ_KILLED_THE_BISHOP = 74,
+		CQ_ENERGY_REPORT_ORACLE = 76,
 	}
 
 	bool initDone;

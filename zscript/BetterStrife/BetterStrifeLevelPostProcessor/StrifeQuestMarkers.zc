@@ -344,6 +344,12 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (704, 6944, 0), BetterStrifeQuest.CQ_GOT_KEY_FROM_KEYMASTER);
 			t = AddThing(16666, (704, 6944, 0), BetterStrifeQuest.CQ_GO_TO_THE_BAILEY_1);
 
+			// Cave to the Oracle's temple (after killing The Bishop)
+			t = AddThing(16666, (-1024, 2944, 0), BetterStrifeQuest.CQ_KILLED_THE_BISHOP);
+
+			// Teleporter to the Oracle (after killing The Bishop)
+			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_ENERGY_REPORT_ORACLE);
+
 			break;
 
 		case '66375224D5815F4FFCB1AEB9D39DFA8C': // strife1.wad map12 - The Temple of the Oracle
@@ -353,6 +359,9 @@ extend class BetterStrifeLevelPostProcessor
 			// Teleporter to Borderlands (after accepting The Oracle's first quest)
 			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER_1);
 			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER_2);
+
+			// The Oracle (after killing The Bishop)
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_ENERGY_REPORT_ORACLE);
 
 			break;
 
@@ -429,6 +438,9 @@ extend class BetterStrifeLevelPostProcessor
 
 			// Entrance to The Bishop's Tower (after blowing up the computer)
 			t = AddThing(16666, (-608, 3248, 0), BetterStrifeQuest.CQ_GET_OUT_OF_ADMIN);
+
+			// Exit to the borderlands (after killing The Bishop)
+			t = AddThing(16666, (-1472, -1336, 0), BetterStrifeQuest.CQ_KILLED_THE_BISHOP);
 
 			break;
 
