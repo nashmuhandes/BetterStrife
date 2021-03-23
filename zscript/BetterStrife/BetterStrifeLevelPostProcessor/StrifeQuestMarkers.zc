@@ -387,6 +387,33 @@ extend class BetterStrifeLevelPostProcessor
 			break;
 
 		case 'E3E6ABE44B1C034F19385AD1B19BEC97': // strife1.wad map16 - Fortress: Bishop's Tower
+			// Entering The Bishop's Tower
+			t = AddThing(16666, (640, 1392, 0), BetterStrifeQuest.CQ_GET_OUT_OF_ADMIN);
+
+			// The Bishop
+			t = AddThing(16666, (640, 5952, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+
+			// Switches to open the front door
+			t = AddThing(16666, (96, 1248, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (1184, 1256, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+
+			// Middle switch needed to access the rest of the level
+			t = AddThing(16666, (640, 4352, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+
+			// Side switches needed to access The Bishop's room
+			t = AddThing(16666, (-1072, 3808, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (-1168, 3408, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (-1168, 4072, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (2352, 3808, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (2448, 3408, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (2448, 4072, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+
+			// Skull switch (opens The Bishop's room)
+			t = AddThing(16666, (640, 4968, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+
+			// Exit to The Bailey (after killing The Bishop)
+			t = AddThing(16666, (640, 144, 0), BetterStrifeQuest.CQ_KILLED_THE_BISHOP);
+
 			break;
 
 		case 'F61264F1BCEC279E03BEF14CC45D98AB': // strife1.wad map17 - Fortress: The Bailey

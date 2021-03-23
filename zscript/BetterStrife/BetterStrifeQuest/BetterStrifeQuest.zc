@@ -90,6 +90,8 @@ class BetterStrifeQuest : Thinker
 		CQ_DONT_GIVE_UP = 64,
 		CQ_VERY_IMPRESSIVE = 70,
 		CQ_GET_OUT_OF_ADMIN = 211,
+		CQ_FIND_THE_BISHOP = 120,
+		CQ_KILLED_THE_BISHOP = 74,
 	}
 
 	bool initDone;
