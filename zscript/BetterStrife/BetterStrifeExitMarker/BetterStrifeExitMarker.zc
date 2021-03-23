@@ -69,9 +69,6 @@ class BetterStrifeExitMarker : MapMarker
 			// TO DO: add some kind of "seen" animation
 			seen = true;
 		}
-
-		if (!betterstrife_exitmapmarkers) Activate(self);
-		else Deactivate(self);
 	}
 
 	//===========================================================================

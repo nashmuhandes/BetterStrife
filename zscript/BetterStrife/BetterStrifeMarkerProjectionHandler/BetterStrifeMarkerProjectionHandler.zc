@@ -32,10 +32,8 @@
 
 class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 {
-	transient ui CVar cvObjectiveExitMarkers;
-	transient ui CVar cvAlwaysShowExitMarkers;
-
-	transient ui CVar cvQuestMarker;
+	transient ui CVar cvExitMarkers;
+	transient ui CVar cvQuestMarkers;
 
 	override void RenderUnderlay(RenderEvent e)
 	{
@@ -75,24 +73,21 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 		if (!pmo.player) return;
 
 		// cache CVars
-		if (!cvObjectiveExitMarkers) cvObjectiveExitMarkers = CVar.GetCVar("betterstrife_objectivepopupexitmarkers", pmo.player);
-		if (!cvObjectiveExitMarkers) return;
-		if (!cvAlwaysShowExitMarkers) cvAlwaysShowExitMarkers = CVar.GetCVar("betterstrife_alwaysshowexitmarkers", pmo.player);
-		if (!cvAlwaysShowExitMarkers) return;
+		if (!cvExitMarkers) cvExitMarkers = CVar.GetCVar("betterstrife_exitmarkers", pmo.player);
+		if (!cvExitMarkers) return;
 
 		bool showExitMarkers = false;
 
 		// only show exit lines when the Objectives popup is open...
-		if (cvObjectiveExitMarkers.GetBool())
+		if (cvExitMarkers.GetInt() == 1)
 		{
 			if (sb && sb.CurrentPop == 1)
 			{
 				showExitMarkers = true;
 			}
 		}
-
 		// ... or optionally, always show exit markers
-		if (cvAlwaysShowExitMarkers.GetBool())
+		else if (cvExitMarkers.GetInt() == 2)
 		{
 			showExitMarkers = true;
 		}
@@ -204,13 +199,13 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 		if (!pmo.player) return;
 
 		// cache CVars
-		if (!cvQuestMarker) cvQuestMarker = CVar.GetCVar("betterstrife_questmarkers", pmo.player);
-		if (!cvQuestMarker) return;
+		if (!cvQuestMarkers) cvQuestMarkers = CVar.GetCVar("betterstrife_questmarkers", pmo.player);
+		if (!cvQuestMarkers) return;
 
 		bool showQuestMarkers = false;
 
 		// only quest markers when the Objectives popup is open...
-		if (cvQuestMarker.GetInt() == 1)
+		if (cvQuestMarkers.GetInt() == 1)
 		{
 			if (sb && sb.CurrentPop == 1)
 			{
@@ -218,7 +213,7 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 			}
 		}
 		// ... or optionally, always show exit markers
-		else if (cvQuestMarker.GetInt() == 2)
+		else if (cvQuestMarkers.GetInt() == 2)
 		{
 			showQuestMarkers = true;
 		}

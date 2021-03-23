@@ -1,5 +1,5 @@
-server bool betterstrife_exitmapmarkers = true;
 user bool betterstrife_objectivepopupexitmarkers = true;
 user bool betterstrife_alwaysshowexitmarkers = false;
 user bool betterstrife_flashlight = true;
 user int betterstrife_questmarkers = 1;
+user int betterstrife_exitmarkers = 1;

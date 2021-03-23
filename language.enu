@@ -9,18 +9,10 @@ OPTMNU_BETTERSTRIFE = "Customize Better Strife";
 BETTERSTRIFEMNU_TITLE = "Better Strife Options";
 
 BETTERSTRIFEMNU_QUESTMARKERS = "Quest markers";
-BETTERSTRIFEMNU_HELPTEXT_QUESTMARKERS = "Show quest markers on the screen.";
+BETTERSTRIFEMNU_HELPTEXT_QUESTMARKERS = "Shows quest markers on the screen.";
 
-STRIFECOOPMNU_EXITMARKERS_TITLE = "Level Exit Markers";
-
-BETTERSTRIFEMNU_ENABLEEXITMARKERS = "Enable level exit markers";
-BETTERSTRIFEMNU_HELPTEXT_ENABLEEXITMARKERS = "Marks the level's exits on the automap. Press the objectives popup key to show their locations on the screen.";
-
-BETTERSTRIFEMNU_OBJECTIVEEXITMARKERS = "Objectives popup shows exit markers";
-BETTERSTRIFEMNU_HELPTEXT_OBJECTIVEEXITMARKERS = "When showing objectives, also show exit markers on the screen.";
-
-BETTERSTRIFEMNU_ALWAYSSHOWEXITMARKERS = "Always show exit markers";
-BETTERSTRIFEMNU_HELPTEXT_ALWAYSSHOWEXITMARKERS = "Always show exit markers on the screen".;
+BETTERSTRIFEMNU_EXITMARKERS = "Exit markers";
+BETTERSTRIFEMNU_HELPTEXT_EXITMARKERS = "Shows exit markers on the screen.";
 
 BETTERSTRIFEMNU_FLASHLIGHTENABLED = "Head-mounted light";
 BETTERSTRIFEMNU_HELPTEXT_FLASHLIGHTENABLED = "Enables head-mounted light. Can be toggled by activating the item on the inventory bar, or by pressing the hotkey.";
