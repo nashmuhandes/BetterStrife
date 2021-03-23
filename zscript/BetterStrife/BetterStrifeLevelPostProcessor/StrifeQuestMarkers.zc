@@ -327,6 +327,16 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
 			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
 
+			// Macil (kill Macil quest)
+			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_KILL_MACIL);
+
+			// Trainers (kill Macil quest)
+			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_KILL_MACIL);
+			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_KILL_MACIL);
+
+			// Teleporter to the Borderlands (after killing Macil)
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_KILLED_MACIL);
+
 			break;
 
 		case '28CB8D6614024C51C8DB00C7ADBFD857': // strife1.wad map11 - Borderlands
@@ -350,6 +360,12 @@ extend class BetterStrifeLevelPostProcessor
 			// Teleporter to the Oracle (after killing The Bishop)
 			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_ENERGY_REPORT_ORACLE);
 
+			// Teleporter to New Front Base (kill Macil quest)
+			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_KILL_MACIL);
+
+			// Teleporter to the Oracle (after killing Macil)
+			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_KILLED_MACIL);
+
 			break;
 
 		case '66375224D5815F4FFCB1AEB9D39DFA8C': // strife1.wad map12 - The Temple of the Oracle
@@ -362,6 +378,21 @@ extend class BetterStrifeLevelPostProcessor
 
 			// The Oracle (after killing The Bishop)
 			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_ENERGY_REPORT_ORACLE);
+
+			// Teleporter to Borderlands (kill Macil quest)
+			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_KILL_MACIL);
+
+			// The Oracle (after killing Macil)
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_KILLED_MACIL);
+
+			// Teleporter to Proving Grounds (after accepting The Oracle's quest to kill the Loremaster)
+			t = AddThing(16666, (-1280, 5440, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+
+			// The Oracle (after killing the Loremaster)
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_LOREMASTER);
+
+			// Teleporter to Proving Grounds (killed the Oracle)
+			t = AddThing(16666, (-1280, 5440, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
 
 			break;
 
@@ -476,15 +507,54 @@ extend class BetterStrifeLevelPostProcessor
 			break;
 
 		case '85D7183042B90FCC7CCC820FE2FA7B77': // strife1.wad map26 - Proving Grounds
+			// Markers to progress the level, listed in sequencial order
+			// (Can't be bothered to label them here, I f#@king hate this level LOL
+			t = AddThing(16666, (128, 832, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			t = AddThing(16666, (464, 2464, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			t = AddThing(16666, (2720, 928, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			t = AddThing(16666, (1824, 1680, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			t = AddThing(16666, (2592, 3360, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			t = AddThing(16666, (1472, 2736, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			t = AddThing(16666, (2720, 3360, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			t = AddThing(16666, (2176, 2736, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			//t = AddThing(16666, (2400, 1696, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			//t = AddThing(16666, (1824, 1824, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			//t = AddThing(16666, (3008, 3392, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+			t = AddThing(16666, (3680, 1760, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+
+			// Exit to The Lab
+			t = AddThing(16666, (1824, 3472, 0), BetterStrifeQuest.CQ_ORACLE_KILL_LOREMASTER);
+
+			// Back to the Oracle's temple (killed The Loremaster for the Oracle)
+			t = AddThing(16666, (1632, -96, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_LOREMASTER);
+
+			// Exit to The Lab (killed the Oracle)
+			t = AddThing(16666, (1824, 3472, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+
 			break;
 
 		case 'BAF651138A21FB03AB920FA626F6E64D': // strife1.wad map27 - The Lab
+			// Back to Proving Grounds (killed The Loremaster for the Oracle)
+			t = AddThing(16666, (2496, -808, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_LOREMASTER);
+
+			// Sigil switch thing (killed the Oracle)
+			t = AddThing(16666, (2496, 1352, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+
+			// Alien Ship (killed the Oracle)
+			t = AddThing(16666, (2496, 2656, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+
 			break;
 
 		case '840DE1C6C218D9C367E930C89EBDC40A': // strife1.wad map28 - Alien Ship
+			// Exit to Entity's Lair (killed the Oracle)
+			t = AddThing(16666, (7488, 1632, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+
 			break;
 
 		case '775CBC35C0A58326FE87AAD638FF9E2A': // strife1.wad map29 - Entity's Lair
+			// The Entity (killed the Oracle)
+			t = AddThing(16666, (-20448, 13792, 0), BetterStrifeQuest.CQ_ORACLE_KILLED_ORACLE);
+
 			break;
 
 		case '252AF75417C87B680AD2CA48E52DC716': // strife1.wad map30 - Abandoned Front Base
