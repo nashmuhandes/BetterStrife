@@ -346,6 +346,12 @@ extend class BetterStrifeLevelPostProcessor
 			// Teleporter to the Borderlands (find Richter)
 			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_FIND_RICHTER);
 
+			// Macil (after destroying the converter)
+			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+
+			// Teleporter to the Borderlands (killed Macil)
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
+
 			break;
 
 		case '28CB8D6614024C51C8DB00C7ADBFD857': // strife1.wad map11 - Borderlands
@@ -381,8 +387,14 @@ extend class BetterStrifeLevelPostProcessor
 			// Teleporter to New Front Base (killed the Oracle for Macil)
 			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_MACIL_KILLED_ORACLE);
 
-			// Teleporter to Order Commons (find Richter)
+			// Exit to Order Commons (find Richter)
 			t = AddThing(16666, (2769, 2992, 0), BetterStrifeQuest.CQ_FIND_RICHTER);
+
+			// Teleporter to New Front Base (after destroying the converter)
+			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+
+			// Exit to Order Commons (after killing Macil)
+			t = AddThing(16666, (2769, 2992, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
 
 			break;
 
@@ -421,9 +433,43 @@ extend class BetterStrifeLevelPostProcessor
 			break;
 
 		case 'FB1FAC7C198518B892EE6A6CD8113548': // strife1.wad map13 - Catacombs
+			// Switches to progress the level (find mine key)
+			t = AddThing(16666, (-695, 1194, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_1);
+			t = AddThing(16666, (-1259, -455, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_1);
+
+			// Exit to the ruined temple (find mine key)
+			t = AddThing(16666, (-2018, -1445, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_1);
+
+			// Exit to Order Commons (after getting the mine key)
+			t = AddThing(16666, (1037, 1094, 0), BetterStrifeQuest.CQ_GOT_MINE_KEY);
+
 			break;
 
 		case 'EFBF3805358AA81DF2251889BFC5DD78': // strife1.wad map14 - Mines
+			// Enter mine for the first time (after getting key)
+			t = AddThing(16666, (-195, 2970, 0), BetterStrifeQuest.CQ_GOT_MINE_KEY);
+
+			// Degnin Ore
+			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_LOOK_FOR_ORE);
+			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_LOOK_FOR_ORE_AND_TRANSMITTER_1);
+			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_LOOK_FOR_ORE_AND_TRANSMITTER_2);
+
+			// Transmitter
+			t = AddThing(16666, (1408, 887, 0), BetterStrifeQuest.CQ_LOOK_FOR_ORE_AND_TRANSMITTER_1);
+			t = AddThing(16666, (1408, 887, 0), BetterStrifeQuest.CQ_LOOK_FOR_ORE_AND_TRANSMITTER_2);
+
+			// After blowing the transmitter, back to the Order Commons (non-stealthy way)
+			t = AddThing(16666, (-224, 3824, 0), BetterStrifeQuest.CQ_DESTROYED_TRANSMITTER);
+
+			// After blowing the transmitter, through Factory: Receiving (stealthier way)
+			t = AddThing(16666, (2736, -576, 0), BetterStrifeQuest.CQ_DESTROYED_TRANSMITTER);
+
+			// Order Commons (after destroying converter)
+			t = AddThing(16666, (-224, 3824, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+
+			// To Factory: Receiving (after killing Macil)
+			t = AddThing(16666, (2736, -576, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
+
 			break;
 
 		case '8D7A24B169717907DDA8399D8C1655DF': // strife1.wad map15 - Fortress: Administration
@@ -513,6 +559,21 @@ extend class BetterStrifeLevelPostProcessor
 			break;
 
 		case 'D8B1AB710958A1205098FE224B9189DE': // strife1.wad map20 - Factory: Receiving
+			// First time entering factory after destroying the transmitter
+			t = AddThing(16666, (-930, -1154, 0), BetterStrifeQuest.CQ_DESTROYED_TRANSMITTER);
+
+			// Entrance to Conversion Chapel
+			t = AddThing(16666, (-2767, -1152, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+
+			// Exit to Order Commons (after destroying converter)
+			t = AddThing(16666, (-256, -368, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+
+			// Exit to Mines (after destroying converter)
+			t = AddThing(16666, (-3556, -2368, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+
+			// To Factory: Manufacturing (after killing Macil)
+			t = AddThing(16666, (-256, -4160, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
+
 			break;
 
 		case 'D5FD90FA7A8133E7BFED682D3D313962': // strife1.wad map21 - Factory: Manufacturing
@@ -525,12 +586,67 @@ extend class BetterStrifeLevelPostProcessor
 			// Richter (first time)
 			t = AddThing(16666, (449, -735, 0), BetterStrifeQuest.CQ_FIND_RICHTER);
 
+			// Exit to Catacombs (find mine key)
+			t = AddThing(16666, (2477, 1121, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_1);
+
+			// Exit to mines (after getting the mine key)
+			t = AddThing(16666, (1600, -1811, 0), BetterStrifeQuest.CQ_GOT_MINE_KEY);
+
+			// Exit to factory (after blowing up the transmitter)
+			t = AddThing(16666, (2552, -1920, 0), BetterStrifeQuest.CQ_DESTROYED_TRANSMITTER);
+
+			// Exit to Borderlands (after destroying converter)
+			t = AddThing(16666, (-376, 928, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+
+			// Exit to mines (after killing Macil)
+			t = AddThing(16666, (1600, -1811, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
+
+			// Exit to factory (after killing Macil)
+			t = AddThing(16666, (2552, -1920, 0), BetterStrifeQuest.CQ_MACIL_KILLED_MACIL);
+
 			break;
 
 		case '935024573889AB8CD873A17B21041857': // strife1.wad map24 - Factory: Conversion Chapel
+			// Markers needed to progress the level
+			t = AddThing(16666, (-1504, 2864, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-1504, 2080, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-2114, 3055, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-1504, 3612, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-2033, -450, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-769, -448, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+
+			// Chapel Key
+			t = AddThing(16666, (-2656, 3616, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+
+			// Red Crystal Key
+			t = AddThing(16666, (-1536, 5944, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+
+			// Blue Crystal Key
+			t = AddThing(16666, (-1472, -1608, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+
+			// Red and Blue Crystal switches
+			t = AddThing(16666, (-860, 1136, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-860, 782, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+
+			// The Converter
+			t = AddThing(16666, (2046, 943, 0), BetterStrifeQuest.CQ_ENTER_CONVERSION_CHAPEL);
+			t = AddThing(16666, (2046, 943, 0), BetterStrifeQuest.CQ_DESTROY_CONVERTER);
+
+			// Exit to Factory: Receiving (after destorying the converter)
+			t = AddThing(16666, (-2432, 960, 0), BetterStrifeQuest.CQ_DESTROYED_CONVERTER);
+
 			break;
 
 		case '08A5B44623FFF504462EDC1CA36B1997': // strife1.wad map25 - Catacombs: Ruined Temple
+			// Altar
+			t = AddThing(16666, (3021, 1451, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_1);
+
+			// Mine key (near the Spectre)
+			t = AddThing(16666, (1972, 588, 0), BetterStrifeQuest.CQ_FIND_MINE_KEY_2);
+
+			// Exit to Catacombs (after getting the mine key)
+			t = AddThing(16666, (4148, 2264, 0), BetterStrifeQuest.CQ_GOT_MINE_KEY);
+
 			break;
 
 		case '85D7183042B90FCC7CCC820FE2FA7B77': // strife1.wad map26 - Proving Grounds
