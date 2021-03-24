@@ -4,9 +4,11 @@ GameInfo
 		"BetterStrifeHandler",
 		"BetterStrifeMarkerProjectionHandler",
 		"BetterStrifeQuestHandler"
+	Dialogue = "dialogs.lmp"
 }
 
 DoomEdNums
 {
 	16666 = "BetterStrifeQuestMarker"
+	16667 = "BetterStrifePrisonMerchant"
 }

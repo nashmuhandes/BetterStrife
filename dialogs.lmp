@@ -1,0 +1,4 @@
+namespace = "ZDoom";
+include = "SCRIPT00";
+
+include = "dialogs/BetterStrifePrisonMerchant.lmp";

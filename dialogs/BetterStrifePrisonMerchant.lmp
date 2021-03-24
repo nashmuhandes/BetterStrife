@@ -1,0 +1,11 @@
+namespace = "ZDoom";
+
+Conversation
+{
+	Actor = "BetterStrifePrisonMerchant";
+
+	Page
+	{
+		Dialog = "Howdy!";
+	}
+}

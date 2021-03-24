@@ -48,6 +48,9 @@ version "4.5.0"
 #include "zscript/BetterStrife/BetterStrifeMeat/BetterStrifeMeat.zc"
 #include "zscript/BetterStrife/BetterStrifeGlassJunk/BetterStrifeGlassJunk.zc"
 
+// NPCs
+#include "zscript/BetterStrife/BetterStrifePrisonMerchant/BetterStrifePrisonMerchant.zc"
+
 // Exit markers
 #include "zscript/BetterStrife/BetterStrifeExitMarker/BetterStrifeExitMarker.zc"
 
