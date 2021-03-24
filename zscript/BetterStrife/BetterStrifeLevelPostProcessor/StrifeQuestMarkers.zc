@@ -103,10 +103,10 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
 
 			// Trainers; Medic and Irale, respectively (after destroying the power crystal and before the sewer mission)
-			t = AddThing(16666, (440, 5272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_1);
-			t = AddThing(16666, (-48, 5528, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_1);
-			t = AddThing(16666, (440, 5272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
-			t = AddThing(16666, (-48, 5528, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
+			//t = AddThing(16666, (440, 5272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_1);
+			//t = AddThing(16666, (-48, 5528, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_1);
+			//t = AddThing(16666, (440, 5272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
+			//t = AddThing(16666, (-48, 5528, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
 
 			// Sewers
 			t = AddThing(16666, (556, 3272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
@@ -143,8 +143,8 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_2);
 
 			// Trainers (after accepting the mission to destroy the power crystal)
-			t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
-			t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
+			//t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
+			//t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
 
 			// Town (after accepting the mission to destroy the power crystal)
 			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
@@ -157,10 +157,10 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
 
 			// Trainers (after accepting castle assault mission)
-			t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
-			t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
-			t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
-			t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+			//t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
+			//t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
+			//t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+			//t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
 
 			break;
 
@@ -318,21 +318,21 @@ extend class BetterStrifeLevelPostProcessor
 			t = AddThing(16666, (-576, 8960, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
 
 			// Trainers (seek the Oracle)
-			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_1);
-			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_1);
-			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_2);
-			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_2);
-			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
-			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
-			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
-			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+			//t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_1);
+			//t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_1);
+			//t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_2);
+			//t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_2);
+			//t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+			//t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+			//t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+			//t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
 
 			// Macil (bad ending: kill Macil quest)
 			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
 
 			// Trainers (bad ending: kill Macil quest)
-			t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
-			t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
+			//t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
+			//t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
 
 			// Borderlands (bad ending: after killing Macil)
 			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_BAD_KILLED_MACIL);
