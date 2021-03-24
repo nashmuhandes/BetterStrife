@@ -1,15 +1,15 @@
 AddOptionMenu "OptionsMenu"
 {
-	StaticText ""
 	StaticText "Better Strife v0.1"
 	Submenu "$OPTMNU_BETTERSTRIFE", "BetterStrifeOptionMenu"
+	StaticText ""
 }
 
 AddOptionMenu "OptionsMenuSimple"
 {
-	StaticText ""
 	StaticText "Better Strife v0.1"
 	Submenu "$OPTMNU_BETTERSTRIFE", "BetterStrifeOptionMenu"
+	StaticText ""
 }
 
 OptionMenu "BetterStrifeOptionMenu"
