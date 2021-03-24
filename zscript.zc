@@ -1,20 +1,61 @@
 version "4.5.0"
 
+// Copyright 2021 Nash Muhandes
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions
+// are met:
+//
+// 1. Redistributions of source code must retain the above copyright
+//    notice, this list of conditions and the following disclaimer.
+// 2. Redistributions in binary form must reproduce the above copyright
+//    notice, this list of conditions and the following disclaimer in the
+//    documentation and/or other materials provided with the distribution.
+// 3. The name of the author may not be used to endorse or promote products
+//    derived from this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+// OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+// THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+// Core
 #include "zscript/BetterStrifeGutamatics/Include.zsc"
-#include "zscript/BetterStrife/BetterStrifeLevelPostProcessor/BetterStrifeLevelPostProcessor.zc"
-#include "zscript/BetterStrife/BetterStrifeLevelPostProcessor/StrifeQuestMarkers.zc"
-//#include "zscript/BetterStrife/BetterStrifeLevelPostProcessor/SVEQuestMarkers.zc"
-#include "zscript/BetterStrife/BetterStrifeMarkerProjectionHandler/BetterStrifeMarkerProjectionHandler.zc"
 #include "zscript/BetterStrife/BetterStrifeHandler/BetterStrifeHandler.zc"
+
+// Level post processor
+#include "zscript/BetterStrife/BetterStrifeLevelPostProcessor/BetterStrifeLevelPostProcessor.zc"
+
+// Actor plugins
 #include "zscript/BetterStrife/BetterStrifePlayerPlugin/BetterStrifePlayerPlugin.zc"
-#include "zscript/BetterStrife/BetterStrifePlayerFlashlight/BetterStrifePlayerFlashlight.zc"
-#include "zscript/BetterStrife/BetterStrifeExitMarker/BetterStrifeExitMarker.zc"
+#include "zscript/BetterStrife/BetterStrifeOraclePlugin/BetterStrifeOraclePlugin.zc"
+
+// Quest
 #include "zscript/BetterStrife/BetterStrifeQuest/BetterStrifeQuest.zc"
 #include "zscript/BetterStrife/BetterStrifeQuestHandler/BetterStrifeQuestHandler.zc"
 #include "zscript/BetterStrife/BetterStrifeQuestMarker/BetterStrifeQuestMarker.zc"
-#include "zscript/BetterStrife/BetterStrifeOraclePlugin/BetterStrifeOraclePlugin.zc"
+#include "zscript/BetterStrife/BetterStrifeLevelPostProcessor/StrifeQuestMarkers.zc"
+//#include "zscript/BetterStrife/BetterStrifeLevelPostProcessor/SVEQuestMarkers.zc"
 
+// World actors
 #include "zscript/BetterStrife/BetterStrifeMeat/BetterStrifeMeat.zc"
 #include "zscript/BetterStrife/BetterStrifeGlassJunk/BetterStrifeGlassJunk.zc"
 
+// Exit markers
+#include "zscript/BetterStrife/BetterStrifeExitMarker/BetterStrifeExitMarker.zc"
+
+// Inventory
+#include "zscript/BetterStrife/BetterStrifePlayerFlashlight/BetterStrifePlayerFlashlight.zc"
+
+// HUD and UI
+#include "zscript/BetterStrife/BetterStrifeMarkerProjectionHandler/BetterStrifeMarkerProjectionHandler.zc"
+
+// Options menu
 #include "zscript/BetterStrife/BetterStrifeOptionMenu/BetterStrifeOptionMenu.zc"
