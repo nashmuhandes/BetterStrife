@@ -108,7 +108,8 @@ class BetterStrifePlayerPlugin : Inventory
 			),
 			spoti: 15.0,
 			spoto: 25.0,
-			spotp: Owner.Pitch
+			// use some pitch outside of the -90 to 90 range to force it to use the attached actor's pitch
+			spotp: 180.
 		);
 	}
 
@@ -129,9 +130,9 @@ class BetterStrifePlayerPlugin : Inventory
 		if (!cvFlashlightEnabled) return;
 
 		// kill the light if player is dead
-		if (Owner.Health <= 0)
+		if (Owner.Health <= 0 && isFlashlightOn)
 		{
-			if (isFlashlightOn) isFlashlightOn = false;
+			isFlashlightOn = false;
 			DestroyFlashlight();
 		}
 
@@ -143,16 +144,6 @@ class BetterStrifePlayerPlugin : Inventory
 			{
 				Owner.A_GiveInventory("BetterStrifePlayerFlashlight", 1);
 			}
-
-			// spawn or despawn the actual light
-			if (isFlashlightOn)
-			{
-				SpawnFlashlight();
-			}
-			else
-			{
-				DestroyFlashlight();
-			}
 		}
 		// flashlight setting is disabled
 		else
@@ -162,6 +153,19 @@ class BetterStrifePlayerPlugin : Inventory
 				Owner.A_TakeInventory("BetterStrifePlayerFlashlight", 0x7FFFFFFF);
 			}
 			isFlashlightOn = false;
+			DestroyFlashlight();
+		}
+	}
+
+	void ToggleFlashlight(void)
+	{
+		isFlashlightOn = !isFlashlightOn;
+		if (isFlashlightOn)
+		{
+			SpawnFlashlight();
+		}
+		else
+		{
 			DestroyFlashlight();
 		}
 	}

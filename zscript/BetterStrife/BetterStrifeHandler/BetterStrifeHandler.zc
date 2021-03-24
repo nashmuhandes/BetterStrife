@@ -139,7 +139,11 @@ class BetterStrifeHandler : EventHandler
 		//===========================================================================
 		if (e.Name == 'EV_ToggleFlashlight')
 		{
-			ToggleFlashlight(pmo);
+			let plugin = BetterStrifePlayerPlugin.Find(pmo);
+			if (plugin)
+			{
+				plugin.ToggleFlashlight();
+			}
 		}
 		//===========================================================================
 		//
@@ -172,6 +176,13 @@ class BetterStrifeHandler : EventHandler
 
 		// increase JumpZ just enough to enable the squatting animation
 		pmo.JumpZ *= 1.00000000001;
+
+		// spawn flashlight if it's turned on upon entering the map
+		let plugin = BetterStrifePlayerPlugin.Find(pmo);
+		if (plugin && plugin.isFlashlightOn)
+		{
+			plugin.SpawnFlashlight();
+		}
 	}
 
 	void ResurrectPlayer(PlayerPawn pmo)
@@ -179,19 +190,6 @@ class BetterStrifeHandler : EventHandler
 		if (!pmo) return;
 		//Console.Printf("ResurrectPlayer() running for player %d", pmo.PlayerNumber() + 1);
 		SetupPlayer(pmo);
-	}
-
-	//===========================================================================
-	//
-	//
-	//
-	//===========================================================================
-
-	void ToggleFlashlight(PlayerPawn pmo)
-	{
-		let plugin = BetterStrifePlayerPlugin.Find(pmo);
-		if (!plugin) return;
-		plugin.isFlashlightOn = !plugin.isFlashlightOn;
 	}
 
 	//===========================================================================
