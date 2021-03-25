@@ -62,6 +62,7 @@ class BetterStrifeQuestMarker : MapMarker
 	{
 		Radius 4;
 		Height 8;
+		FloatBobPhase 0;
 		+MOVEWITHSECTOR
 	}
 
