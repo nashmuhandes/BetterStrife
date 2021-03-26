@@ -41,6 +41,15 @@ class BetterStrifeHandler : EventHandler
 	//
 	//===========================================================================
 
+	override void PlayerEntered(PlayerEvent e)
+	{
+		let pmo = players[e.PlayerNumber].mo;
+		if (pmo && pmo.player)
+		{
+			SetupPlayer(pmo);
+		}
+	}
+
 	override void PlayerSpawned(PlayerEvent e)
 	{
 		let pmo = players[e.PlayerNumber].mo;
@@ -175,7 +184,10 @@ class BetterStrifeHandler : EventHandler
 		pmo.A_GiveInventory("BetterStrifePlayerPlugin", 1);
 
 		// increase JumpZ just enough to enable the squatting animation
-		pmo.JumpZ *= 1.00000000001;
+		if (pmo.GetClass() == 'StrifePlayer')
+		{
+			pmo.JumpZ = pmo.Default.JumpZ * 1.00000000001;
+		}
 
 		// spawn flashlight if it's turned on upon entering the map
 		let plugin = BetterStrifePlayerPlugin.Find(pmo);
