@@ -41,10 +41,10 @@ class BetterStrifeHandler : EventHandler
 	//
 	//===========================================================================
 
-	override void PlayerEntered(PlayerEvent e)
+	override void PlayerSpawned(PlayerEvent e)
 	{
 		let pmo = players[e.PlayerNumber].mo;
-		if (pmo)
+		if (pmo && pmo.player)
 		{
 			SetupPlayer(pmo);
 		}
@@ -53,7 +53,7 @@ class BetterStrifeHandler : EventHandler
 	override void PlayerRespawned(PlayerEvent e)
 	{
 		let pmo = players[e.PlayerNumber].mo;
-		if (pmo)
+		if (pmo && pmo.player)
 		{
 			ResurrectPlayer(pmo);
 		}
