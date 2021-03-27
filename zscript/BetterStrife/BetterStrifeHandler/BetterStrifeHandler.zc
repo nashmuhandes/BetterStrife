@@ -100,6 +100,7 @@ class BetterStrifeHandler : EventHandler
 		FixMerchant(mo);
 		FixOracle(mo);
 		FixWaterFountain(mo);
+		FixPrisonPass(mo);
 	}
 
 	override void WorldTick(void)
@@ -319,6 +320,14 @@ class BetterStrifeHandler : EventHandler
 		if (mo is "WaterFountain")
 		{
 			mo.ActiveSound = "world/waterfountain";
+		}
+	}
+
+	void FixPrisonPass(Actor mo)
+	{
+		if (mo is "PrisonPass" && mo.bSpecial)
+		{
+			mo.Destroy();
 		}
 	}
 
