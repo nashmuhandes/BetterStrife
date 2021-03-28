@@ -107,6 +107,7 @@ class BetterStrifeHandler : EventHandler
 	{
 		MarkExitLines();
 		FixDegninOre();
+		FixZombie();
 	}
 
 	override void WorldUnloaded(WorldEvent e)
@@ -366,6 +367,27 @@ class BetterStrifeHandler : EventHandler
 				{
 					// Force Degnin Ore to scroll in SVE
 					mo.A_CheckTerrain();
+				}
+			}
+		}
+	}
+
+	void FixZombie(void)
+	{
+		// Remove the zombies from the conversion chapel map at the end of the line
+		// Addresses this GZDoom bug: https://forum.zdoom.org/viewtopic.php?f=2&t=71868
+		// Also prevents gib build-up as Better Strife implements permanent gibs
+		if (Level.levelnum == 24)
+		{
+			ThinkerIterator it = ThinkerIterator.Create("Zombie");
+			Actor mo;
+			while (mo = Actor(it.Next()))
+			{
+				//Console.Printf("%d", mo.CurSector.special);
+				//Console.Printf("%d", mo.CurSector.damageamount);
+				if (mo.CurSector && mo.CurSector.damageamount > 0)
+				{
+					mo.Destroy();
 				}
 			}
 		}
