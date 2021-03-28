@@ -37,7 +37,7 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 		SpawnStrifeQuestMarkers(checksum, mapname);
 		SpawnSVEQuestMarkers(checksum, mapname);
 		//SpawnExtraMerchants(checksum, mapname);
-		FixStrifeMaps(checksum, mapname);
+		FixMaps(checksum, mapname);
 	}
 
 	//===========================================================================
@@ -65,7 +65,7 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 	//
 	//===========================================================================
 
-	void FixStrifeMaps(Name checksum, String mapname)
+	void FixMaps(Name checksum, String mapname)
 	{
 		switch (checksum)
 		{
@@ -74,6 +74,7 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 			return;
 
 		case '4A79D4C48352804FAB3557EE423ADAFE': // strife1.wad map07 - Castle
+		case 'ECB3421D4C79C67EBC9342E0579F8804': // sve.wad map07 - Castle
 			// Fix missing textures on the platform just before the entrance to The Programmer's Keep
 			SetWallTexture(2778, Line.back, Side.bottom, "CONCRT01");
 			SetWallTexture(2779, Line.back, Side.bottom, "CONCRT01");
@@ -86,17 +87,20 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 			break;
 
 		case '28CB8D6614024C51C8DB00C7ADBFD857': // strife1.wad map11 - Borderlands
+		case '1097B8706E00273294389D1FEB5E94A5': // sve.wad map11 - Borderlands
 			// Fix New Front Base teleporter flat offset
 			Level.Sectors[224].AddXOffset(Sector.floor, -24.0);
 			break;
 
 		case 'E3E6ABE44B1C034F19385AD1B19BEC97': // strife1.wad map16 - Fortress: Bishop's Tower
+		case '900B1CAC3AB7DF6C2FFB5C429C523FB7': // sve.wad map16 - Fortress: Bishop's Tower
 			// Fix missing textures
 			SetWallTexture(2827, Line.back, Side.bottom, "AZWAL04");
 			SetWallTexture(2660, Line.back, Side.bottom, "AZWAL04");
 			break;
 
 		case '1240E48EE30E52D7742DC3785BC0C919': // strife1.wad map19 - Fortress: Security Complex
+		case '5215723CBF14B74A0CB901473434576B': // sve.wad map19 - Fortress: Security Complex
 			// Fix dead end caused by exiting Administration before destroying the computer
 			// https://doomwiki.org/wiki/Strife_dead_ends#Leave_Administration_early
 			// Just get rid of the barriers that prevent backtracking from The Bailey
@@ -107,9 +111,12 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 			SetSectorTexture(10, Sector.ceiling, "F_GENTAN");
 			ClearSectorTags(8);
 			ClearSectorTags(10);
+			SetLineSpecial(1723, 0);
+			SetLineSpecial(1887, 0);
 			break;
 
 		case '252AF75417C87B680AD2CA48E52DC716': // strife1.wad map30 - Abandoned Front Base
+		case 'C45DCE904B6D4F9AC76B025499D9281E': // sve.wad map30 - Abandoned Front Base
 			// Fix prison teleporter flat offset
 			Level.Sectors[38].AddXOffset(Sector.floor, 32.0);
 			break;
