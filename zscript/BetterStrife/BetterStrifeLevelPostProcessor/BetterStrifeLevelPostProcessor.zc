@@ -37,7 +37,7 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 		SpawnStrifeQuestMarkers(checksum, mapname);
 		SpawnSVEQuestMarkers(checksum, mapname);
 		//SpawnExtraMerchants(checksum, mapname);
-		FixMAP19DeadEnd(checksum, mapname);
+		FixStrifeMaps(checksum, mapname);
 	}
 
 	//===========================================================================
@@ -65,7 +65,7 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 	//
 	//===========================================================================
 
-	void FixMAP19DeadEnd(Name checksum, String mapname)
+	void FixStrifeMaps(Name checksum, String mapname)
 	{
 		switch (checksum)
 		{
@@ -83,13 +83,17 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 			SetLineFlags(2779, Line.ML_DONTPEGTOP | Line.ML_DONTPEGBOTTOM);
 			SetLineFlags(2780, Line.ML_DONTPEGTOP | Line.ML_DONTPEGBOTTOM);
 			SetLineFlags(2781, Line.ML_DONTPEGTOP | Line.ML_DONTPEGBOTTOM);
-
 			break;
 
 		case '28CB8D6614024C51C8DB00C7ADBFD857': // strife1.wad map11 - Borderlands
 			// Fix New Front Base teleporter flat offset
 			Level.Sectors[224].AddXOffset(Sector.floor, -24.0);
+			break;
 
+		case 'E3E6ABE44B1C034F19385AD1B19BEC97': // strife1.wad map16 - Fortress: Bishop's Tower
+			// Fix missing textures
+			SetWallTexture(2827, Line.back, Side.bottom, "AZWAL04");
+			SetWallTexture(2660, Line.back, Side.bottom, "AZWAL04");
 			break;
 
 		case '1240E48EE30E52D7742DC3785BC0C919': // strife1.wad map19 - Fortress: Security Complex
@@ -103,11 +107,11 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 			SetSectorTexture(10, Sector.ceiling, "F_GENTAN");
 			ClearSectorTags(8);
 			ClearSectorTags(10);
+			break;
 
 		case '252AF75417C87B680AD2CA48E52DC716': // strife1.wad map30 - Abandoned Front Base
 			// Fix prison teleporter flat offset
 			Level.Sectors[38].AddXOffset(Sector.floor, 32.0);
-
 			break;
 		}
 	}
