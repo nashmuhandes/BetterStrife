@@ -35,5 +35,747 @@ extend class BetterStrifeLevelPostProcessor
 {
 	void SpawnSVEQuestMarkers(Name checksum, String mapname)
 	{
+		int t;
+		int p;
+
+		switch (checksum)
+		{
+		default:
+		case 'none':
+			return;
+
+		case 'E80503C91F1304142FFDF51EEA7A9653': // sve.wad map01 - Sanctuary
+			// Beldin
+			t = AddThing(16666, (3168, 5584, 0), BetterStrifeQuest.CQ_GET_BELDINS_RING); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 1);
+
+			// Sanctuary exit after getting Beldin's ring
+			t = AddThing(16666, (3224, 5080, 0), BetterStrifeQuest.CQ_FOUND_BELDINS_RING); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 1);
+
+			break;
+
+		case 'A4ABA612A8FE682787DEBEAF70637836': // sve.wad map02 - Town
+			// Rowan (start of the game)
+			t = AddThing(16666, (3288, 4040, 0), BetterStrifeQuest.CQ_FIND_HELP);
+
+			// Entrance to Sanctuary
+			t = AddThing(16666, (1808, 6048, 0), BetterStrifeQuest.CQ_GET_BELDINS_RING); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 1);
+
+			// Rowan (after getting Beldin's ring)
+			t = AddThing(16666, (3288, 4040, 0), BetterStrifeQuest.CQ_FOUND_BELDINS_RING); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 1);
+
+			// Bridge
+			t = AddThing(16666, (1456, 4704, 0), BetterStrifeQuest.CQ_LOOK_FOR_FRONT_BASE_1);
+
+			// Town hall
+			t = AddThing(16666, (448, 4320, 0), BetterStrifeQuest.CQ_LOOK_FOR_FRONT_BASE_2);
+
+			// Geoff
+			t = AddThing(16666, (16, 3760, 0), BetterStrifeQuest.CQ_LOOK_FOR_FRONT_BASE_3);
+
+			// Irale's shop
+			t = AddThing(16666, (32, 5696, 0), BetterStrifeQuest.CQ_VISIT_IRALE_1);
+
+			// Governor (first time)
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TALK_TO_GOVERNOR_1);
+
+			// MacGuffin
+			t = AddThing(16666, (3336, 4680, 0), BetterStrifeQuest.CQ_TALK_TO_MACGUFFIN);
+
+			// Governer (after picking up broken coupling)
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_FOUND_BROKEN_COUPLING);
+
+			// Town hall (after destroying The Front's coupling)
+			t = AddThing(16666, (384, 4160, 0), BetterStrifeQuest.CQ_DESTROYED_FRONTS_COUPLING);
+
+			// Governor (after taking out the scanning team)
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_TOOK_OUT_SCANNING_TEAM);
+
+			// Power station (after accepting quest to kill Derwin)
+			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_FIND_DERWIN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 9);
+
+			// Governor (after getting Derwin's ear)
+			t = AddThing(16666, (1728, 3136, 0), BetterStrifeQuest.CQ_GOT_DERWINS_EAR); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 9);
+
+			// Prison
+			t = AddThing(16666, (-784, 5056, 0), BetterStrifeQuest.CQ_GO_TO_PRISON);
+
+			// Power station (after accepting mission from Macil to destroy the power crystal)
+			t = AddThing(16666, (-224, 7648, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
+
+			// Trainers; Medic and Irale, respectively (after destroying the power crystal and before the sewer mission)
+			//t = AddThing(16666, (440, 5272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_1);
+			//t = AddThing(16666, (-48, 5528, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_1);
+			//t = AddThing(16666, (440, 5272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
+			//t = AddThing(16666, (-48, 5528, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
+
+			// Sewers
+			t = AddThing(16666, (556, 3272, 0), BetterStrifeQuest.CQ_BEFORE_SEWER_MISSION_2);
+
+			// Guard with uniform (for Weran's quest)
+			t = AddThing(16666, (768, 2848, 0), BetterStrifeQuest.CQ_GET_UNIFORM_FOR_WERAN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 15);
+
+			// Sewers (after picking up the guard's uniform)
+			t = AddThing(16666, (1232, 2720, 0), BetterStrifeQuest.CQ_GET_UNIFORM_FOR_WERAN); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 15);
+
+			// Irale (after obtaining flamethrower parts
+			t = AddThing(16666, (-48, 5528, 0), BetterStrifeQuest.CQ_HELPED_WERAN);
+
+			// Front Base (after destroying the castle gate controls)
+			t = AddThing(16666, (-360, 3448, 0), BetterStrifeQuest.CQ_DESTROYED_CASTLE_GATE_PISTON);
+
+			// Castle (after accepting castle assault mission)
+			t = AddThing(16666, (4736, 4928, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
+			t = AddThing(16666, (4736, 4928, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Borderlands (seek the Oracle)
+			t = AddThing(16666, (4192, 7040, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+
+			break;
+
+		case '53C6581CB9BC334D6FF0B2E7DAA16944': // sve.wad map03 - Front Base
+			// Macil (first time)
+			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_1);
+
+			// Town (after accepting Macil's first mission to talk to the Governor)
+			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_VISIT_IRALE_1);
+
+			// Macil (after freeing the prisoners)
+			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_2);
+
+			// Trainers (after accepting the mission to destroy the power crystal)
+			//t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
+			//t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
+
+			// Town (after accepting the mission to destroy the power crystal)
+			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
+
+			// Macil (after destroying the gate controls)
+			t = AddThing(16666, (0, 1968, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_3);
+
+			// Town (after accepting castle assault mission)
+			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
+			t = AddThing(16666, (1560, 2600, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Trainers (after accepting castle assault mission)
+			//t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
+			//t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
+			//t = AddThing(16666, (-824, 2768, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+			//t = AddThing(16666, (-872, 2288, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			break;
+
+		case '4BA20A2DAE4D52196E6B06B142EAE9EB': // sve.wad map04 - Power Station
+			// Derwin
+			t = AddThing(16666, (2272, 4424, 0), BetterStrifeQuest.CQ_FIND_DERWIN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 9);
+
+			// Town (after getting Derwin's ear)
+			t = AddThing(16666, (576, 3040, 0), BetterStrifeQuest.CQ_GOT_DERWINS_EAR); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 9);
+
+			// Worner
+			t = AddThing(16666, (2176, 3712, 0), BetterStrifeQuest.CQ_DESTROY_THE_POWER_CRYSTAL);
+
+			// Front door to reactor core (after getting the passcard from Worner)
+			t = AddThing(16666, (-32, 4224, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_TECHNICIAN);
+
+			// Technician
+			t = AddThing(16666, (-1024, 2056, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_TECHNICIAN);
+
+			// Technician that has the store room key
+			t = AddThing(16666, (-384, 4912, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_TECHNICIAN);
+
+			// Store room
+			t = AddThing(16666, (2192, 3456, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_TECHNICIAN);
+
+			// Switch to computer tech guy
+			t = AddThing(16666, (-832, 2464, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_1);
+
+			// Switch inside suicide room
+			t = AddThing(16666, (-400, 3392, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_1);
+
+			// Terminal that drops the coolant level when destroyed
+			t = AddThing(16666, (-2256, 3200, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_1);
+
+			// Sammis
+			t = AddThing(16666, (-2232, 5160, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_1);
+
+			// Ketrick
+			t = AddThing(16666, (-3064, 4224, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_2); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 14);
+
+			// Power crystal
+			t = AddThing(16666, (-2560, 4224, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_2); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 14);
+
+			// Reactor core doorway (after destroying the power crystal)
+			t = AddThing(16666, (-1312, 4224, 0), BetterStrifeQuest.CQ_POWER_STATION_TALK_TO_KETRICK_2); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 14);
+
+			// Town (after destroying the power crystal)
+			t = AddThing(16666, (576, 3040, 0), BetterStrifeQuest.CQ_POWER_STATION_GET_OUT);
+
+			break;
+
+		case 'F46DEB7B2ABEDB9677269B1539F7ABB8': // sve.wad map05 - Prison
+			// Warden Montag
+			t = AddThing(16666, (832, -272, 0), BetterStrifeQuest.CQ_TALK_TO_WARDEN);
+
+			// Entrance to prison (after talking to the warden)
+			t = AddThing(16666, (-368, -640, 0), BetterStrifeQuest.CQ_DONE_TALKING_TO_WARDEN);
+
+			// Door to control area (after crossing the green line and Blackbird says "guess there's no free lunch"
+			t = AddThing(16666, (-222, 1730, 0), BetterStrifeQuest.CQ_BROKE_INTO_PRISON);
+
+			// Judge Wolenick
+			t = AddThing(16666, (-240, 3792, 0), BetterStrifeQuest.CQ_LOOK_FOR_JUDGE); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 12);
+
+			// Switch that frees the prisoners
+			t = AddThing(16666, (-64, 1376, 0), BetterStrifeQuest.CQ_CUT_JUDGES_HAND);
+
+			// Front Base teleporter (after freeing the prisoners)
+			t = AddThing(16666, (-3040, 1568, 0), BetterStrifeQuest.CQ_FREED_PRISONERS);
+
+			break;
+
+		case '3F2BC1BA58B80E4CDF1DB031CA454F79': // sve.wad map06 - Sewers
+			// Weran (first time)
+			t = AddThing(16666, (3680, 96, 0), BetterStrifeQuest.CQ_LOOK_FOR_WERAN_1);
+
+			// Town (after accepting Weran's quest to get the uniform)
+			t = AddThing(16666, (3440, 1824, 0), BetterStrifeQuest.CQ_GET_UNIFORM_FOR_WERAN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 15);
+
+			// Weran (after getting the guard's uniform)
+			t = AddThing(16666, (3680, 96, 0), BetterStrifeQuest.CQ_GET_UNIFORM_FOR_WERAN); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 15);
+
+			// Castle reclamation tank (after giving the guard's uniform to Weran)
+			t = AddThing(16666, (7200, 1408, 0), BetterStrifeQuest.CQ_HELPED_WERAN); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+			t = AddThing(16666, (7200, 1408, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_PISTON); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Switch that opens the exit stairway to the castle reclamation tank
+			t = AddThing(16666, (7000, 888, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_PISTON); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Valve that raises access to the gate piston
+			t = AddThing(16666, (8400, 3696, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_PISTON); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Castle gate piston
+			t = AddThing(16666, (5952, 3384, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_PISTON); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Teleporter shortcut (after destroying the gate piston)
+			t = AddThing(16666, (6720, 768, 0), BetterStrifeQuest.CQ_DESTROYED_CASTLE_GATE_PISTON);
+
+			// Town (after destroying the gate piston)
+			t = AddThing(16666, (3440, 1824, 0), BetterStrifeQuest.CQ_DESTROYED_CASTLE_GATE_PISTON);
+
+			break;
+
+		case 'ECB3421D4C79C67EBC9342E0579F8804': // sve.wad map07 - Castle
+			// Switch that opens the bars to the reclamation tank
+			t = AddThing(16666, (-80, -1456, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_PISTON); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Valve that drains the reclamation tank
+			t = AddThing(16666, (-112, 96, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_PISTON); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Back to the sewers through the reclamation tank
+			t = AddThing(16666, (-512, 0, 0), BetterStrifeQuest.CQ_DESTROY_CASTLE_GATE_PISTON); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 16);
+
+			// Castle entrance (from the front gate)
+			t = AddThing(16666, (-2528, 1856, 0), BetterStrifeQuest.CQ_ASSAULT_CASTLE);
+
+			// False Programmer (computer room)
+			t = AddThing(16666, (-1016, 2640, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Audience Chamber
+			t = AddThing(16666, (2688, 2464, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Training Facility
+			t = AddThing(16666, (1024, -800, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Switches that open the way to The Programmer's Keep
+			t = AddThing(16666, (3104, 1168, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+			t = AddThing(16666, (3106, 754, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// The Programmer's Keep
+			t = AddThing(16666, (4272, 960, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			break;
+
+		case '5ED7AE938A486878E87690A436E451FB': // sve.wad map08 - Audience Chamber
+			// False Programmer (gives silver key)
+			t = AddThing(16666, (1216, 2976, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			break;
+
+		case '6CEEF63FBBE4459BA8A0E73DF308E196': // sve.wad map09 - Castle: Programmer's Keep
+			// The Programmer
+			t = AddThing(16666, (5376, 2240, 0), BetterStrifeQuest.CQ_KILL_PROGRAMMER);
+
+			break;
+
+		case '0A9721C0CF54FF6224FE7D326A2B9B85': // sve.wad map10 - New Front Base
+			// Macil (just woke up after killing The Programmer)
+			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_TALK_TO_MACIL_4);
+
+			// Town (seek the Oracle)
+			t = AddThing(16666, (-576, 8960, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_1);
+			t = AddThing(16666, (-576, 8960, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_2);
+			t = AddThing(16666, (-576, 8960, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+			t = AddThing(16666, (-576, 8960, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+
+			// Trainers (seek the Oracle)
+			//t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_1);
+			//t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_1);
+			//t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_2);
+			//t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_2);
+			//t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+			//t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+			//t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+			//t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+
+			// Macil (bad ending: kill Macil quest)
+			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
+
+			// Trainers (bad ending: kill Macil quest)
+			//t = AddThing(16666, (4448, 7640, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
+			//t = AddThing(16666, (5216, 7372, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
+
+			// Borderlands (bad ending: after killing Macil)
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_BAD_KILLED_MACIL);
+
+			// Borderlands (good ending: accept Macil's quest to kill the Oracle)
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_GOOD_KILL_ORACLE);
+
+			// Macil (good ending: killed the Oracle for Macil)
+			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_GOOD_KILLED_ORACLE);
+
+			// Borderlands (good ending: find Richter)
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_GOOD_FIND_RICHTER);
+
+			// Macil (good ending: after destroying the converter)
+			t = AddThing(16666, (4864, 9648, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
+
+			// Borderlands (good ending: killed Macil)
+			t = AddThing(16666, (5152, 9632, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+
+			break;
+
+		case '1097B8706E00273294389D1FEB5E94A5': // sve.wad map11 - Borderlands
+			// Cave to the Oracle's temple
+			t = AddThing(16666, (-1024, 2944, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_3);
+
+			// Stairway to the Oracle's temple
+			t = AddThing(16666, (-1376, 5280, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+
+			// Keymaster
+			t = AddThing(16666, (1952, 3392, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER_1);
+			t = AddThing(16666, (1952, 3392, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER_2);
+
+			// The Bailey (after getting the key from the Keymaster)
+			t = AddThing(16666, (704, 6944, 0), BetterStrifeQuest.CQ_GOT_KEY_FROM_KEYMASTER);
+			t = AddThing(16666, (704, 6944, 0), BetterStrifeQuest.CQ_GO_TO_THE_BAILEY);
+
+			// Cave to the Oracle's temple (after killing The Bishop)
+			t = AddThing(16666, (-1024, 2944, 0), BetterStrifeQuest.CQ_KILLED_THE_BISHOP);
+
+			// Temple of the Oracle teleporter (after killing The Bishop)
+			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_ENERGY_REPORT_ORACLE);
+
+			// New Front Base teleporter (bad ending: kill Macil quest)
+			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
+
+			// Temple of the Oracle teleporter (bad ending: after killing Macil)
+			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_BAD_KILLED_MACIL);
+
+			// Temple of the Oracle teleporter (good ending: accept Macil's quest to kill the Oracle)
+			t = AddThing(16666, (-1376, 4064, 0), BetterStrifeQuest.CQ_GOOD_KILL_ORACLE);
+
+			// New Front Base teleporter (good ending: killed the Oracle for Macil)
+			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_GOOD_KILLED_ORACLE);
+
+			// Order Commons (good ending: find Richter)
+			t = AddThing(16666, (2769, 2992, 0), BetterStrifeQuest.CQ_GOOD_FIND_RICHTER);
+
+			// New Front Base teleporter (good ending: after destroying the converter)
+			t = AddThing(16666, (858, 2560, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
+
+			// Order Commons (good ending: after killing Macil)
+			t = AddThing(16666, (2769, 2992, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+
+			break;
+
+		case 'C40C878D00E0BC8F7CF3D08DBDDBC36A': // sve.wad map12 - The Temple of the Oracle
+			// The Oracle (first time)
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_SEEK_ORACLE_4);
+
+			// Borderlands teleporter (after accepting The Oracle's quest to kill The Bishop)
+			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER_1);
+			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_GO_TO_KEYMASTER_2);
+
+			// The Oracle (after killing The Bishop)
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_ENERGY_REPORT_ORACLE);
+
+			// Borderlands teleporter (bad ending: kill Macil quest)
+			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_BAD_KILL_MACIL);
+
+			// The Oracle (bad ending: after killing Macil)
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_BAD_KILLED_MACIL);
+
+			// Proving Grounds teleporter (bad ending: after accepting The Oracle's quest to kill the Loremaster)
+			t = AddThing(16666, (-1280, 5440, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+
+			// The Oracle (bad ending: after killing the Loremaster)
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_BAD_KILLED_LOREMASTER);
+
+			// Proving Grounds (bad ending: killed the Oracle)
+			t = AddThing(16666, (-1280, 5440, 0), BetterStrifeQuest.CQ_BAD_KILLED_ORACLE);
+
+			// The Oracle (good ending: accepted Macil's quest to kill the Oracle)
+			t = AddThing(16666, (-572, 5384, 0), BetterStrifeQuest.CQ_GOOD_KILL_ORACLE);
+
+			// Borderlands teleporter (good ending: killed the Oracle for Macil)
+			t = AddThing(16666, (-352, 5088, 0), BetterStrifeQuest.CQ_GOOD_KILLED_ORACLE);
+
+			break;
+
+		case '9AD30A0C668A0106AA827E7F716295E8': // sve.wad map13 - Catacombs
+			// Switches to progress the level (good ending: find mine key)
+			t = AddThing(16666, (-695, 1194, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_1);
+			t = AddThing(16666, (-1259, -455, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_1);
+
+			// Catacombs: Ruined Temple (good ending: find mine key)
+			t = AddThing(16666, (-2018, -1445, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_1);
+
+			// Order Commons (good ending: after getting the mine key)
+			t = AddThing(16666, (1037, 1094, 0), BetterStrifeQuest.CQ_GOOD_GOT_MINE_KEY);
+
+			break;
+
+		case 'B60C0A9027557B2B982EAE60940ED95F': // sve.wad map14 - Mines
+			// Enter mine for the first time (good ending: after getting mine key)
+			t = AddThing(16666, (-195, 2970, 0), BetterStrifeQuest.CQ_GOOD_GOT_MINE_KEY);
+
+			// Degnin Ore
+			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_GOOD_LOOK_FOR_ORE);
+			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_GOOD_LOOK_FOR_ORE_AND_TRANSMITTER_1);
+			t = AddThing(16666, (-1552, -2128, 0), BetterStrifeQuest.CQ_GOOD_LOOK_FOR_ORE_AND_TRANSMITTER_2);
+
+			// Transmitter
+			t = AddThing(16666, (1408, 887, 0), BetterStrifeQuest.CQ_GOOD_LOOK_FOR_ORE_AND_TRANSMITTER_1);
+			t = AddThing(16666, (1408, 887, 0), BetterStrifeQuest.CQ_GOOD_LOOK_FOR_ORE_AND_TRANSMITTER_2);
+
+			// Order Commons (good ending: non-stealthy way, after destroying the transmitter)
+			t = AddThing(16666, (-224, 3824, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_TRANSMITTER);
+
+			// Factory: Receiving (good ending: stealthier way, after destroying the transmitter)
+			t = AddThing(16666, (2736, -576, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_TRANSMITTER);
+
+			// Order Commons (good ending: after destroying converter)
+			t = AddThing(16666, (-224, 3824, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
+
+			// Factory: Receiving (good ending: after killing Macil)
+			t = AddThing(16666, (2736, -576, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+
+			break;
+
+		case '6F9569FFFF0C1405DC04385CDB3436E6': // sve.wad map15 - Fortress: Administration
+			// The various switches needed to progress to the computer core
+			t = AddThing(16666, (3872, -2528, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+			t = AddThing(16666, (6560, 160, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+			t = AddThing(16666, (6416, -224, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+			t = AddThing(16666, (4320, -496, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+
+			// Switch that exposes the computer core (very impressive, let's blow it up)
+			t = AddThing(16666, (6816, 928, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+
+			// Core Key
+			t = AddThing(16666, (2952, 1368, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+
+			// The computer core
+			t = AddThing(16666, (7104, 936, 0), BetterStrifeQuest.CQ_VERY_IMPRESSIVE); SetThingArgument(t, BetterStrifeQuestMarker.HideIfQuestItemCheck, 27);
+
+			// Escape after blowing up the computer core
+			t = AddThing(16666, (4928, -832, 0), BetterStrifeQuest.CQ_VERY_IMPRESSIVE); SetThingArgument(t, BetterStrifeQuestMarker.ShowIfQuestItemCheck, 27);
+
+			// The Bailey (after blowing up the computer core)
+			t = AddThing(16666, (3936, -3600, 0), BetterStrifeQuest.CQ_GET_OUT_OF_ADMIN);
+
+			break;
+
+		case '900B1CAC3AB7DF6C2FFB5C429C523FB7': // sve.wad map16 - Fortress: Bishop's Tower
+			// Entering The Bishop's Tower
+			t = AddThing(16666, (640, 1392, 0), BetterStrifeQuest.CQ_GET_OUT_OF_ADMIN);
+
+			// The Bishop
+			t = AddThing(16666, (640, 5952, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+
+			// Switches to open the front door
+			t = AddThing(16666, (96, 1248, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (1184, 1256, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+
+			// Middle switch needed to access the rest of the level
+			t = AddThing(16666, (640, 4352, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+
+			// Side switches needed to access The Bishop's room
+			t = AddThing(16666, (-1072, 3808, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (-1168, 3408, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (-1168, 4072, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (2352, 3808, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (2448, 3408, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+			t = AddThing(16666, (2448, 4072, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+
+			// Skull switch (opens The Bishop's room)
+			t = AddThing(16666, (640, 4968, 0), BetterStrifeQuest.CQ_FIND_THE_BISHOP);
+
+			// The Bailey (after killing The Bishop)
+			t = AddThing(16666, (640, 144, 0), BetterStrifeQuest.CQ_KILLED_THE_BISHOP);
+
+			break;
+
+		case '8317A4026000931CAC5CB185582B4EDC': // sve.wad map17 - Fortress: The Bailey
+			// First time entering The Bailey
+			t = AddThing(16666, (192, -32, 0), BetterStrifeQuest.CQ_GOT_KEY_FROM_KEYMASTER);
+			t = AddThing(16666, (192, -32, 0), BetterStrifeQuest.CQ_GO_TO_THE_BAILEY);
+
+			// Quincy (hospital)
+			t = AddThing(16666, (-280, 1212, 0), BetterStrifeQuest.CQ_TALK_TO_QUINCY);
+
+			// Fortress: Security Complex
+			t = AddThing(16666, (1664, 608, 0), BetterStrifeQuest.CQ_GO_TO_SECURITY_COMPLEX);
+
+			// Fortress: The Bishop's Tower (after blowing up the computer)
+			t = AddThing(16666, (-608, 3248, 0), BetterStrifeQuest.CQ_GET_OUT_OF_ADMIN);
+
+			// Borderlands (after killing The Bishop)
+			t = AddThing(16666, (-1472, -1336, 0), BetterStrifeQuest.CQ_KILLED_THE_BISHOP);
+
+			break;
+
+		case '936649C98740996C05BE961AA9058A67': // sve.wad map18 - Fortress: Stores
+			break;
+
+		case '5215723CBF14B74A0CB901473434576B': // sve.wad map19 - Fortress: Security Complex
+			// First time entering Security Complex
+			t = AddThing(16666, (1016, 3248, 0), BetterStrifeQuest.CQ_GO_TO_SECURITY_COMPLEX);
+			t = AddThing(16666, (256, 392, 0), BetterStrifeQuest.CQ_GO_TO_SECURITY_COMPLEX);
+
+			// Don't give up, straight ahead
+			t = AddThing(16666, (256, -768, 0), BetterStrifeQuest.CQ_DONT_GIVE_UP);
+
+			break;
+
+		case 'C6BFC4A41F739A30A4AC09DEE895DCE3': // sve.wad map20 - Factory: Receiving
+			// First time entering factory after destroying the transmitter (good ending)
+			t = AddThing(16666, (-930, -1154, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_TRANSMITTER);
+
+			// Conversion Chapel (good ending)
+			t = AddThing(16666, (-2767, -1152, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+
+			// Order Commons (good ending: after destroying converter)
+			t = AddThing(16666, (-256, -368, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
+
+			// Mines (good ending: after destroying converter)
+			t = AddThing(16666, (-3556, -2368, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
+
+			// Factory: Manufacturing (good ending: after killing Macil)
+			t = AddThing(16666, (-256, -4160, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+
+			break;
+
+		case 'B368A6D674B81B650DC37C8643BC9AA4': // sve.wad map21 - Factory: Manufacturing
+			// Switch that reveals an Inquisitor
+			t = AddThing(16666, (-880, 493, 0), BetterStrifeQuest.CQ_GOOD_FIND_LAB);
+
+			// Way to Proving Grounds
+			t = AddThing(16666, (130, 1473, 0), BetterStrifeQuest.CQ_GOOD_FIND_LAB);
+
+			// Proving Grounds
+			t = AddThing(16666, (992, 2208, 0), BetterStrifeQuest.CQ_GOOD_FIND_LAB);
+
+			break;
+
+		case '07B8629DEAE50991B3B372911EDC99D3': // sve.wad map22 - Factory: Forge
+			break;
+
+		case '13BDF7D41E33E302D21234316A600BBA': // sve.wad map23 - Order Commons
+			// Richter (first time)
+			t = AddThing(16666, (449, -735, 0), BetterStrifeQuest.CQ_GOOD_FIND_RICHTER);
+
+			// Exit to Catacombs (find mine key)
+			t = AddThing(16666, (2477, 1121, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_1);
+
+			// Exit to mines (after getting the mine key)
+			t = AddThing(16666, (1600, -1811, 0), BetterStrifeQuest.CQ_GOOD_GOT_MINE_KEY);
+
+			// Exit to factory (after blowing up the transmitter)
+			t = AddThing(16666, (2552, -1920, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_TRANSMITTER);
+
+			// Exit to Borderlands (after destroying converter)
+			t = AddThing(16666, (-376, 928, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
+
+			// Exit to mines (after killing Macil)
+			t = AddThing(16666, (1600, -1811, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+
+			// Exit to factory (after killing Macil)
+			t = AddThing(16666, (2552, -1920, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+
+			break;
+
+		case 'A1306ABECD39680421808E3FEE89A58E': // sve.wad map24 - Factory: Conversion Chapel
+			// Markers needed to progress the level
+			t = AddThing(16666, (-1504, 2864, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-1504, 2080, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-2114, 3055, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-1504, 3612, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-2033, -450, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-769, -448, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+
+			// Chapel Key
+			t = AddThing(16666, (-2656, 3616, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+
+			// Red Crystal Key
+			t = AddThing(16666, (-1536, 5944, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+
+			// Blue Crystal Key
+			t = AddThing(16666, (-1472, -1608, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+
+			// Red and Blue Crystal switches
+			t = AddThing(16666, (-860, 1136, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (-860, 782, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+
+			// The Converter
+			t = AddThing(16666, (2046, 943, 0), BetterStrifeQuest.CQ_GOOD_FIND_CONVERSION_CHAPEL);
+			t = AddThing(16666, (2046, 943, 0), BetterStrifeQuest.CQ_GOOD_DESTROY_CONVERTER);
+
+			// Exit to Factory: Receiving (after destorying the converter)
+			t = AddThing(16666, (-2432, 960, 0), BetterStrifeQuest.CQ_GOOD_DESTROYED_CONVERTER);
+
+			break;
+
+		case 'A35CD1D869B0473249E7F23FA925517A': // sve.wad map25 - Catacombs: Ruined Temple
+			// Altar
+			t = AddThing(16666, (3021, 1451, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_1);
+
+			// Mine key (near the Spectre)
+			t = AddThing(16666, (1972, 588, 0), BetterStrifeQuest.CQ_GOOD_FIND_MINE_KEY_2);
+
+			// Exit to Catacombs (after getting the mine key)
+			t = AddThing(16666, (4148, 2264, 0), BetterStrifeQuest.CQ_GOOD_GOT_MINE_KEY);
+
+			break;
+
+		case '27F31A6F186F2C928EF6E5450D1B891D': // sve.wad map26 - Proving Grounds
+			// Markers to progress the level, listed in sequencial order
+			// (Can't be bothered to label them here, I f#@king hate this level LOL
+			// Bad ending
+			t = AddThing(16666, (128, 832, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (464, 2464, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (2720, 928, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (1824, 1680, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (2592, 3360, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (1472, 2736, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (2720, 3360, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (2176, 2736, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			//t = AddThing(16666, (2400, 1696, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			//t = AddThing(16666, (1824, 1824, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			//t = AddThing(16666, (3008, 3392, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			t = AddThing(16666, (3680, 1760, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+			// Good ending
+			t = AddThing(16666, (128, 832, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+			t = AddThing(16666, (464, 2464, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+			t = AddThing(16666, (2720, 928, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+			t = AddThing(16666, (1824, 1680, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+			t = AddThing(16666, (2592, 3360, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+			t = AddThing(16666, (1472, 2736, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+			t = AddThing(16666, (2720, 3360, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+			t = AddThing(16666, (2176, 2736, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+			//t = AddThing(16666, (2400, 1696, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+			//t = AddThing(16666, (1824, 1824, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+			//t = AddThing(16666, (3008, 3392, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+			t = AddThing(16666, (3680, 1760, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+
+			// The Lab (bad ending)
+			t = AddThing(16666, (1824, 3472, 0), BetterStrifeQuest.CQ_BAD_KILL_LOREMASTER);
+
+			// Temple of the Oracle teleporter (bad ending: killed The Loremaster for the Oracle)
+			t = AddThing(16666, (1632, -96, 0), BetterStrifeQuest.CQ_BAD_KILLED_LOREMASTER);
+
+			// The Lab (bad ending: killed the Oracle)
+			t = AddThing(16666, (1824, 3472, 0), BetterStrifeQuest.CQ_BAD_KILLED_ORACLE);
+
+			// The Lab (good ending)
+			t = AddThing(16666, (1824, 3472, 0), BetterStrifeQuest.CQ_GOOD_KILLED_MACIL);
+
+			break;
+
+		case '455893D08E0AF4C0A8D50FE8A4B865A3': // sve.wad map27 - The Lab
+			// Proving Grounds (bad ending: killed The Loremaster for the Oracle)
+			t = AddThing(16666, (2496, -808, 0), BetterStrifeQuest.CQ_BAD_KILLED_LOREMASTER);
+
+			// Sigil switch thing (after getting all Sigil pieces)
+			t = AddThing(16666, (2496, 1352, 0), BetterStrifeQuest.CQ_FINAL_BATTLE);
+
+			// Alien Ship (after getting all Sigil pieces)
+			t = AddThing(16666, (2496, 2656, 0), BetterStrifeQuest.CQ_FINAL_BATTLE);
+
+			break;
+
+		case '43320A6C4547B8D4A5F3BAD28B00EA25': // sve.wad map28 - Alien Ship
+			// Entity's Lair
+			t = AddThing(16666, (7488, 1632, 0), BetterStrifeQuest.CQ_FINAL_BATTLE);
+
+			break;
+
+		case 'A75099ACB622C7013EE737480FCB0D67': // sve.wad map29 - Entity's Lair
+			// The Entity
+			t = AddThing(16666, (-20448, 13792, 0), BetterStrifeQuest.CQ_FINAL_BATTLE);
+
+			break;
+
+		case 'C45DCE904B6D4F9AC76B025499D9281E': // sve.wad map30 - Abandoned Front Base
+			break;
+
+		case 'F023F94C61827861776C63288BB93649': // sve.wad map31 - Training Facility
+			// Exit to castle
+			t = AddThing(16666, (2368, 1760, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Armory
+			t = AddThing(16666, (2672, -240, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Switch 1
+			t = AddThing(16666, (992, -160, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Switch 2
+			t = AddThing(16666, (1168, 1216, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Switch 3
+			t = AddThing(16666, (800, 656, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Lift
+			//t = AddThing(16666, (-720, 1456, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Final switch (opens the door to the upgrade)
+			t = AddThing(16666, (80, 448, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			// Stat upgrade switch (training complete!)
+			t = AddThing(16666, (2176, 624, 0), BetterStrifeQuest.CQ_FIND_PROGRAMMER_1);
+
+			break;
+
+		case 'F8E6B612A87A052F3FA298DBD792E269': // sve.wad map32 - Sanctuary (demo version)
+			break;
+
+		case 'F307864E6E8114454F3FD9C0699F28D2': // sve.wad map33 - Town (demo version)
+			break;
+
+		case 'C53801BD1C6EAC80C2DCDDBF2DBDF980': // sve.wad map34 - Movement Base (demo version)
+			break;
+
+		case 'F78F92E830CF340E6D2277E8D5D74081': // sve.wad map35 - Factory: Production (super secret level)
+			break;
+
+		case 'A906E617E2032090BD71A936F9DB016E': // sve.wad map36 - Castle Clash (Capture the Chalice)
+			break;
+
+		case '51A68D41E73CCB8EDC70A939AC01C6F5': // sve.wad map37 - Killing Grounds (Capture the Chalice)
+			break;
+
+		case 'DD84AED7C0AA55BE10090399486AC3F8': // sve.wad map38 - Ordered Chaos (Capture the Chalice)
+			break;
+		}
 	}
 }

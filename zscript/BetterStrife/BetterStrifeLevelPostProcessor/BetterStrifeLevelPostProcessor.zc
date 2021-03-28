@@ -35,7 +35,7 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 	protected void Apply(Name checksum, String mapname)
 	{
 		SpawnStrifeQuestMarkers(checksum, mapname);
-		//SpawnSVEQuestMarkers(checksum, mapname);
+		SpawnSVEQuestMarkers(checksum, mapname);
 		//SpawnExtraMerchants(checksum, mapname);
 		FixMAP19DeadEnd(checksum, mapname);
 	}
