@@ -106,6 +106,7 @@ class BetterStrifeHandler : EventHandler
 	override void WorldTick(void)
 	{
 		MarkExitLines();
+		FixDegninOre();
 	}
 
 	override void WorldUnloaded(WorldEvent e)
@@ -328,6 +329,45 @@ class BetterStrifeHandler : EventHandler
 		if (mo is "PrisonPass" && mo.bSpecial)
 		{
 			mo.Destroy();
+		}
+	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	void FixDegninOre(void)
+	{
+		ThinkerIterator it;
+		Actor mo;
+
+		// Check for the existence of the Degnin Ore spawner so that this fix would
+		// only apply for SVE
+		bool sve = false;
+
+		it = ThinkerIterator.Create("SVEOreSpawner");
+		while (mo = Actor(it.Next()))
+		{
+			if (mo && mo is "SVEOreSpawner")
+			{
+				sve = true;
+				break;
+			}
+		}
+
+		if (sve)
+		{
+			it = ThinkerIterator.Create("DegninOre");
+			while (mo = Actor(it.Next()))
+			{
+				if (Level.time % 2 == 0)
+				{
+					// Force Degnin Ore to scroll in SVE
+					mo.A_CheckTerrain();
+				}
+			}
 		}
 	}
 
