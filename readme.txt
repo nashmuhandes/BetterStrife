@@ -22,7 +22,7 @@ FULL LIST OF CHANGES
 - For similar reasons to the above, the Oracle's max health has been bumped up to give the impression that it is a powerful being. Will still die in 1 hit, as per the game's original design.
 - When jumping on the spot, the player will now "squat" after falling back to the ground. Mimics original Strife behavior.
 - Changed the sound of the water fountain to something more pleasant-sounding (can be seen/heard just outside the entrance to the Programmer's Keep in MAP07). Used a sound from FreeSound.org (see credits file).
-- Toggleable head-mounted flashlight, based on what is visible on StrifeGuy's player sprite. Either select the icon in the inventory bar and activate it, or bind a key in the Options menu (default is F on the keyboard). The inventory icon is added as a convenience to players who play with gamepads and don't have enough extra buttons to bind a key to it. Note: the spotlight only renders correctly in hardware rendering; in software rendering, it will appears as a normal radial light source. This is because GZDoom only renders directional spotlight cones correctly in hardware rendering.
+- Toggleable head-mounted flashlight, based on what is visible on StrifeGuy's player sprite. Either select the icon in the inventory bar and activate it, or bind a key in the Options menu (default is F on the keyboard). The inventory icon is added as a convenience to players who play with gamepads and don't have enough extra buttons to bind a key to it. Note: the spotlight only renders correctly in hardware rendering; in software rendering, it will appear as a normal radial light source. This is because GZDoom only renders directional spotlight cones correctly in hardware rendering.
 - Quick health hotkey, bindable in the Options menu (default is H on the keyboard). An attempt at bringing back the "heal" key from the original game (it is shown in the help screen, after all)... although my implementation may be a bit different. In Better Strife, pressing H will attempt to use all available health items you have (except the surgery kit), until your health is maxed out.
 - Fixed incorrect teleporter floor texture offsets in the Borderlands (teleporter to the new Front Base), and also in the Abandoned Front Base.
 - Fixed missing textures on the platform just before the entrance to The Programmer's Keep (lines 2778, 2779, 2780 and 2781).
@@ -30,5 +30,5 @@ FULL LIST OF CHANGES
 - Improved animated flowing river textures. Textures made by me, from scratch.
 - Temporary fix for "prison pass duplicate" bug. GZDoom bug; has been reported: https://forum.zdoom.org/viewtopic.php?f=2&t=71863
 - [Strife: Veteran Edition] Degnin ores will now move on the conveyor belts.
-- Fix Zombie conveyor belt buildup in MAP24
+- Fix Zombie conveyor belt buildup in MAP24.
 - Fix missing textures in MAP16: Bishop's Tower (lines 2827 and 2660).
