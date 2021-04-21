@@ -1,1 +1,3 @@
+Better Strife uses the Gutamatics library, written by Jessica Russell @ Gutawer. See licenses/gutamatics.txt for more info.
+
 world/waterfountain - waterfountain.wav - https://freesound.org/people/roscoetoon/sounds/26402/
