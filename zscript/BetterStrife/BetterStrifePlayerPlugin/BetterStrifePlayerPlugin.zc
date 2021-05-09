@@ -66,10 +66,10 @@ class BetterStrifePlayerPlugin : Inventory
 		return Super.TryPickup(toucher);
 	}
 
-	override void Tick(void)
+	override void DoEffect(void)
 	{
 		UpdateFlashlight();
-		Super.Tick();
+		Super.DoEffect();
 	}
 
 	//===========================================================================
