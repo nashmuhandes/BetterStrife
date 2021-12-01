@@ -5,7 +5,7 @@ Developed by Nash Muhandes
 COMPATIBILITY
 -------------
 
-IWADs supported: Sigil: Quest for the Sigil (1.2-1.31) and Strife: Veteran Edition.
+IWADs supported: Strife: Quest for the Sigil (1.2-1.31) and Strife: Veteran Edition.
 
 Compatible with single player, and with Strife Coop Patch Project (https://forum.zdoom.org/viewtopic.php?f=43&t=71580)
 
