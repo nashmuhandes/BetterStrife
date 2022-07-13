@@ -155,8 +155,10 @@ class BetterStrifeQuestMarker : MapMarker
 
 	void GetQuestInstance(void)
 	{
-		if (!quest) quest = BetterStrifeQuest.GetInstance();
-		if (!quest) ThrowAbortException("%s at %d/%d/%d could not get quest instance", self.Pos.X, self.Pos.Y, self.Pos.Z, self.GetClassName());
+		if (!quest)
+			quest = BetterStrifeQuest.GetInstance();
+		if (!quest)
+			ThrowAbortException("%s at %d/%d/%d could not get quest instance", self.Pos.X, self.Pos.Y, self.Pos.Z, self.GetClassName());
 	}
 
 	//===========================================================================

@@ -38,11 +38,14 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 	override void RenderUnderlay(RenderEvent e)
 	{
 		PlayerInfo plr;
+
 		if (e.Camera is "PlayerPawn" && e.Camera == players[consoleplayer].camera && e.Camera.player)
 		{
 			plr = e.Camera.player;
 		}
-		if (!plr) return;
+
+		if (!plr)
+			return;
 
 		// draw exit map markers
 		DrawExitMapMarkers(e);
@@ -60,21 +63,28 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 	ui void DrawExitMapMarkers(RenderEvent e)
 	{
 		let sb = StrifeStatusBar(StatusBar);
-		if (!sb) return;
+		if (!sb)
+			return;
 
-		if (automapactive) return;
+		if (automapactive)
+			return;
 
 		let mnu = Menu.GetCurrentMenu();
-		if (mnu) return;
+		if (mnu)
+			return;
 
 		PlayerPawn pmo = PlayerPawn(players[consoleplayer].mo);
-		if (!pmo) return;
+		if (!pmo)
+			return;
 
-		if (!pmo.player) return;
+		if (!pmo.player)
+			return;
 
 		// cache CVars
-		if (!cvExitMarkers) cvExitMarkers = CVar.GetCVar("betterstrife_exitmarkers", pmo.player);
-		if (!cvExitMarkers) return;
+		if (!cvExitMarkers)
+			cvExitMarkers = CVar.GetCVar("betterstrife_exitmarkers", pmo.player);
+		if (!cvExitMarkers)
+			return;
 
 		bool showExitMarkers = false;
 
@@ -110,10 +120,12 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 			while ((projActor = Actor(it.Next())) != NULL)
 			{
 				// don't draw deactivated markers
-				if (projActor.bDormant) continue;
+				if (projActor.bDormant)
+					continue;
 
 				// don't draw if the marker hasn't been seen (duh)
-				if (!BetterStrifeExitMarker(projActor).IsMarkerSeen()) continue;
+				if (!BetterStrifeExitMarker(projActor).IsMarkerSeen())
+					continue;
 
 				// fade alpha by distance
 				double alpha = 1.0;
@@ -125,7 +137,8 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 					double fade = 1.0 - (distFade - distFarFadeStart) / distFarFadeStart;
 					alpha *= fade;
 				}
-				if (alpha < 0.2) alpha = 0.2;
+				if (alpha < 0.2)
+					alpha = 0.2;
 
 				Vector3 adjustedWorldPos = e.ViewPos + Level.Vec3Diff(e.ViewPos, projActor.Pos);
 				Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height * 0.5)).AsVector3();
@@ -160,7 +173,8 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 					{
 						// hack to re-add the colon for the first part of the name lol
 						levelNameSplit = levelNameSplit .. split[i];
-						if (split.Size() > 1 && i == 1 && i < split.Size() - 1) levelNameSplit = levelNameSplit .. ":";
+						if (split.Size() > 1 && i == 1 && i < split.Size() - 1)
+							levelNameSplit = levelNameSplit .. ":";
 					}
 
 					Screen.DrawText(smallfont, Font.CR_Yellow,
@@ -186,21 +200,28 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 	ui void DrawQuestMarkers(RenderEvent e)
 	{
 		let sb = StrifeStatusBar(StatusBar);
-		if (!sb) return;
+		if (!sb)
+			return;
 
-		if (automapactive) return;
+		if (automapactive)
+			return;
 
 		let mnu = Menu.GetCurrentMenu();
-		if (mnu) return;
+		if (mnu)
+			return;
 
 		PlayerPawn pmo = PlayerPawn(players[consoleplayer].mo);
-		if (!pmo) return;
+		if (!pmo)
+			return;
 
-		if (!pmo.player) return;
+		if (!pmo.player)
+			return;
 
 		// cache CVars
-		if (!cvQuestMarkers) cvQuestMarkers = CVar.GetCVar("betterstrife_questmarkers", pmo.player);
-		if (!cvQuestMarkers) return;
+		if (!cvQuestMarkers)
+			cvQuestMarkers = CVar.GetCVar("betterstrife_questmarkers", pmo.player);
+		if (!cvQuestMarkers)
+			return;
 
 		bool showQuestMarkers = false;
 
@@ -236,7 +257,8 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 			while ((projActor = Actor(it.Next())) != NULL)
 			{
 				// don't draw deactivated markers
-				if (projActor.bDormant) continue;
+				if (projActor.bDormant)
+					continue;
 
 				// fade alpha by distance
 				double alpha = 1.0;
@@ -248,7 +270,8 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 					double fade = 1.0 - (distFade - distFarFadeStart) / distFarFadeStart;
 					alpha *= fade;
 				}
-				if (alpha < 0.2) alpha = 0.2;
+				if (alpha < 0.2)
+					alpha = 0.2;
 
 				Vector3 adjustedWorldPos = e.ViewPos + Level.Vec3Diff(e.ViewPos, projActor.Pos);
 				Vector3 ndcPos = worldToClip.MultiplyVector3(adjustedWorldPos + (0, 0, projActor.Height * 0.5)).AsVector3();
@@ -284,7 +307,8 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 					{
 						// hack to re-add the colon for the first part of the name lol
 						levelNameSplit = levelNameSplit .. split[i];
-						if (split.Size() > 1 && i == 1 && i < split.Size() - 1) levelNameSplit = levelNameSplit .. ":";
+						if (split.Size() > 1 && i == 1 && i < split.Size() - 1)
+							levelNameSplit = levelNameSplit .. ":";
 					}
 
 					Screen.DrawText(smallfont, Font.CR_Yellow,

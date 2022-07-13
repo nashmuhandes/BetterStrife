@@ -139,8 +139,12 @@ class BetterStrifeHandler : EventHandler
 	override void NetworkProcess(ConsoleEvent e)
 	{
 		PlayerPawn pmo = PlayerPawn(players[e.Player].mo);
-		if (!pmo) return;
-		if (pmo && !pmo.player) return;
+
+		if (!pmo)
+			return;
+
+		if (pmo && !pmo.player)
+			return;
 
 		bool isConsolePlayer = (pmo == PlayerPawn(players[consoleplayer].mo));
 
@@ -180,7 +184,9 @@ class BetterStrifeHandler : EventHandler
 
 	void SetupPlayer(PlayerPawn pmo)
 	{
-		if (!pmo) return;
+		if (!pmo)
+			return;
+
 		//Console.Printf("SetupPlayer() running for player %d", pmo.PlayerNumber() + 1);
 
 		// enable player plugin
@@ -202,7 +208,8 @@ class BetterStrifeHandler : EventHandler
 
 	void ResurrectPlayer(PlayerPawn pmo)
 	{
-		if (!pmo) return;
+		if (!pmo)
+			return;
 		//Console.Printf("ResurrectPlayer() running for player %d", pmo.PlayerNumber() + 1);
 		SetupPlayer(pmo);
 	}
@@ -426,7 +433,8 @@ class BetterStrifeHandler : EventHandler
 				break;
 			}
 
-			if (skipThisLine) continue;
+			if (skipThisLine)
+				continue;
 
 			Line ln = Level.Lines[i];
 			if (ln.special == ACS_ExecuteAlways && (ln.args[2] == 145 || ln.args[2] == 186))
@@ -453,10 +461,12 @@ class BetterStrifeHandler : EventHandler
 						while (it.Next())
 						{
 							let otherMarker = it.Thing;
-							if (!(otherMarker is "BetterStrifeExitMarker")) continue;
+							if (!(otherMarker is "BetterStrifeExitMarker"))
+								continue;
 
 							// skip self
-							if (otherMarker == marker) continue;
+							if (otherMarker == marker)
+								continue;
 
 							// too far, good
 							if (marker.Distance2DSquared(otherMarker) > mDist * mDist)

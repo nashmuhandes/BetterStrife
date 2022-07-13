@@ -120,14 +120,18 @@ class BetterStrifePlayerPlugin : Inventory
 
 	void UpdateFlashlight(void)
 	{
-		if (!Owner) return;
-		if (Owner && !Owner.player) return;
+		if (!Owner)
+			return;
+
+		if (Owner && !Owner.player)
+			return;
 
 		if (!cvFlashlightEnabled)
 		{
 			cvFlashlightEnabled = CVar.GetCVar("betterstrife_flashlight", Owner.player);
 		}
-		if (!cvFlashlightEnabled) return;
+		if (!cvFlashlightEnabled)
+			return;
 
 		// kill the light if player is dead
 		if (Owner.Health <= 0 && isFlashlightOn)
@@ -210,7 +214,10 @@ class BetterStrifePlayerPlugin : Inventory
 				if (item == NULL || !Owner.UseInventory(item))
 					break;
 			}
-			if (Owner.player.health >= PlayerPawn(Owner).GetMaxHealth(true)) return;
+
+			if (Owner.player.health >= PlayerPawn(Owner).GetMaxHealth(true))
+				return;
+
 			// Using all of this item was not enough so delete it and restart with the next best one
 			Items.Delete(index);
 		}

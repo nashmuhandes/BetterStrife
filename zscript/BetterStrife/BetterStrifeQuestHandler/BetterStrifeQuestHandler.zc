@@ -47,7 +47,8 @@ class BetterStrifeQuestHandler : EventHandler
 
 	override void WorldLoaded(WorldEvent e)
 	{
-		if (!quest) quest = BetterStrifeQuest.GetInstance();
+		if (!quest)
+			quest = BetterStrifeQuest.GetInstance();
 	}
 
 	override void WorldTick(void)
