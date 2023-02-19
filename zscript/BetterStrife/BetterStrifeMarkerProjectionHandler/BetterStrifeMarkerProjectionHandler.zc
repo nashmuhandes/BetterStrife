@@ -177,9 +177,9 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 							levelNameSplit = levelNameSplit .. ":";
 					}
 
-					Screen.DrawText(smallfont, Font.CR_Yellow,
-						drawPos.X + (smallfont.StringWidth(" ") * CleanXFac),
-						drawPos.Y - (smallfont.GetHeight() * CleanYFac / 2.0),
+					Screen.DrawText(SmallFont, Font.CR_Yellow,
+						drawPos.X + (SmallFont.StringWidth(" ") * CleanXFac),
+						drawPos.Y - (SmallFont.GetHeight() * CleanYFac / 2.0),
 						levelNameSplit,
 						DTA_Alpha, alpha,
 						DTA_CleanNoMove, true);
@@ -311,9 +311,9 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 							levelNameSplit = levelNameSplit .. ":";
 					}
 
-					Screen.DrawText(smallfont, Font.CR_Yellow,
-						drawPos.X + (smallfont.StringWidth(" ") * CleanXFac),
-						drawPos.Y - (smallfont.GetHeight() * CleanYFac / 2.0),
+					Screen.DrawText(SmallFont, Font.CR_Yellow,
+						drawPos.X + (SmallFont.StringWidth(" ") * CleanXFac),
+						drawPos.Y - (SmallFont.GetHeight() * CleanYFac / 2.0),
 						levelNameSplit,
 						DTA_Alpha, alpha,
 						DTA_CleanNoMove, true);
