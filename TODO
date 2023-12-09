@@ -1,0 +1,17 @@
+Lore-friendly ammo buy feature for Better Strife
+
+Hand-placed NPCs
+----------------
+
+Prison: a prisoner has been stealing ammo clips from the guards. Sells bullet clips only.
+Power Station: someone in the warehouse doing shady business. Sells bullet clips, crossbow darts, missiles
+Sewer: a bum has been stealing ammo from the town guards. Bullet clips, crossbow darts, missiles, HE grenades
+Castle: someone selling ammo in the computer room
+
+Merchant Beacons
+----------------
+
+Will spawn a Front seller. Only one per-level will be spawned. Will despawn after some time.
+Must be bought from the Merchant who will only appear after The Castle is taken.
+
+All sellers will be marked with $ on the map.
