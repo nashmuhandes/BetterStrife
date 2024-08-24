@@ -28,37 +28,37 @@ version "4.8.2"
 
 // Core
 #include "zscript/BetterStrifeGutamatics/Include.zsc"
-#include "zscript/BetterStrife/BetterStrifeHandler/BetterStrifeHandler.zc"
+#include "zscript/BetterStrife/BetterStrifeHandler.zc"
 
 // Level post processor
-#include "zscript/BetterStrife/BetterStrifeLevelPostProcessor/BetterStrifeLevelPostProcessor.zc"
+#include "zscript/BetterStrife/level/BetterStrifeLevelPostProcessor.zc"
 
 // Actor plugins
-#include "zscript/BetterStrife/BetterStrifePlayerPlugin/BetterStrifePlayerPlugin.zc"
-#include "zscript/BetterStrife/BetterStrifeOraclePlugin/BetterStrifeOraclePlugin.zc"
+#include "zscript/BetterStrife/player/BetterStrifePlayerPlugin.zc"
+#include "zscript/BetterStrife/npc/BetterStrifeOraclePlugin.zc"
 
 // Quest
-#include "zscript/BetterStrife/BetterStrifeQuest/BetterStrifeQuest.zc"
-#include "zscript/BetterStrife/BetterStrifeQuestHandler/BetterStrifeQuestHandler.zc"
-#include "zscript/BetterStrife/BetterStrifeQuestMarker/BetterStrifeQuestMarker.zc"
-#include "zscript/BetterStrife/BetterStrifeLevelPostProcessor/StrifeQuestMarkers.zc"
-#include "zscript/BetterStrife/BetterStrifeLevelPostProcessor/SVEQuestMarkers.zc"
+#include "zscript/BetterStrife/quest/BetterStrifeQuest.zc"
+#include "zscript/BetterStrife/quest/BetterStrifeQuestHandler.zc"
+#include "zscript/BetterStrife/quest/BetterStrifeQuestMarker.zc"
+#include "zscript/BetterStrife/level/StrifeQuestMarkers.zc"
+#include "zscript/BetterStrife/level/SVEQuestMarkers.zc"
 
 // World actors
-#include "zscript/BetterStrife/BetterStrifeMeat/BetterStrifeMeat.zc"
-#include "zscript/BetterStrife/BetterStrifeGlassJunk/BetterStrifeGlassJunk.zc"
+#include "zscript/BetterStrife/misc/BetterStrifeMeat.zc"
+#include "zscript/BetterStrife/misc/BetterStrifeGlassJunk.zc"
 
 // NPCs
-#include "zscript/BetterStrife/BetterStrifePrisonMerchant/BetterStrifePrisonMerchant.zc"
+#include "zscript/BetterStrife/npc/BetterStrifePrisonMerchant.zc"
 
 // Exit markers
-#include "zscript/BetterStrife/BetterStrifeExitMarker/BetterStrifeExitMarker.zc"
+#include "zscript/BetterStrife/quest/BetterStrifeExitMarker.zc"
 
 // Inventory
-#include "zscript/BetterStrife/BetterStrifePlayerFlashlight/BetterStrifePlayerFlashlight.zc"
+#include "zscript/BetterStrife/player/BetterStrifePlayerFlashlight.zc"
 
 // HUD and UI
-#include "zscript/BetterStrife/BetterStrifeMarkerProjectionHandler/BetterStrifeMarkerProjectionHandler.zc"
+#include "zscript/BetterStrife/quest/BetterStrifeMarkerProjectionHandler.zc"
 
 // Options menu
-#include "zscript/BetterStrife/BetterStrifeOptionMenu/BetterStrifeOptionMenu.zc"
+#include "zscript/BetterStrife/UI/OptionMenu/BetterStrifeOptionMenu.zc"
