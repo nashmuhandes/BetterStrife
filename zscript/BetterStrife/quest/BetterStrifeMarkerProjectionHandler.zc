@@ -92,15 +92,11 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 		if (cvExitMarkers.GetInt() == 1)
 		{
 			if (sb && sb.CurrentPop == 1)
-			{
 				showExitMarkers = true;
-			}
 		}
 		// ... or optionally, always show exit markers
 		else if (cvExitMarkers.GetInt() == 2)
-		{
 			showExitMarkers = true;
-		}
 
 		if (showExitMarkers)
 		{
@@ -137,6 +133,7 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 					double fade = 1.0 - (distFade - distFarFadeStart) / distFarFadeStart;
 					alpha *= fade;
 				}
+
 				if (alpha < 0.2)
 					alpha = 0.2;
 
@@ -229,15 +226,11 @@ class BetterStrifeMarkerProjectionHandler : StaticEventHandler
 		if (cvQuestMarkers.GetInt() == 1)
 		{
 			if (sb && sb.CurrentPop == 1)
-			{
 				showQuestMarkers = true;
-			}
 		}
 		// ... or optionally, always show exit markers
 		else if (cvQuestMarkers.GetInt() == 2)
-		{
 			showQuestMarkers = true;
-		}
 
 		if (showQuestMarkers)
 		{

@@ -64,11 +64,9 @@ class BetterStrifeExitMarker : MapMarker
 	{
 		Super.Tick();
 
+		// TO DO: add some kind of "seen" animation
 		if (!CheckIfSeen())
-		{
-			// TO DO: add some kind of "seen" animation
 			seen = true;
-		}
 	}
 
 	//===========================================================================

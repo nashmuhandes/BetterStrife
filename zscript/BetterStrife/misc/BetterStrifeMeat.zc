@@ -67,6 +67,12 @@ class BetterStrifeMeat : Meat replaces Meat
 	}
 }
 
+//===========================================================================
+//
+// BetterStrifeJunk
+//
+//===========================================================================
+
 class BetterStrifeJunk : BetterStrifeMeat replaces Junk
 {
 	States

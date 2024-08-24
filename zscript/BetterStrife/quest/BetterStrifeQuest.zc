@@ -134,9 +134,7 @@ class BetterStrifeQuest : Thinker
 		{
 			// set the first quest when starting the game
 			if (Level.totaltime == 0)
-			{
 				currentQuest = CQ_FIND_HELP;
-			}
 
 			initDone = true;
 		}
@@ -155,9 +153,7 @@ class BetterStrifeQuest : Thinker
 		ThinkerIterator it = ThinkerIterator.Create("BetterStrifeQuest", STAT_STATIC);
 		let p = BetterStrifeQuest(it.Next());
 		if (p)
-		{
 			return p;
-		}
 
 		return NULL;
 	}

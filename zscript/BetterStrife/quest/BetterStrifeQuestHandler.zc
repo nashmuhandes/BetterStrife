@@ -69,9 +69,7 @@ class BetterStrifeQuestHandler : EventHandler
 			ThinkerIterator it = ThinkerIterator.Create("BetterStrifeQuest", Thinker.STAT_STATIC);
 			let p = BetterStrifeQuest(it.Next());
 			if (!p)
-			{
 				quest = new("BetterStrifeQuest").Init();
-			}
 		}
 	}
 

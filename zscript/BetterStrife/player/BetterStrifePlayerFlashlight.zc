@@ -57,9 +57,7 @@ class BetterStrifePlayerFlashlight : Inventory
 		Owner.A_StartSound("switches/normbutn", 55555, volume: 0.5);
 
 		if (Owner == players[consoleplayer].mo)
-		{
 			EventHandler.SendNetworkEvent("EV_ToggleFlashlight");
-		}
 
 		return false;
 	}

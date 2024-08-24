@@ -54,9 +54,7 @@ class BetterStrifeOraclePlugin : Inventory
 		if (Owner is "Oracle")
 		{
 			if (newdamage > 0)
-			{
 				Owner.A_Die();
-			}
 		}
 	}
 }

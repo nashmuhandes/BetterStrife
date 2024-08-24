@@ -45,27 +45,21 @@ class BetterStrifeHandler : EventHandler
 	{
 		let pmo = players[e.PlayerNumber].mo;
 		if (pmo && pmo.player)
-		{
 			SetupPlayer(pmo);
-		}
 	}
 
 	override void PlayerSpawned(PlayerEvent e)
 	{
 		let pmo = players[e.PlayerNumber].mo;
 		if (pmo && pmo.player)
-		{
 			SetupPlayer(pmo);
-		}
 	}
 
 	override void PlayerRespawned(PlayerEvent e)
 	{
 		let pmo = players[e.PlayerNumber].mo;
 		if (pmo && pmo.player)
-		{
 			ResurrectPlayer(pmo);
-		}
 	}
 
 	override void PlayerDied(PlayerEvent e)
@@ -94,7 +88,8 @@ class BetterStrifeHandler : EventHandler
 
 	override void WorldThingSpawned(WorldEvent e)
 	{
-		if (!e.Thing) return;
+		if (!e.Thing)
+			return;
 		Actor mo = e.Thing;
 		ApplyActorBillboarding(mo);
 		FixMerchant(mo);
@@ -122,9 +117,7 @@ class BetterStrifeHandler : EventHandler
 				{
 					let plugin = BetterStrifePlayerPlugin.Find(pmo);
 					if (plugin)
-					{
 						plugin.DestroyFlashlight();
-					}
 				}
 			}
 		}
@@ -157,9 +150,7 @@ class BetterStrifeHandler : EventHandler
 		{
 			let plugin = BetterStrifePlayerPlugin.Find(pmo);
 			if (plugin)
-			{
 				plugin.ToggleFlashlight();
-			}
 		}
 		//===========================================================================
 		//
@@ -170,9 +161,7 @@ class BetterStrifeHandler : EventHandler
 		{
 			let plugin = BetterStrifePlayerPlugin.Find(pmo);
 			if (plugin)
-			{
 				plugin.UseHealthItems();
-			}
 		}
 	}
 
@@ -194,16 +183,12 @@ class BetterStrifeHandler : EventHandler
 
 		// increase JumpZ just enough to enable the squatting animation
 		if (pmo.GetClass() == 'StrifePlayer')
-		{
 			pmo.JumpZ = pmo.Default.JumpZ * 1.00000000001;
-		}
 
 		// spawn flashlight if it's turned on upon entering the map
 		let plugin = BetterStrifePlayerPlugin.Find(pmo);
 		if (plugin && plugin.isFlashlightOn)
-		{
 			plugin.SpawnFlashlight();
-		}
 	}
 
 	void ResurrectPlayer(PlayerPawn pmo)
@@ -327,17 +312,13 @@ class BetterStrifeHandler : EventHandler
 	void FixWaterFountain(Actor mo)
 	{
 		if (mo is "WaterFountain")
-		{
 			mo.ActiveSound = "world/waterfountain";
-		}
 	}
 
 	void FixPrisonPass(Actor mo)
 	{
 		if (mo is "PrisonPass" && mo.bSpecial)
-		{
 			mo.Destroy();
-		}
 	}
 
 	//===========================================================================
@@ -370,11 +351,9 @@ class BetterStrifeHandler : EventHandler
 			it = ThinkerIterator.Create("DegninOre");
 			while (mo = Actor(it.Next()))
 			{
+				// Force Degnin Ore to scroll in SVE
 				if (Level.time % 2 == 0)
-				{
-					// Force Degnin Ore to scroll in SVE
 					mo.A_CheckTerrain();
-				}
 			}
 		}
 	}
@@ -419,15 +398,11 @@ class BetterStrifeHandler : EventHandler
 			{
 			case 16:
 				if (i == 2286 || i == 2287)
-				{
 					skipThisLine = true;
-				}
 				break;
 			case 17:
 				if (i == 1253 || i == 1254)
-				{
 					skipThisLine = true;
-				}
 				break;
 			default:
 				break;
@@ -470,14 +445,10 @@ class BetterStrifeHandler : EventHandler
 
 							// too far, good
 							if (marker.Distance2DSquared(otherMarker) > mDist * mDist)
-							{
 								continue;
-							}
 							// too close, destroy
 							else if (marker.Distance2DSquared(otherMarker) <= mDist * mDist)
-							{
 								otherMarker.Destroy();
-							}
 						}
 					}
 

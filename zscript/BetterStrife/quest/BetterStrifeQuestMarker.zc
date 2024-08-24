@@ -78,14 +78,10 @@ class BetterStrifeQuestMarker : MapMarker
 		markerQuestNum = int(Angle);
 
 		if (args[HideIfQuestItemCheck] != 0)
-		{
 			hideIfQuestItem = args[HideIfQuestItemCheck];
-		}
 
 		if (args[ShowIfQuestItemCheck] != 0)
-		{
 			showIfQuestItem = args[ShowIfQuestItemCheck];
-		}
 
 		Super.BeginPlay();
 	}
@@ -104,44 +100,27 @@ class BetterStrifeQuestMarker : MapMarker
 		// yes, Activate()/Deactivate() functionality is reversed.
 		// source: https://zdoom.org/wiki/Classes:MapMarker
 		if (markerQuestNum != quest.GetCurrentQuest())
-		{
-			// disable quest marker
-			Activate(self);
-		}
+			Activate(self);	// actually disables the quest marker
 		else
-		{
-			// enable quest marker
-			Deactivate(self);
-		}
+			Deactivate(self); // actually enables the quest marker
 
 		if (showIfQuestItem != 0)
 		{
 			if (HasQuestItem(showIfQuestItem) && markerQuestNum == quest.GetCurrentQuest())
-			{
-				// enable quest marker
-				Deactivate(self);
-			}
+				Deactivate(self); // actually enables the quest marker
 			else
-			{
-				// disable quest marker
-				Activate(self);
-			}
+				Activate(self); // actually disables the quest marker
 		}
 
 		if (hideIfQuestItem != 0)
 		{
 			if (HasQuestItem(hideIfQuestItem))
-			{
-				// disable quest marker
-				Activate(self);
-			}
+				Activate(self); // actually disables the quest marker
 		}
 
 		/*
 		if (marked)
-		{
 			SetOrigin(marked.Pos, true);
-		}
 		*/
 
 		Super.Tick();
@@ -158,7 +137,8 @@ class BetterStrifeQuestMarker : MapMarker
 		if (!quest)
 			quest = BetterStrifeQuest.GetInstance();
 		if (!quest)
-			ThrowAbortException("%s at %d/%d/%d could not get quest instance", self.Pos.X, self.Pos.Y, self.Pos.Z, self.GetClassName());
+			ThrowAbortException("%s at %d/%d/%d could not get quest instance",
+				self.Pos.X, self.Pos.Y, self.Pos.Z, self.GetClassName());
 	}
 
 	//===========================================================================
@@ -179,9 +159,7 @@ class BetterStrifeQuestMarker : MapMarker
 				if (pmo)
 				{
 					if (result)
-					{
 						break;
-					}
 
 					for (Inventory item = pmo.Inv; item != NULL; item = item.Inv)
 					{

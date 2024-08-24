@@ -97,8 +97,8 @@ class BetterStrifePlayerPlugin : Inventory
 			'BetterStrifePlayerFlashlightLight',
 			DynamicLight.PointLight,
 			Color(173, 204, 211),
-			256.,
-			0.,
+			256.0,
+			0.0,
 			flags: DynamicLight.LF_ATTENUATE | DynamicLight.LF_DONTLIGHTSELF | DynamicLight.LF_SPOT,
 			ofs:
 			(
@@ -109,7 +109,7 @@ class BetterStrifePlayerPlugin : Inventory
 			spoti: 15.0,
 			spoto: 25.0,
 			// use some pitch outside of the -90 to 90 range to force it to use the attached actor's pitch
-			spotp: 180.
+			spotp: 180.0
 		);
 	}
 
@@ -145,17 +145,13 @@ class BetterStrifePlayerPlugin : Inventory
 		{
 			// give the flashlight toggler
 			if (!Owner.FindInventory("BetterStrifePlayerFlashlight", true))
-			{
 				Owner.A_GiveInventory("BetterStrifePlayerFlashlight", 1);
-			}
 		}
 		// flashlight setting is disabled
 		else
 		{
 			if (Owner.FindInventory("BetterStrifePlayerFlashlight", true))
-			{
 				Owner.A_TakeInventory("BetterStrifePlayerFlashlight", 0x7FFFFFFF);
-			}
 			isFlashlightOn = false;
 			DestroyFlashlight();
 		}
@@ -165,13 +161,9 @@ class BetterStrifePlayerPlugin : Inventory
 	{
 		isFlashlightOn = !isFlashlightOn;
 		if (isFlashlightOn)
-		{
 			SpawnFlashlight();
-		}
 		else
-		{
 			DestroyFlashlight();
-		}
 	}
 
 	//===========================================================================
@@ -182,35 +174,36 @@ class BetterStrifePlayerPlugin : Inventory
 
 	void UseHealthItems(void)
 	{
-		Array<Inventory> Items;
+		Array<Inventory> items;
 
 		for (Inventory inv = Owner.Inv; inv != NULL; inv = inv.Inv)
 		{
 			let hp = HealthPickup(inv);
 			if (hp && hp.Amount > 0)
 			{
-				if (hp.autousemode == 3) Items.Push(inv);
+				if (hp.autousemode == 3)
+					items.Push(inv);
 			}
 		}
 
-		while (Items.Size() > 0)
+		while (items.Size() > 0)
 		{
 			int maxhealth = 0;
 			int index = -1;
 
 			// Find the largest item in the list
-			for (int i = 0; i < Items.Size(); i++)
+			for (int i = 0; i < items.Size(); i++)
 			{
-				if (Items[i].health > maxhealth)
+				if (items[i].health > maxhealth)
 				{
 					index = i;
-					maxhealth = Items[i].Amount;
+					maxhealth = items[i].Amount;
 				}
 			}
 
 			while (Owner.player.health < PlayerPawn(Owner).GetMaxHealth(true))
 			{
-				let item = Items[index];
+				let item = items[index];
 				if (item == NULL || !Owner.UseInventory(item))
 					break;
 			}
@@ -219,7 +212,7 @@ class BetterStrifePlayerPlugin : Inventory
 				return;
 
 			// Using all of this item was not enough so delete it and restart with the next best one
-			Items.Delete(index);
+			items.Delete(index);
 		}
 	}
 }
