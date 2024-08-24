@@ -1,7 +1,7 @@
-Flat F_VWATR3
+Flat P_VWATR1
 	Pic F_VWATR3 tics 5
 	Pic F_VWATR2 tics 5
-	Pic F_VWATR1 tics 5
+	Pic P_VWATR1 tics 5
 
 Flat F_HWATR3
 	Pic F_HWATR3 tics 5
