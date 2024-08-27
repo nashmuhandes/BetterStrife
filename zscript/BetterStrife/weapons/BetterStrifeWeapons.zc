@@ -1,0 +1,375 @@
+const BETTERSTRIFE_WPNSWITCHSPEED = 20;
+
+//===========================================================================
+//
+// BetterStrifePunchDagger
+//
+//===========================================================================
+
+class BetterStrifePunchDagger : PunchDagger
+{
+	Default
+	{
+		Weapon.SlotNumber 1;
+	}
+
+	private action void A_BetterJabDagger(void)
+	{
+		A_JabDagger();
+		BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -3.0);
+	}
+
+	States
+	{
+	Deselect:
+		PNCH A 1 A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Select:
+		PNCH A 1 A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Fire:
+		PNCH B 4;
+		PNCH C 4 A_BetterJabDagger();
+		PNCH D 5;
+		PNCH C 4;
+		PNCH B 5 A_ReFire();
+		Goto Ready;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeStrifeCrossbow
+//
+//===========================================================================
+
+class BetterStrifeStrifeCrossbow : StrifeCrossbow replaces StrifeCrossbow
+{
+	Default
+	{
+		Weapon.SisterWeapon "BetterStrifeStrifeCrossbow2";
+		Weapon.SlotNumber 2;
+	}
+
+	private action void A_BetterFireArrow(void)
+	{
+		A_FireArrow("ElectricBolt");
+		BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -5.0);
+	}
+
+	States
+	{
+	Deselect:
+		XBOW A 1 A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Select:
+		XBOW A 1 A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Fire:
+		XBOW A 3 A_ClearFlash();
+		XBOW B 6 A_BetterFireArrow();
+		XBOW C 4;
+		XBOW D 6;
+		XBOW E 3;
+		XBOW F 5;
+		XBOW G 0 A_ShowElectricFlash();
+		XBOW G 5 A_CheckReload();
+		Goto Ready + 1;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeStrifeCrossbow2
+//
+//===========================================================================
+
+class BetterStrifeStrifeCrossbow2 : StrifeCrossbow2 replaces StrifeCrossbow2
+{
+	Default
+	{
+		Weapon.SisterWeapon "BetterStrifeStrifeCrossbow";
+		Weapon.SlotNumber 2;
+	}
+
+	private action void A_BetterFireArrow(void)
+	{
+		A_FireArrow("PoisonBolt");
+		BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -5.0);
+	}
+
+	States
+	{
+	Deselect:
+		XBOW H 1 A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Select:
+		XBOW H 1 A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Fire:
+		XBOW H 3;
+		XBOW B 6 A_BetterFireArrow();
+		XBOW C 4;
+		XBOW D 6;
+		XBOW E 3;
+		XBOW I 5;
+		XBOW J 5 A_CheckReload();
+		Goto Ready;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeAssaultGun
+//
+//===========================================================================
+
+class BetterStrifeAssaultGun : AssaultGun replaces AssaultGun
+{
+	Default
+	{
+		Decal "BulletChip";
+		Weapon.SlotNumber 3;
+	}
+
+	private action void A_BetterFireAssaultGun(void)
+	{
+		A_FireAssaultGun();
+		BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -2.0);
+	}
+
+	States
+	{
+	Deselect:
+		RIFG B 1 A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Select:
+		RIFG A 1 A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Fire:
+		RIFF AB 3 A_BetterFireAssaultGun();
+		RIFG D 3 A_BetterFireAssaultGun();
+		RIFG C 0 A_ReFire();
+		RIFG B 2 A_Light0();
+		Goto Ready;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeMiniMissileLauncher
+//
+//===========================================================================
+
+class BetterStrifeMiniMissileLauncher : MiniMissileLauncher replaces MiniMissileLauncher
+{
+	Default
+	{
+		Weapon.SlotNumber 4;
+	}
+
+	private action void A_BetterFireMiniMissile(void)
+	{
+		A_FireMiniMissile();
+		BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -6.0);
+	}
+
+	States
+	{
+	Deselect:
+		MMIS A 1 A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Select:
+		MMIS A 1 A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Fire:
+		MMIS A 4 A_BetterFireMiniMissile();
+		MMIS B 4 A_Light1();
+		MMIS C 5 Bright;
+		MMIS D 2 Bright A_Light2();
+		MMIS E 2 Bright;
+		MMIS F 2 Bright A_Light0();
+		MMIS F 0 A_ReFire();
+		Goto Ready;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeStrifeGrenadeLauncher
+//
+//===========================================================================
+
+class BetterStrifeStrifeGrenadeLauncher : StrifeGrenadeLauncher replaces StrifeGrenadeLauncher
+{
+	Default
+	{
+		Weapon.SisterWeapon "BetterStrifeStrifeGrenadeLauncher2";
+		Weapon.SlotNumber 5;
+	}
+
+	private action void A_BetterFireGrenade(class<Actor> grenadetype, double angleofs, statelabel flash)
+	{
+		A_FireGrenade(grenadetype, angleofs, flash);
+		BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -6.0);
+	}
+
+	States
+	{
+	Deselect:
+		GREN A 1 A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Select:
+		GREN A 1 A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Fire:
+		GREN A 5 A_BetterFireGrenade("HEGrenade", -90, "Flash");
+		GREN B 10;
+		GREN A 5 A_BetterFireGrenade("HEGrenade",  90, "Flash2");
+		GREN C 10;
+		GREN A 0 A_ReFire;
+		Goto Ready;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeStrifeGrenadeLauncher2
+//
+//===========================================================================
+
+class BetterStrifeStrifeGrenadeLauncher2 : StrifeGrenadeLauncher2 replaces StrifeGrenadeLauncher2
+{
+	Default
+	{
+		Weapon.SisterWeapon "BetterStrifeStrifeGrenadeLauncher";
+		Weapon.SlotNumber 5;
+	}
+
+	private action void A_BetterFireGrenade(class<Actor> grenadetype, double angleofs, statelabel flash)
+	{
+		A_FireGrenade(grenadetype, angleofs, flash);
+		BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -6.0);
+	}
+
+	States
+	{
+	Deselect:
+		GREN D 1 A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Select:
+		GREN D 1 A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Fire:
+		GREN D 5 A_BetterFireGrenade("PhosphorousGrenade", -90, "Flash");
+		GREN E 10;
+		GREN D 5 A_BetterFireGrenade("PhosphorousGrenade",  90, "Flash2");
+		GREN F 10;
+		GREN A 0 A_ReFire;
+		Goto Ready;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeFlameThrower
+//
+//===========================================================================
+
+class BetterStrifeFlameThrower : FlameThrower replaces FlameThrower
+{
+	Default
+	{
+		Weapon.SlotNumber 6;
+	}
+
+	States
+	{
+	Deselect:
+		FLMT A 1 A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Select:
+		FLMT A 1 A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeMauler
+//
+//===========================================================================
+
+class BetterStrifeMauler : Mauler replaces Mauler
+{
+	Default
+	{
+		Weapon.SisterWeapon "BetterStrifeMauler2";
+		Weapon.SlotNumber 7;
+	}
+
+	private action void A_BetterFireMauler1(void)
+	{
+		A_FireMauler1();
+		BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -10.0);
+	}
+
+	States
+	{
+	Deselect:
+		MAUL A 1 A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Select:
+		MAUL A 1 A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Fire:
+		BLSF A 5 Bright A_BetterFireMauler1();
+		MAUL B 3 Bright A_Light1();
+		MAUL C 2 A_Light2();
+		MAUL DE 2;
+		MAUL A 7 A_Light0();
+		MAUL H 7;
+		MAUL G 7 A_CheckReload();
+		Goto Ready;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeMauler2
+//
+//===========================================================================
+
+class BetterStrifeMauler2 : Mauler2 replaces Mauler2
+{
+	Default
+	{
+		Weapon.SisterWeapon "BetterStrifeMauler";
+		Weapon.SlotNumber 7;
+	}
+
+	private action void A_BetterFireMauler2(void)
+	{
+		A_FireMauler2();
+		BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -10.0);
+	}
+
+	States
+	{
+	Deselect:
+		MAUL I 1 A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Select:
+		MAUL I 1 A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Loop;
+	Fire:
+		MAUL I 20 A_FireMauler2Pre();
+		MAUL J 10 A_Light1();
+		BLSF A 10 Bright A_BetterFireMauler2();
+		MAUL B 10 Bright A_Light2();
+		MAUL C 2;
+		MAUL D 2 A_Light0();
+		MAUL E 2 A_ReFire();
+		Goto Ready;
+	}
+}

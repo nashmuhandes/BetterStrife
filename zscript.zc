@@ -57,8 +57,12 @@ version "4.8.2"
 // Inventory
 #include "zscript/BetterStrife/player/BetterStrifePlayerFlashlight.zc"
 
+// Weapons
+//#include "zscript/BetterStrife/weapons/BetterStrifeWeapons.zc"
+
 // HUD and UI
 #include "zscript/BetterStrife/quest/BetterStrifeMarkerProjectionHandler.zc"
+//#include "zscript/BetterStrife/UI/HUD/BetterStrifeStatusBar.zc"
 
 // Options menu
 #include "zscript/BetterStrife/UI/OptionMenu/BetterStrifeOptionMenu.zc"

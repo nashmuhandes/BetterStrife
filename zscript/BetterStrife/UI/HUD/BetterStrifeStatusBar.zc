@@ -1,0 +1,313 @@
+// Copyright 2021 - 2024 Nash Muhandes
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions
+// are met:
+//
+// 1. Redistributions of source code must retain the above copyright
+//    notice, this list of conditions and the following disclaimer.
+// 2. Redistributions in binary form must reproduce the above copyright
+//    notice, this list of conditions and the following disclaimer in the
+//    documentation and/or other materials provided with the distribution.
+// 3. The name of the author may not be used to endorse or promote products
+//    derived from this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+// OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+// NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+// THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+//===========================================================================
+//
+// BetterStrifeStatusBar
+// This is mostly just a copy/paste of the stock HUD code with very
+// few tweaks to take into account Better Strife's custom weapons.
+// Unfortunately there's no other way to do this LOL
+//
+//===========================================================================
+
+class BetterStrifeStatusBar : StrifeStatusBar
+{
+	override void Draw (int state, double TicFrac)
+	{
+		BaseStatusBar.Draw(state, TicFrac);
+
+		if (state == HUD_StatusBar)
+		{
+			BeginStatusBar();
+			DrawBetterMainBar(TicFrac);
+		}
+		else
+		{
+			if (state == HUD_Fullscreen)
+			{
+				BeginHUD();
+				DrawFullScreenStuff();
+			}
+
+			// Draw pop screen (log, keys, and status)
+			if (CurrentPop != POP_None && PopHeight < 0)
+			{
+				// This uses direct low level draw commands and would otherwise require calling
+				// BeginStatusBar(true);
+				DrawBetterPopScreen(screen.GetHeight(), TicFrac);
+			}
+		}
+	}
+
+	void DrawBetterMainBar(double TicFrac)
+	{
+		Inventory item;
+		int i;
+
+		// Pop screen (log, keys, and status)
+		if (CurrentPop != POP_None && PopHeight < 0)
+		{
+			double tmp, h;
+			[tmp, tmp, h] = StatusbarToRealCoords(0, 0, 8);
+			DrawBetterPopScreen(int(GetTopOfStatusBar() - h), TicFrac);
+		}
+
+		DrawImage("INVBACK", (0, 168), DI_ITEM_OFFSETS);
+		DrawImage("INVTOP", (0, 160), DI_ITEM_OFFSETS);
+
+		// Health
+		DrawString(mGrnFont, FormatNumber(CPlayer.health, 3, 5), (79, 162), DI_TEXT_ALIGN_RIGHT);
+		int points;
+		if (CPlayer.cheats & CF_GODMODE)
+		{
+			points = 999;
+		}
+		else
+		{
+			points = min(CPlayer.health, 200);
+		}
+		DrawHealthBar(points, 49, 172);
+		DrawHealthBar(points, 49, 175);
+
+		// Armor
+		item = CPlayer.mo.FindInventory('BasicArmor');
+		if (item != NULL && item.Amount > 0)
+		{
+			DrawInventoryIcon(item, (2, 177), DI_ITEM_OFFSETS);
+			DrawString(mYelFont, FormatNumber(item.Amount, 3, 5), (27, 191), DI_TEXT_ALIGN_RIGHT);
+		}
+
+		// Ammo
+		Inventory ammo1 = GetCurrentAmmo ();
+		if (ammo1 != NULL)
+		{
+			DrawString(mGrnFont, FormatNumber(ammo1.Amount, 3, 5), (311, 162), DI_TEXT_ALIGN_RIGHT);
+			DrawInventoryIcon (ammo1, (290, 181), DI_ITEM_OFFSETS);
+		}
+
+		// Sigil
+		item = CPlayer.mo.FindInventory('Sigil');
+		if (item != NULL)
+		{
+			DrawInventoryIcon (item, (253, 175), DI_ITEM_OFFSETS);
+		}
+
+		// Inventory
+		CPlayer.inventorytics = 0;
+		CPlayer.mo.InvFirst = ValidateInvFirst (6);
+		i = 0;
+		for (item = CPlayer.mo.InvFirst; item != NULL && i < 6; item = item.NextInv())
+		{
+			int flags = item.Amount <= 0 ? DI_ITEM_OFFSETS|DI_DIM : DI_ITEM_OFFSETS;
+			if (item == CPlayer.mo.InvSel)
+			{
+				DrawTexture(Images[CursorImage], (42 + TICRATE * i, 180), flags, 1. - itemflashFade);
+			}
+			DrawInventoryIcon (item, (48 + TICRATE * i, 182), flags);
+			DrawString(mYelFont, FormatNumber(item.Amount, 3, 5), (75 + TICRATE * i, 191), DI_TEXT_ALIGN_RIGHT);
+			i++;
+		}
+	}
+
+	void DrawBetterPopScreen(int bottom, double TicFrac)
+	{
+		String buff;
+		String label;
+		int i;
+		Inventory item;
+		int xscale, yscale, left, top;
+		int bars = (CurrentPop == POP_Status) ? imgINVPOP : imgINVPOP2;
+		int back = (CurrentPop == POP_Status) ? imgINVPBAK : imgINVPBAK2;
+		// Extrapolate the height of the popscreen for smoother movement
+		int height = clamp (PopHeight + int(TicFrac * PopHeightChange), -POP_HEIGHT, 0);
+
+		xscale = CleanXfac;
+		yscale = CleanYfac;
+		left = screen.GetWidth() / 2 - 160 * CleanXfac;
+		top = bottom + height * yscale;
+
+		screen.DrawTexture (Images[back], true, left, top, DTA_CleanNoMove, true, DTA_Alpha, 0.75);
+		screen.DrawTexture (Images[bars], true, left, top, DTA_CleanNoMove, true);
+
+		switch (CurrentPop)
+		{
+		case POP_Log:
+		{
+			// Draw the latest log message.
+			screen.DrawText(SmallFont2, Font.CR_UNTRANSLATED, left + 210 * xscale, top + 8 * yscale, Level.TimeFormatted(),
+				DTA_CleanNoMove, true);
+
+			if (CPlayer.LogText.Length() > 0)
+			{
+				let text = Stringtable.Localize(CPlayer.LogText);
+				BrokenLines lines = SmallFont2.BreakLines(text, 272);
+				for (i = 0; i < lines.Count(); ++i)
+				{
+					screen.DrawText(SmallFont2, Font.CR_UNTRANSLATED, left + 24 * xscale, top + (18 + i * 12) * yscale,
+						lines.StringAt(i), DTA_CleanNoMove, true);
+				}
+			}
+			break;
+		}
+
+		case POP_Keys:
+			// List the keys the player has.
+			int pos, endpos, leftcol;
+			int clipleft, clipright;
+
+			pos = KeyPopPos;
+			endpos = pos + 10;
+			leftcol = 20;
+			clipleft = left + 17 * xscale;
+			clipright = left + (320 - 17) * xscale;
+			if (KeyPopScroll > 0)
+			{
+				// Extrapolate the scroll position for smoother scrolling
+				int scroll = MAX(0, KeyPopScroll - int(TicFrac * (280. / KEY_TIME)));
+				pos -= 10;
+				leftcol = leftcol - 280 + scroll;
+			}
+			i = 0;
+			for (item = CPlayer.mo.Inv; i < endpos && item != NULL; item = item.Inv)
+			{
+				if (!(item is "Key"))
+					continue;
+
+				if (i < pos)
+				{
+					i++;
+					continue;
+				}
+
+				label = item.GetTag();
+
+				int colnum = ((i - pos) / 5) & (KeyPopScroll > 0 ? 3 : 1);
+				int rownum = (i % 5) * 18;
+
+				screen.DrawTexture (item.Icon, true,
+					left + (colnum * 140 + leftcol) * xscale,
+					top + (6 + rownum) * yscale,
+					DTA_CleanNoMove, true,
+					DTA_ClipLeft, clipleft,
+					DTA_ClipRight, clipright);
+				screen.DrawText (SmallFont2, Font.CR_UNTRANSLATED,
+					left + (colnum * 140 + leftcol + 17) * xscale,
+					top + (11 + rownum) * yscale,
+					label,
+					DTA_CleanNoMove, true,
+					DTA_ClipLeft, clipleft,
+					DTA_ClipRight, clipright);
+				i++;
+			}
+			break;
+
+		case POP_Status:
+			// Show miscellaneous status items.
+
+			// Print stats
+			DrINumber2(CPlayer.mo.accuracy, left + 268 * xscale, top + 28 * yscale, 7 * xscale, imgFONY0);
+			DrINumber2(CPlayer.mo.stamina, left + 268 * xscale, top + 52 * yscale, 7 * xscale, imgFONY0);
+
+			// How many keys does the player have?
+			i = 0;
+			for (item = CPlayer.mo.Inv; item != NULL; item = item.Inv)
+			{
+				if (item is "Key")
+				{
+					i++;
+				}
+			}
+			DrINumber2 (i, left + 268 * xscale, top + 76 * yscale, 7 * xscale, imgFONY0);
+
+			// Does the player have a communicator?
+			item = CPlayer.mo.FindInventory ("Communicator");
+			if (item != NULL)
+			{
+				screen.DrawTexture (item.Icon, true,
+					left + 280 * xscale,
+					top + 74 * yscale,
+					DTA_CleanNoMove, true);
+			}
+
+			// How much ammo does the player have?
+			static const class<Ammo> AmmoList[] = {
+				"ClipOfBullets",
+				"PoisonBolts",
+				"ElectricBolts",
+				"HEGrenadeRounds",
+				"PhosphorusGrenadeRounds",
+				"MiniMissiles",
+				"EnergyPod"};
+
+			static const int AmmoY[] = {19, 35, 43, 59, 67, 75, 83};
+
+			for (i = 0; i < 7; ++i)
+			{
+				item = CPlayer.mo.FindInventory (AmmoList[i]);
+
+				if (item == NULL)
+				{
+					DrINumber2(0, left + 206 * xscale, top + AmmoY[i] * yscale, 7 * xscale, imgFONY0);
+					DrINumber2(GetDefaultByType(AmmoList[i]).MaxAmount, left + 239 * xscale, top + AmmoY[i] * yscale, 7 * xscale, imgFONY0);
+				}
+				else
+				{
+					DrINumber2(item.Amount, left + 206 * xscale, top + AmmoY[i] * yscale, 7 * xscale, imgFONY0);
+					DrINumber2(item.MaxAmount, left + 239 * xscale, top + AmmoY[i] * yscale, 7 * xscale, imgFONY0);
+				}
+			}
+
+
+			// What weapons does the player have?
+			static const class<Weapon> WeaponList[] =
+			{
+				"BetterStrifeStrifeCrossbow",
+				"BetterStrifeAssaultGun",
+				"BetterStrifeFlameThrower",
+				"BetterStrifeMiniMissileLauncher",
+				"BetterStrifeStrifeGrenadeLauncher",
+				"BetterStrifeMauler"
+			};
+			static const int WeaponX[] = {23, 21, 57, 20, 55, 52};
+			static const int WeaponY[] = {19, 41, 50, 64, 20, 75};
+
+			for (i = 0; i < 6; ++i)
+			{
+				item = CPlayer.mo.FindInventory (WeaponList[i]);
+				if (item != NULL)
+				{
+					screen.DrawTexture (item.Icon, true,
+						left + WeaponX[i] * xscale,
+						top + WeaponY[i] * yscale,
+						DTA_CleanNoMove, true,
+						DTA_LeftOffset, 0,
+						DTA_TopOffset, 0);
+				}
+			}
+			break;
+		}
+	}
+}

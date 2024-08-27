@@ -215,4 +215,102 @@ class BetterStrifePlayerPlugin : Inventory
 			items.Delete(index);
 		}
 	}
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	/*
+	void UpdateWeaponReplacements(void)
+	{
+		if (Owner.CountInv("PunchDagger"))
+		{
+			Owner.A_TakeInventory("PunchDagger", int.max);
+
+			if (!Owner.CountInv("BetterStrifePunchDagger"))
+				Owner.A_GiveInventory("BetterStrifePunchDagger");
+		}
+
+		if (Owner.CountInv("StrifeCrossbow"))
+		{
+			Owner.A_TakeInventory("StrifeCrossbow", int.max);
+
+			if (!Owner.CountInv("BetterStrifeStrifeCrossbow"))
+				Owner.A_GiveInventory("BetterStrifeStrifeCrossbow");
+		}
+
+		if (Owner.CountInv("StrifeCrossbow2"))
+		{
+			Owner.A_TakeInventory("StrifeCrossbow2", int.max);
+
+			if (!Owner.CountInv("BetterStrifeStrifeCrossbow2"))
+				Owner.A_GiveInventory("BetterStrifeStrifeCrossbow2");
+		}
+
+		if (Owner.CountInv("StrifeGrenadeLauncher"))
+		{
+			Owner.A_TakeInventory("StrifeGrenadeLauncher", int.max);
+
+			if (!Owner.CountInv("BetterStrifeStrifeGrenadeLauncher"))
+				Owner.A_GiveInventory("BetterStrifeStrifeGrenadeLauncher");
+		}
+
+		if (Owner.CountInv("StrifeGrenadeLauncher2"))
+		{
+			Owner.A_TakeInventory("StrifeGrenadeLauncher2", int.max);
+
+			if (!Owner.CountInv("BetterStrifeStrifeGrenadeLauncher2"))
+				Owner.A_GiveInventory("BetterStrifeStrifeGrenadeLauncher2");
+		}
+
+		if (Owner.CountInv("FlameThrower"))
+		{
+			Owner.A_TakeInventory("FlameThrower", int.max);
+
+			if (!Owner.CountInv("BetterStrifeFlameThrower"))
+				Owner.A_GiveInventory("BetterStrifeFlameThrower");
+		}
+
+		if (Owner.CountInv("Mauler"))
+		{
+			Owner.A_TakeInventory("Mauler", int.max);
+
+			if (!Owner.CountInv("BetterStrifeMauler"))
+				Owner.A_GiveInventory("BetterStrifeMauler");
+		}
+
+		if (Owner.CountInv("Mauler2"))
+		{
+			Owner.A_TakeInventory("Mauler2", int.max);
+
+			if (!Owner.CountInv("BetterStrifeMauler2"))
+				Owner.A_GiveInventory("BetterStrifeMauler2");
+		}
+	}
+	*/
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	/*
+	void UpdateViewKick(void)
+	{
+		if (abs(Owner.ViewPitch) > 0.001)
+			Owner.A_SetViewPitch(Owner.ViewPitch * 0.75, SPF_INTERPOLATE);
+		else if (Owner.ViewPitch != 0.0)
+		{
+			Owner.A_SetViewPitch(0, SPF_INTERPOLATE);
+		}
+	}
+
+	static void AddViewKick(Actor pmo, double v)
+	{
+		pmo.ViewPitch += v;
+	}
+	*/
 }

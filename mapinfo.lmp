@@ -1,9 +1,23 @@
 GameInfo
 {
+	//StatusBarClass = "BetterStrifeStatusBar"
+
 	AddEventHandlers =
 		"BetterStrifeHandler",
 		"BetterStrifeMarkerProjectionHandler",
 		"BetterStrifeQuestHandler"
+
+	/*
+	WeaponSlot = 1, "BetterStrifePunchDagger"
+	WeaponSlot = 2, "BetterStrifeStrifeCrossbow2", "BetterStrifeStrifeCrossbow"
+	WeaponSlot = 3, "BetterStrifeAssaultGun"
+	WeaponSlot = 4, "BetterMiniMissileLauncher"
+	WeaponSlot = 5, "BetterStrifeStrifeGrenadeLauncher2", "BetterStrifeStrifeGrenadeLauncher"
+	WeaponSlot = 6, "BetterStrifeFlameThrower"
+	WeaponSlot = 7, "BetterStrifeMauler2", "BetterStrifeMauler"
+	WeaponSlot = 8, "Sigil"
+	*/
+
 	AddDialogues = "dialogs.lmp"
 }
 
