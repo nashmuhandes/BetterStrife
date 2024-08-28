@@ -243,7 +243,7 @@ class BetterStrifeStatusBar : StrifeStatusBar
 			DrINumber2 (i, left + 268 * xscale, top + 76 * yscale, 7 * xscale, imgFONY0);
 
 			// Does the player have a communicator?
-			item = CPlayer.mo.FindInventory ("Communicator");
+			item = CPlayer.mo.FindInventory("Communicator");
 			if (item != NULL)
 			{
 				screen.DrawTexture (item.Icon, true,
@@ -266,7 +266,7 @@ class BetterStrifeStatusBar : StrifeStatusBar
 
 			for (i = 0; i < 7; ++i)
 			{
-				item = CPlayer.mo.FindInventory (AmmoList[i]);
+				item = CPlayer.mo.FindInventory(AmmoList[i]);
 
 				if (item == NULL)
 				{
@@ -296,7 +296,7 @@ class BetterStrifeStatusBar : StrifeStatusBar
 
 			for (i = 0; i < 6; ++i)
 			{
-				item = CPlayer.mo.FindInventory (WeaponList[i]);
+				item = CPlayer.mo.FindInventory(WeaponList[i]);
 				if (item != NULL)
 				{
 					screen.DrawTexture (item.Icon, true,
