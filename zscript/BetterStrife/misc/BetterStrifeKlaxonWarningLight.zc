@@ -1,5 +1,3 @@
-version "4.8.2"
-
 // Copyright 2021 - 2024 Nash Muhandes
 // All rights reserved.
 //
@@ -26,44 +24,53 @@ version "4.8.2"
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Core
-#include "zscript/BetterStrifeGutamatics/Include.zsc"
-#include "zscript/BetterStrife/BetterStrifeHandler.zc"
+//===========================================================================
+//
+// BetterStrifeKlaxonWarningLight
+//
+//===========================================================================
 
-// Level post processor
-#include "zscript/BetterStrife/level/BetterStrifeLevelPostProcessor.zc"
+class BetterStrifeKlaxonWarningLight : KlaxonWarningLight replaces KlaxonWarningLight
+{
+	Default
+	{
+		-SYNCHRONIZED
+	}
 
-// Actor plugins
-#include "zscript/BetterStrife/player/BetterStrifePlayerPlugin.zc"
-#include "zscript/BetterStrife/npc/BetterStrifeOraclePlugin.zc"
+	void A_BetterKlaxonBlare()
+	{
+		if (--ReactionTime < 0)
+		{
+			Target = NULL;
+			ReactionTime = Default.ReactionTime;
+			A_TurretLook();
+			if (Target == NULL)
+				SetIdle();
+			else
+				ReactionTime = 50;
+		}
 
-// Quest
-#include "zscript/BetterStrife/quest/BetterStrifeQuest.zc"
-#include "zscript/BetterStrife/quest/BetterStrifeQuestHandler.zc"
-#include "zscript/BetterStrife/quest/BetterStrifeQuestMarker.zc"
-#include "zscript/BetterStrife/level/StrifeQuestMarkers.zc"
-#include "zscript/BetterStrife/level/SVEQuestMarkers.zc"
+		if (ReactionTime == 2)
+		{
+			// [RH] Unalert monsters near the alarm and not just those in the same sector as it.
+			SoundAlert(NULL, false);
+		}
+		else if (ReactionTime > 0)
+		{
+			// [Nash] improve stereo imaging by applying subtle randomization
+			Sound snd = "misc/betteralarm";
+			double p = frandom[rnd_BetterKlaxon](0.98, 1.02);
+			double st = frandom[rnd_BetterKlaxon](0.0, (S_GetLength(snd) * 0.1));
+			A_StartSound(snd, CHAN_VOICE, pitch: p, startTime: st);
+		}
+	}
 
-// World actors
-#include "zscript/BetterStrife/misc/BetterStrifeMeat.zc"
-#include "zscript/BetterStrife/misc/BetterStrifeGlassJunk.zc"
-#include "zscript/BetterStrife/misc/BetterStrifeKlaxonWarningLight.zc"
+	States
+	{
+	See:
+		KLAX B 6 A_BetterKlaxonBlare();
+		KLAX C 60;
+		Loop;
+	}
 
-// NPCs
-#include "zscript/BetterStrife/npc/BetterStrifePrisonMerchant.zc"
-
-// Exit markers
-#include "zscript/BetterStrife/quest/BetterStrifeExitMarker.zc"
-
-// Inventory
-#include "zscript/BetterStrife/player/BetterStrifePlayerFlashlight.zc"
-
-// Weapons
-#include "zscript/BetterStrife/weapons/BetterStrifeWeapons.zc"
-
-// HUD and UI
-#include "zscript/BetterStrife/quest/BetterStrifeMarkerProjectionHandler.zc"
-#include "zscript/BetterStrife/UI/HUD/BetterStrifeStatusBar.zc"
-
-// Options menu
-#include "zscript/BetterStrife/UI/OptionMenu/BetterStrifeOptionMenu.zc"
+}
