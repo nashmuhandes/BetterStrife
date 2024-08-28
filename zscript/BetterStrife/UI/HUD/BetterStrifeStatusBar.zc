@@ -105,14 +105,14 @@ class BetterStrifeStatusBar : StrifeStatusBar
 		if (ammo1 != NULL)
 		{
 			DrawString(mGrnFont, FormatNumber(ammo1.Amount, 3, 5), (311, 162), DI_TEXT_ALIGN_RIGHT);
-			DrawInventoryIcon (ammo1, (290, 181), DI_ITEM_OFFSETS);
+			DrawInventoryIcon(ammo1, (290, 181), DI_ITEM_OFFSETS);
 		}
 
 		// Sigil
-		item = CPlayer.mo.FindInventory('Sigil');
+		item = CPlayer.mo.FindInventory('BetterStrifeSigil');
 		if (item != NULL)
 		{
-			DrawInventoryIcon (item, (253, 175), DI_ITEM_OFFSETS);
+			DrawInventoryIcon(item, (253, 175), DI_ITEM_OFFSETS);
 		}
 
 		// Inventory
@@ -126,7 +126,7 @@ class BetterStrifeStatusBar : StrifeStatusBar
 			{
 				DrawTexture(Images[CursorImage], (42 + TICRATE * i, 180), flags, 1. - itemflashFade);
 			}
-			DrawInventoryIcon (item, (48 + TICRATE * i, 182), flags);
+			DrawInventoryIcon(item, (48 + TICRATE * i, 182), flags);
 			DrawString(mYelFont, FormatNumber(item.Amount, 3, 5), (75 + TICRATE * i, 191), DI_TEXT_ALIGN_RIGHT);
 			i++;
 		}
@@ -142,15 +142,15 @@ class BetterStrifeStatusBar : StrifeStatusBar
 		int bars = (CurrentPop == POP_Status) ? imgINVPOP : imgINVPOP2;
 		int back = (CurrentPop == POP_Status) ? imgINVPBAK : imgINVPBAK2;
 		// Extrapolate the height of the popscreen for smoother movement
-		int height = clamp (PopHeight + int(TicFrac * PopHeightChange), -POP_HEIGHT, 0);
+		int height = clamp(PopHeight + int(TicFrac * PopHeightChange), -POP_HEIGHT, 0);
 
 		xscale = CleanXfac;
 		yscale = CleanYfac;
 		left = screen.GetWidth() / 2 - 160 * CleanXfac;
 		top = bottom + height * yscale;
 
-		screen.DrawTexture (Images[back], true, left, top, DTA_CleanNoMove, true, DTA_Alpha, 0.75);
-		screen.DrawTexture (Images[bars], true, left, top, DTA_CleanNoMove, true);
+		screen.DrawTexture(Images[back], true, left, top, DTA_CleanNoMove, true, DTA_Alpha, 0.75);
+		screen.DrawTexture(Images[bars], true, left, top, DTA_CleanNoMove, true);
 
 		switch (CurrentPop)
 		{

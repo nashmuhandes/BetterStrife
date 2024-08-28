@@ -181,6 +181,13 @@ class BetterStrifeHandler : EventHandler
 		// enable player plugin
 		pmo.A_GiveInventory("BetterStrifePlayerPlugin", 1);
 
+		// get rid of the default PunchDagger
+		if (pmo.CountInv("PunchDagger"))
+		{
+			pmo.A_TakeInventory("PunchDagger", int.max);
+			pmo.A_GiveInventory("BetterStrifePunchDagger", 1);
+		}
+
 		// increase JumpZ just enough to enable the squatting animation
 		if (pmo.GetClass() == 'StrifePlayer')
 			pmo.JumpZ = pmo.Default.JumpZ * 1.00000000001;

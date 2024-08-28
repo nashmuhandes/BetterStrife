@@ -373,3 +373,268 @@ class BetterStrifeMauler2 : Mauler2 replaces Mauler2
 		Goto Ready;
 	}
 }
+
+//===========================================================================
+//
+// BetterStrifeSigil
+//
+//===========================================================================
+
+class BetterStrifeSigil : Sigil replaces Sigil
+{
+	Default
+	{
+		Weapon.SlotNumber 8;
+	}
+
+	//============================================================================
+	//
+	// ASigil :: HandlePickup
+	//
+	//============================================================================
+
+	override bool HandlePickup(Inventory item)
+	{
+		if (item is "BetterStrifeSigil")
+		{
+			int otherPieces = item.health;
+			if (otherPieces > health)
+			{
+				item.bPickupGood = true;
+				Icon = item.Icon;
+				// If the player is holding the Sigil right now, drop it and bring
+				// it back with the new piece(s) in view.
+				if (Owner.player != NULL && Owner.player.ReadyWeapon == self)
+				{
+					DownPieces = health;
+					Owner.player.PendingWeapon = self;
+				}
+				health = otherPieces;
+			}
+			return true;
+		}
+		return false;
+	}
+
+	//============================================================================
+	//
+	// ASigil :: CreateCopy
+	//
+	//============================================================================
+
+	override Inventory CreateCopy(Actor other)
+	{
+		BetterStrifeSigil copy = BetterStrifeSigil(Spawn("BetterStrifeSigil"));
+		copy.Amount = Amount;
+		copy.MaxAmount = MaxAmount;
+		copy.health = health;
+		copy.Icon = Icon;
+		GoAwayAndDie();
+		return copy;
+	}
+
+	//============================================================================
+	//
+	// ASigil :: SpecialDropAction
+	//
+	// Monsters don't drop Sigil pieces. The Sigil pieces grab hold of the person
+	// who killed the dropper and automatically enter their inventory. That's the
+	// way it works if you believe Macil, anyway...
+	//
+	//============================================================================
+
+	override bool SpecialDropAction(Actor dropper)
+	{
+		// Give a Sigil piece to every player in the game
+		for (int i = 0; i < MAXPLAYERS; ++i)
+		{
+			if (playeringame[i] && players[i].mo != NULL)
+			{
+				GiveBetterSigilPiece(players[i].mo);
+				Destroy();
+			}
+		}
+		return true;
+	}
+
+	//============================================================================
+	//
+	// ASigil :: GiveSigilPiece
+	//
+	// Gives the actor another Sigil piece, up to 5. Returns the number of Sigil
+	// pieces the actor previously held.
+	//
+	//============================================================================
+
+	static int GiveBetterSigilPiece(Actor receiver)
+	{
+		BetterStrifeSigil sigl = BetterStrifeSigil(receiver.FindInventory("BetterStrifeSigil"));
+		if (sigl == NULL)
+		{
+			sigl = BetterStrifeSigil(Spawn("BetterStrifeSigil1"));
+			if (!sigl.CallTryPickup (receiver))
+			{
+				sigl.Destroy ();
+			}
+			return 0;
+		}
+		else if (sigl.health < 5)
+		{
+			++sigl.health;
+			static const class<BetterStrifeSigil> sigils[] =
+			{
+				"BetterStrifeSigil1", "BetterStrifeSigil2", "BetterStrifeSigil3", "BetterStrifeSigil4", "BetterStrifeSigil5"
+			};
+			sigl.Icon = GetDefaultByType(sigils[clamp(sigl.health, 1, 5)-1]).Icon;
+			// If the player has the Sigil out, drop it and bring it back up.
+			if (sigl.Owner.player != NULL && sigl.Owner.player.ReadyWeapon == sigl)
+			{
+				sigl.Owner.player.PendingWeapon = sigl;
+				sigl.DownPieces = sigl.health - 1;
+			}
+			return sigl.health - 1;
+		}
+		else
+		{
+			return 5;
+		}
+	}
+
+	States(Weapon)
+	{
+	Deselect:
+		SIGH A 1 Bright A_SelectSigilDown();
+		Wait;
+		SIGH A 1 Bright A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Wait;
+		SIGH B 1 Bright A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Wait;
+		SIGH C 1 Bright A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Wait;
+		SIGH D 1 Bright A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Wait;
+		SIGH E 1 Bright A_Lower(BETTERSTRIFE_WPNSWITCHSPEED);
+		Wait;
+	Select:
+		SIGH A 1 Bright A_SelectSigilView();
+		Wait;
+		SIGH A 1 Bright A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Wait;
+		SIGH B 1 Bright A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Wait;
+		SIGH C 1 Bright A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Wait;
+		SIGH D 1 Bright A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Wait;
+		SIGH E 1 Bright A_Raise(BETTERSTRIFE_WPNSWITCHSPEED);
+		Wait;
+
+	Fire:
+		SIGH A 0 Bright A_SelectSigilAttack();
+
+		SIGH A 18 Bright A_SigilCharge();
+		SIGH A 3 Bright A_GunFlash();
+		SIGH A 10 { A_FireSigil1(); BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -16.0); }
+		SIGH A 5;
+		Goto Ready;
+
+		SIGH B 18 Bright A_SigilCharge();
+		SIGH B 3 Bright A_GunFlash();
+		SIGH B 10 { A_FireSigil2(); BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -16.0); }
+		SIGH B 5;
+		Goto Ready;
+
+		SIGH C 18 Bright A_SigilCharge();
+		SIGH C 3 Bright A_GunFlash();
+		SIGH C 10 { A_FireSigil3(); BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -16.0); }
+		SIGH C 5;
+		Goto Ready;
+
+		SIGH D 18 Bright A_SigilCharge();
+		SIGH D 3 Bright A_GunFlash();
+		SIGH D 10 { A_FireSigil4(); BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -16.0); }
+		SIGH D 5;
+		Goto Ready;
+
+		SIGH E 18 Bright A_SigilCharge();
+		SIGH E 3 Bright A_GunFlash();
+		SIGH E 10 { A_FireSigil5(); BetterStrifePlayerPlugin.AddViewKick(invoker.Owner, -16.0); }
+		SIGH E 5;
+		Goto Ready;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeSigil1
+//
+//===========================================================================
+
+class BetterStrifeSigil1 : BetterStrifeSigil replaces Sigil1
+{
+	Default
+	{
+		Inventory.Icon "I_SGL1";
+		Health 1;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeSigil2
+//
+//===========================================================================
+
+class BetterStrifeSigil2 : BetterStrifeSigil replaces Sigil2
+{
+	Default
+	{
+		Inventory.Icon "I_SGL2";
+		Health 2;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeSigil3
+//
+//===========================================================================
+
+class BetterStrifeSigil3 : BetterStrifeSigil replaces Sigil3
+{
+	Default
+	{
+		Inventory.Icon "I_SGL3";
+		Health 3;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeSigil4
+//
+//===========================================================================
+
+class BetterStrifeSigil4 : BetterStrifeSigil replaces Sigil4
+{
+	Default
+	{
+		Inventory.Icon "I_SGL4";
+		Health 4;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeSigil5
+//
+//===========================================================================
+
+class BetterStrifeSigil5 : BetterStrifeSigil replaces Sigil5
+{
+	Default
+	{
+		Inventory.Icon "I_SGL5";
+		Health 5;
+	}
+}
