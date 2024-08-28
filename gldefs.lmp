@@ -1,0 +1,79 @@
+Object BetterStrifeKlaxonWarningLight
+{
+	Frame KLAXC { Light KLAXON }
+}
+
+Object BetterStrifeStrifeBurningBarrel
+{
+	Frame BBAR { Light BBARREL }
+}
+
+Object BetterStrifeBurningBowl
+{
+	Frame BOWL { Light BBOWL }
+}
+
+Object BetterStrifeBurningBrazier
+{
+	Frame BRAZ { Light BBRAZIER }
+}
+
+Object BetterStrifeSmallTorchLit
+{
+	Frame TRHL { Light STORCH }
+}
+
+Object BetterStrifeMediumTorch
+{
+	Frame LTRH { Light MTORCH }
+}
+
+Object BetterStrifeLargeTorch
+{
+	Frame LMPC { Light LTORCH }
+}
+
+Object BetterStrifeHugeTorch
+{
+	Frame LOGS { Light HTORCH }
+}
+
+Object BetterStrifeLightSilverFluorescent
+{
+	Frame LITS { Light LIGHT1 }
+}
+
+Object BetterStrifeLightBrownFluorescent
+{
+	Frame LITB { Light LIGHT1 }
+}
+
+Object BetterStrifeLightGoldFluorescent
+{
+	Frame LITG { Light LIGHT1 }
+}
+
+Object BetterStrifeTechLampSilver
+{
+	Frame TECHA { Light TLLIGHT1 }
+}
+
+Object BetterStrifeTechLampBrass
+{
+	Frame TECHB { Light TLLIGHT2 }
+}
+
+Object BetterStrifePoleLantern
+{
+	Frame LANT { Light LLIGHT }
+}
+
+Object BetterStrifeCageLight
+{
+	Frame CAGE { Light LIGHT3 }
+}
+
+Object BetterStrifeOutsideLamp
+{
+	Frame LAMP { Light LIGHT4 }
+}

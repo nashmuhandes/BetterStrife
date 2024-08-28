@@ -49,6 +49,7 @@ version "4.8.2"
 #include "zscript/BetterStrife/misc/BetterStrifeMeat.zc"
 #include "zscript/BetterStrife/misc/BetterStrifeGlassJunk.zc"
 #include "zscript/BetterStrife/misc/BetterStrifeKlaxonWarningLight.zc"
+#include "zscript/BetterStrife/misc/BetterStrifeStuff.zc"
 
 // NPCs
 #include "zscript/BetterStrife/npc/BetterStrifePrisonMerchant.zc"

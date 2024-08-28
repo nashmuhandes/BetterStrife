@@ -1,0 +1,312 @@
+//===========================================================================
+//
+// BetterStrifeLoopActiveSoundMixin
+//
+//===========================================================================
+
+mixin class BetterStrifeLoopActiveSoundMixin
+{
+	void A_BetterLoopActiveSound(double vol = 1.0, double attn = 1.0)
+	{
+		if (!IsActorPlayingSound(CHAN_VOICE))
+		{
+			double st = frandom[rnd_BetterActiveSound](0.0, S_GetLength(ActiveSound));
+			A_StartSound(ActiveSound, CHAN_VOICE, CHANF_LOOPING, volume: vol, attenuation: attn, startTime: st);
+		}
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeStrifeBurningBarrel
+//
+//===========================================================================
+
+class BetterStrifeStrifeBurningBarrel : StrifeBurningBarrel replaces StrifeBurningBarrel
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	Default
+	{
+		ActiveSound "world/smallfire";
+	}
+	States
+	{
+	Spawn:
+		BBAR ABCD 4 Bright A_BetterLoopActiveSound(vol: 0.85);
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeBurningBowl
+//
+//===========================================================================
+
+class BetterStrifeBurningBowl : BurningBowl replaces BurningBowl
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	States
+	{
+	Spawn:
+		BOWL ABCD 4 Bright A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeBurningBrazier
+//
+//===========================================================================
+
+class BetterStrifeBurningBrazier : BurningBrazier replaces BurningBrazier
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	States
+	{
+	Spawn:
+		BRAZ ABCD 4 Bright A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeSmallTorchLit
+//
+//===========================================================================
+
+class BetterStrifeSmallTorchLit : SmallTorchLit replaces SmallTorchLit
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	States
+	{
+	Spawn:
+		TRHL ABCD 4 Bright A_BetterLoopActiveSound(vol: 0.35);
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeMediumTorch
+//
+//===========================================================================
+
+class BetterStrifeMediumTorch : MediumTorch replaces MediumTorch
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	Default
+	{
+		ActiveSound "world/smallfire";
+	}
+	States
+	{
+	Spawn:
+		LTRH ABCD 4 Bright A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeLargeTorch
+//
+//===========================================================================
+
+class BetterStrifeLargeTorch : LargeTorch replaces LargeTorch
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	States
+	{
+	Spawn:
+		LMPC ABCD 4 Bright A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeHugeTorch
+//
+//===========================================================================
+
+class BetterStrifeHugeTorch : HugeTorch replaces HugeTorch
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	States
+	{
+	Spawn:
+		LOGS ABCD 4 A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeLightSilverFluorescent
+//
+//===========================================================================
+
+class BetterStrifeLightSilverFluorescent : LightSilverFluorescent replaces LightSilverFluorescent
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	Default
+	{
+		ActiveSound "world/lamp";
+	}
+	States
+	{
+	Spawn:
+		LITS A 1 Bright NoDelay A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeLightBrownFluorescent
+//
+//===========================================================================
+
+class BetterStrifeLightBrownFluorescent : LightBrownFluorescent replaces LightBrownFluorescent
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	Default
+	{
+		ActiveSound "world/lamp";
+	}
+	States
+	{
+	Spawn:
+		LITB A 1 Bright NoDelay A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeLightGoldFluorescent
+//
+//===========================================================================
+
+class BetterStrifeLightGoldFluorescent : LightGoldFluorescent replaces LightGoldFluorescent
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	Default
+	{
+		ActiveSound "world/lamp";
+	}
+	States
+	{
+	Spawn:
+		LITG A 1 Bright NoDelay A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeTechLampSilver
+//
+//===========================================================================
+
+class BetterStrifeTechLampSilver : TechLampSilver replaces TechLampSilver
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	Default
+	{
+		ActiveSound "world/lamp";
+	}
+	States
+	{
+	Spawn:
+		TECH A 1 Bright NoDelay A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeTechLampBrass
+//
+//===========================================================================
+
+class BetterStrifeTechLampBrass : TechLampBrass replaces TechLampBrass
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	Default
+	{
+		ActiveSound "world/lamp";
+	}
+	States
+	{
+	Spawn:
+		TECH B 1 Bright NoDelay A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifePoleLantern
+//
+//===========================================================================
+
+class BetterStrifePoleLantern : PoleLantern replaces PoleLantern
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	Default
+	{
+		ActiveSound "world/lamp";
+	}
+	States
+	{
+	Spawn:
+		LANT A 1 Bright NoDelay A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeCageLight
+//
+//===========================================================================
+
+class BetterStrifeCageLight : CageLight replaces CageLight
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	Default
+	{
+		ActiveSound "world/lamp";
+	}
+	States
+	{
+	Spawn:
+		CAGE A 1 Bright NoDelay A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
+// BetterStrifeOutsideLamp
+//
+//===========================================================================
+
+class BetterStrifeOutsideLamp : OutsideLamp replaces OutsideLamp
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	Default
+	{
+		ActiveSound "world/lamp";
+	}
+	States
+	{
+	Spawn:
+		LAMP A 1 Bright NoDelay A_BetterLoopActiveSound();
+		Loop;
+	}
+}
