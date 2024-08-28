@@ -17,6 +17,9 @@ BETTERSTRIFEMNU_HELPTEXT_EXITMARKERS = "Shows exit markers on the screen.";
 BETTERSTRIFEMNU_FLASHLIGHTENABLED = "Head-mounted light";
 BETTERSTRIFEMNU_HELPTEXT_FLASHLIGHTENABLED = "Enables head-mounted light. Can be toggled by activating the item on the inventory bar, or by pressing the hotkey.";
 
+BETTERSTRIFEMNU_REBELFLASHLIGHT = "Rebels use head-mounted lights";
+BETTERSTRIFEMNU_HELPTEXT_REBELFLASHLIGHT = "Enables head-mounted lights on Rebel NPCs.";
+
 BETTERSTRIFEMNU_CONTROLS_FLASHLIGHT = "Toggle head-mounted light";
 BETTERSTRIFEMNU_CONTROLS_USEHEALTH = "Use health items";
 

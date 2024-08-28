@@ -36,6 +36,7 @@ version "4.8.2"
 // Actor plugins
 #include "zscript/BetterStrife/player/BetterStrifePlayerPlugin.zc"
 #include "zscript/BetterStrife/npc/BetterStrifeOraclePlugin.zc"
+#include "zscript/BetterStrife/npc/BetterStrifeRebelPlugin.zc"
 
 // Quest
 #include "zscript/BetterStrife/quest/BetterStrifeQuest.zc"

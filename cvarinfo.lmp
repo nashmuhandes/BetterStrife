@@ -1,3 +1,4 @@
+server bool betterstrife_rebelflashlight = true;
 user bool betterstrife_objectivepopupexitmarkers = true;
 user bool betterstrife_alwaysshowexitmarkers = false;
 user bool betterstrife_flashlight = true;

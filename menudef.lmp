@@ -20,6 +20,7 @@ OptionMenu "BetterStrifeOptionMenu"
 
 	StaticText ""
 	BetterStrifeOption "$BETTERSTRIFEMNU_FLASHLIGHTENABLED", "$BETTERSTRIFEMNU_HELPTEXT_FLASHLIGHTENABLED", "betterstrife_flashlight", "OnOff"
+	BetterStrifeOption "$BETTERSTRIFEMNU_REBELFLASHLIGHT", "$BETTERSTRIFEMNU_HELPTEXT_REBELFLASHLIGHT", "betterstrife_rebelflashlight", "OnOff"
 	BetterStrifeOption "$BETTERSTRIFEMNU_QUESTMARKERS", "$BETTERSTRIFEMNU_HELPTEXT_QUESTMARKERS", "betterstrife_questmarkers", "MarkerValues"
 	BetterStrifeOption "$BETTERSTRIFEMNU_EXITMARKERS", "$BETTERSTRIFEMNU_HELPTEXT_EXITMARKERS", "betterstrife_exitmarkers", "MarkerValues"
 
