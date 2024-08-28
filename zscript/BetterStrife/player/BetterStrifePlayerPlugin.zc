@@ -141,7 +141,7 @@ class BetterStrifePlayerPlugin : Inventory
 				7.85,
 				PlayerPawn(Owner).ViewHeight
 			),
-			spoti: 15.0,
+			spoti: 22.0,
 			spoto: 25.0,
 			// use some pitch outside of the -90 to 90 range to force it to use the attached actor's pitch
 			spotp: 180.0
