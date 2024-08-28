@@ -15,3 +15,22 @@ Will spawn a Front seller. Only one per-level will be spawned. Will despawn afte
 Must be bought from the Merchant who will only appear after The Castle is taken.
 
 All sellers will be marked with $ on the map.
+
+Misc Idea Dump
+--------------
+
+Possible new NPC can be added at Tarnhill's tavern upstairs
+More ambient point sounds for the tavern?
+More ambient sounds in general? Wind, interior folley, liquid/sludge etc
+More breakable objects (vases, lights etc)
+Use small medkit first (option) for quick heal
+Flying debris for robot monster hitscan impacts
+More FX impacts for all projectiles
+Explosive barrel explosion debris
+Rumble for explosions
+Weapon view kick
+
+Better Quest Marker System
+--------------------------
+
+When pressing the button that frees the prisoners, update the marker to the spot where Blackbird congratulates you
