@@ -94,6 +94,7 @@ class BetterStrifeHandler : EventHandler
 		ApplyActorBillboarding(mo);
 		FixMerchant(mo);
 		FixOracle(mo);
+		FixRebel(mo);
 		FixWaterFountain(mo);
 		FixPrisonPass(mo);
 	}
@@ -314,6 +315,12 @@ class BetterStrifeHandler : EventHandler
 			mo.StartHealth = 1200;
 			mo.A_SetHealth(mo.GetMaxHealth(true));
 		}
+	}
+
+	void FixRebel(Actor mo)
+	{
+		if (mo is "Rebel")
+			mo.A_GiveInventory("BetterStrifeRebelPlugin", 1);
 	}
 
 	void FixWaterFountain(Actor mo)
