@@ -1,1 +1,7 @@
+// WATER FOUNTAIN
 world/waterfountain "sounds/waterfountain.wav"
+
+// KLAXON ALARM
+misc/betteralarm DSALARM
+$attenuation "misc/betteralarm" 0.8
+$limit "misc/betteralarm" 32 1024
