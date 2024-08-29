@@ -44,6 +44,24 @@ mixin class BetterStrifeLoopActiveSoundMixin
 
 //===========================================================================
 //
+// BetterStrifeWaterfallSplash
+//
+//===========================================================================
+
+class BetterStrifeWaterfallSplash : WaterfallSplash replaces WaterfallSplash
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	States
+	{
+	Spawn:
+		SPLH ABCDEFG 4;
+		SPLH H 4 A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
 // BetterStrifeStrifeBurningBarrel
 //
 //===========================================================================
