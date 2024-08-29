@@ -32,13 +32,80 @@
 
 mixin class BetterStrifeLoopActiveSoundMixin
 {
+	double optLoopSndStartTime;
+	double optLoopSndMaxDist;
+	property MaxSoundDistance: optLoopSndMaxDist;
+
+	//===========================================================================
+	//
+	//
+	//
+	//===========================================================================
+
+	void A_OptimizedLoopingSound(Sound snd, int chan = CHAN_BODY, int chanFlags = 0,
+		double volume = 1.0, double attenuation = ATTN_NORM, bool debug = false)
+	{
+		if (bDormant)
+		{
+			A_StopSound(chan);
+			return;
+		}
+
+		debug = false;
+
+		double dist = optLoopSndMaxDist;
+
+		if (dist ~== 0.0)
+			dist = 512.0;
+
+		// looping sounds are very expensive for the engine, we need to distance-limit them
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			if (playeringame[i] && players[i].camera)
+			{
+				let cam = players[i].camera;
+				if (cam.CheckLocalView())
+				{
+					if (Distance3DSquared(cam) <= dist * dist)
+					{
+						if (!IsActorPlayingSound(chan))
+						{
+							optLoopSndStartTime = frandom[rnd_OptLoopSound](0, S_GetLength(snd));
+							A_StartSound(snd, chan, CHANF_LOOPING, startTime: optLoopSndStartTime);
+
+							if (!debug)
+								continue;
+
+							bInvisible = false;
+						}
+					}
+					else
+					{
+						if (debug && !IsActorPlayingSound(chan))
+						{
+							bInvisible = true;
+							continue;
+						}
+
+						if (IsActorPlayingSound(chan))
+						{
+							A_StopSound(chan);
+							optLoopSndStartTime = 0.0;
+
+							if (!debug)
+								continue;
+
+							bInvisible = true;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	void A_BetterLoopActiveSound(double vol = 1.0, double attn = 1.0)
 	{
-		if (!IsActorPlayingSound(CHAN_VOICE))
-		{
-			double st = frandom[rnd_BetterActiveSound](0.0, S_GetLength(ActiveSound));
-			A_StartSound(ActiveSound, CHAN_VOICE, CHANF_LOOPING, volume: vol, attenuation: attn, startTime: st);
-		}
+		A_OptimizedLoopingSound(ActiveSound, CHAN_VOICE, CHANF_LOOPING, vol, attn);
 	}
 }
 

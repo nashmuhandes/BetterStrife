@@ -756,6 +756,9 @@ extend class BetterStrifeLevelPostProcessor
 
 			break;
 
+		// The demo version maps included in the commercial Strife IWAD are considered unplayable.
+		// No patching needed.
+		/*
 		case 'F8E6B612A87A052F3FA298DBD792E269': // sve.wad map32 - Sanctuary (demo version)
 			break;
 
@@ -764,6 +767,7 @@ extend class BetterStrifeLevelPostProcessor
 
 		case 'C53801BD1C6EAC80C2DCDDBF2DBDF980': // sve.wad map34 - Movement Base (demo version)
 			break;
+		*/
 
 		case 'F78F92E830CF340E6D2277E8D5D74081': // sve.wad map35 - Factory: Production (super secret level)
 			break;

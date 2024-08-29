@@ -1,18 +1,19 @@
 // WATER FOUNTAIN
 world/waterfountain "sounds/waterfountain.wav"
+$limit			world/waterfountain 10
 
 // WATERFALL
 $volume			world/waterfall 0.8
 $attenuation	world/waterfall 1.4
-$limit			world/waterfall 4
+$limit			world/waterfall 10
 
 // RIVER
-$limit			world/river 5
+$limit			world/river 20
 
 // SLIME
 world/amb_sludge "sounds/ambience_sludge01.wav"
 $attenuation	sounds/ambience_sludge01 0.862
-$limit			sounds/ambience_sludge01 7
+$limit			sounds/ambience_sludge01 20
 
 // KLAXON ALARM
 misc/betteralarm DSALARM
