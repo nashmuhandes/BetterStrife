@@ -358,7 +358,7 @@ class BetterStrifeTavernAmbience : Actor
 	States
 	{
 	Spawn:
-		COUP A 1 Bright NoDelay A_BetterLoopActiveSound();
+		TNT1 A 1 Bright NoDelay A_BetterLoopActiveSound();
 		Loop;
 	}
 }
