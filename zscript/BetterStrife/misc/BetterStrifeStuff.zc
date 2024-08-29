@@ -310,3 +310,55 @@ class BetterStrifeOutsideLamp : OutsideLamp replaces OutsideLamp
 		Loop;
 	}
 }
+
+//===========================================================================
+//
+// BetterStrifeTavernAmbience
+//
+//===========================================================================
+
+class BetterStrifeTavernAmbience : Actor
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+
+	Actor tagmo;
+
+	Default
+	{
+		ActiveSound "misc/tavern_ambience";
+		+NOINTERACTION
+	}
+
+	override void PostBeginPlay(void)
+	{
+		Super.PostBeginPlay();
+		let it = Level.CreateActorIterator(TID);
+		Actor mo;
+		while(mo = it.Next())
+		{
+			if (mo != self && mo.TID == TID)
+			{
+				tagmo = mo;
+				//Console.Printf("sound ID %d assigned to %s with a TID of %d", TID, mo.GetTag(), mo.TID);
+				break;
+			}
+		}
+	}
+
+	override void Tick(void)
+	{
+		Super.Tick();
+		if (!tagmo || (tagmo && tagmo.Health <= 0))
+		{
+			Destroy();
+			return;
+		}
+	}
+
+	States
+	{
+	Spawn:
+		COUP A 1 Bright NoDelay A_BetterLoopActiveSound();
+		Loop;
+	}
+}

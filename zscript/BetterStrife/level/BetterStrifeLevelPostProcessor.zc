@@ -37,6 +37,7 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 		SpawnStrifeQuestMarkers(checksum, mapname);
 		SpawnSVEQuestMarkers(checksum, mapname);
 		//SpawnExtraMerchants(checksum, mapname);
+		SpawnTavernAmbience(checksum, mapname);
 		FixMaps(checksum, mapname);
 	}
 
@@ -59,6 +60,49 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 		}
 	}
 
+	void SpawnTavernAmbience(Name checksum, String mapname)
+	{
+		int t;
+		int p;
+
+		// place tavern ambience and assign an NPC to it (via TID) for sound volume functions
+		int tid = 5555500;
+
+		switch (checksum)
+		{
+		default:
+		case 'none':
+			return;
+
+		case '22DC1F95CD9A03D23467FD638264FFBC': // strife1.wad map02 - Town
+		case 'A4ABA612A8FE682787DEBEAF70637836': // sve.wad map02 - Town
+			t = AddThing(15555, (2120, 4640, 16), 0); tid++; SetThingID(t, tid); SetThingID(73, tid);
+			t = AddThing(15555, (2040, 4472, 0), 0); tid++; SetThingID(t, tid); SetThingID(68, tid);
+			t = AddThing(15555, (1984, 4248, 32), 0); tid++; SetThingID(t, tid); SetThingID(90, tid);
+			t = AddThing(15555, (2592, 4256, 35), 0); tid++; SetThingID(t, tid); SetThingID(91, tid);
+			t = AddThing(15555, (2592, 4416, 0), 0); tid++; SetThingID(t, tid); SetThingID(113, tid);
+			t = AddThing(15555, (2576, 4704, 24), 0); tid++; SetThingID(t, tid); SetThingID(92, tid);
+			t = AddThing(15555, (2208, 4704, 50), 0); tid++; SetThingID(t, tid); SetThingID(72, tid);
+			t = AddThing(15555, (2312, 4440, 20), 0); tid++; SetThingID(t, tid); SetThingID(71, tid);
+			break;
+
+		case '777F7085371D7020872E10089AADB764': // strife1.wad map23 - Order Commons
+		case '13BDF7D41E33E302D21234316A600BBA': // sve.wad map23 - Order Commons
+			t = AddThing(15555, (2176, 320, 32), 0); tid++; SetThingID(t, tid); SetThingID(383, tid);
+			t = AddThing(15555, (2176, 192, 32), 0); tid++; SetThingID(t, tid); SetThingID(341, tid);
+			t = AddThing(15555, (1920, 256, 48), 0); tid++; SetThingID(t, tid); SetThingID(342, tid);
+			t = AddThing(15555, (2080, 128, 56), 0); tid++; SetThingID(t, tid); SetThingID(340, tid);
+			t = AddThing(15555, (2304, 192, 72), 0); tid++; SetThingID(t, tid); SetThingID(396, tid);
+			t = AddThing(15555, (1920, 64, 64), 0); tid++; SetThingID(t, tid); SetThingID(390, tid);
+			t = AddThing(15555, (2080, -128, 56), 0); tid++; SetThingID(t, tid); SetThingID(392, tid);
+			t = AddThing(15555, (2272, -128, 48), 0); tid++; SetThingID(t, tid); SetThingID(395, tid);
+			t = AddThing(15555, (2048, -448, 48), 0); tid++; SetThingID(t, tid); SetThingID(349, tid);
+			t = AddThing(15555, (2208, -224, 88), 0); tid++; SetThingID(t, tid); SetThingID(399, tid);
+			t = AddThing(15555, (2272, -352, 24), 0); tid++; SetThingID(t, tid); SetThingID(348, tid);
+			break;
+		}
+	}
+
 	//===========================================================================
 	//
 	//
@@ -72,6 +116,13 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 		default:
 		case 'none':
 			return;
+
+		case '22DC1F95CD9A03D23467FD638264FFBC': // strife1.wad map02 - Town
+		case 'A4ABA612A8FE682787DEBEAF70637836': // sve.wad map02 - Town
+			// get rid of misplaced lamp in the void (only in the vanilla IWAD though)
+			if (checksum == '22DC1F95CD9A03D23467FD638264FFBC')
+				SetThingEdNum(260, 0);
+			break;
 
 		case '4A79D4C48352804FAB3557EE423ADAFE': // strife1.wad map07 - Castle
 		case 'ECB3421D4C79C67EBC9342E0579F8804': // sve.wad map07 - Castle

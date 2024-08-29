@@ -3,8 +3,8 @@ world/waterfountain "sounds/waterfountain.wav"
 
 // KLAXON ALARM
 misc/betteralarm DSALARM
-$attenuation	"misc/betteralarm" 0.8
-$limit			"misc/betteralarm" 32 1024
+$attenuation	"misc/betteralarm" 1.75
+$limit			"misc/betteralarm" 5
 
 // SMALL FIRE
 $volume			"world/smallfire" 0.5
@@ -16,3 +16,9 @@ world/lamp "sounds/ambience_lamp01.wav"
 $volume			"world/lamp" 0.85
 $attenuation	"world/lamp" 2.24
 $limit			"world/lamp" 32
+
+// TAVERN AMBIENCE
+misc/tavern_ambience "sounds/tavern_ambience.wav"
+$volume			"misc/tavern_ambience" 0.166
+$attenuation	"misc/tavern_ambience" 1.325
+$limit			"misc/tavern_ambience" 32
