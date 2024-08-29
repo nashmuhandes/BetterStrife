@@ -23,6 +23,7 @@ DoomEdNums
 {
 	15555 = "BetterStrifeTavernAmbience"
 	15556 = "BetterStrifeStickInWater2"
+	15557 = "BetterStrifeSlimeAmbience"
 	16666 = "BetterStrifeQuestMarker"
 	16667 = "BetterStrifePrisonMerchant"
 }

@@ -9,6 +9,11 @@ $limit			world/waterfall 4
 // RIVER
 $limit			world/river 5
 
+// SLIME
+world/amb_sludge "sounds/ambience_sludge01.wav"
+$attenuation	sounds/ambience_sludge01 0.862
+$limit			sounds/ambience_sludge01 7
+
 // KLAXON ALARM
 misc/betteralarm DSALARM
 $attenuation	misc/betteralarm 1.75

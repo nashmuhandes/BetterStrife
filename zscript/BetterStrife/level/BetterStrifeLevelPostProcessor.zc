@@ -71,15 +71,54 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 	{
 		int stickInWater = 215;
 		int invisibleStick = 15556;
+		int slime = 15557;
+
 		switch (checksum)
 		{
 		default:
 		case 'none':
 			return;
 
+		case '92DD353943BE589C175FEFC969597950': // strife1.wad map01 - Sanctuary
+		case 'E80503C91F1304142FFDF51EEA7A9653': // sve.wad map01 - Sanctuary
+			AddThing(invisibleStick, (2296, 5432, 0), 0);
+			AddThing(invisibleStick, (2864, 5264, 0), 0);
+			AddThing(invisibleStick, (2688, 5824, 0), 0);
+			AddThing(invisibleStick, (2416, 6048, 0), 0);
+			AddThing(invisibleStick, (2208, 5840, 0), 0);
+			AddThing(invisibleStick, (1792, 5632, 0), 0);
+			break;
+
 		case '22DC1F95CD9A03D23467FD638264FFBC': // strife1.wad map02 - Town
 		case 'A4ABA612A8FE682787DEBEAF70637836': // sve.wad map02 - Town
 			AddThing(invisibleStick, (1696, 6240, 0), 0);
+			AddThing(slime, (3744, 3712, 0), 0);
+			AddThing(slime, (3872, 3712, 0), 0);
+			AddThing(slime, (4000, 3712, 0), 0);
+			AddThing(slime, (556, 3272, 0), 0);
+			AddThing(slime, (3584, 4672, 0), 0);
+			AddThing(slime, (3502, 4430, 0), 0);
+			AddThing(slime, (3776, 4480, 0), 0);
+			AddThing(slime, (3968, 4608, 0), 0);
+			AddThing(slime, (3488, 4224, 0), 0);
+			AddThing(slime, (3840, 4288, 0), 0);
+			AddThing(slime, (4206, 4334, 0), 0);
+			AddThing(slime, (3616, 3968, 0), 0);
+			AddThing(slime, (3968, 3968, 0), 0);
+			AddThing(slime, (3968, 3968, 0), 0);
+			AddThing(slime, (3568, 5224, 0), 0);
+			AddThing(slime, (3584, 5576, 0), 0);
+			AddThing(slime, (3848, 3848, 0), 0);
+			AddThing(slime, (3672, 5824, 0), 0);
+			AddThing(slime, (3872, 5976, 0), 0);
+			AddThing(slime, (3600, 6088, 0), 0);
+			AddThing(slime, (3784, 6264, 0), 0);
+			break;
+
+		case '20C20E1FC803F192613A52A62872BCDE': // strife1.wad map03 - Front Base
+		case '53C6581CB9BC334D6FF0B2E7DAA16944': // sve.wad map03 - Front Base
+			AddThing(invisibleStick, (64, 1312, 0), 0);
+			AddThing(invisibleStick, (-128, 960, 0), 0);
 			break;
 
 		case '8AB955C176204FC3DC8008A01BDDEE87': // strife1.wad map04 - Power Station
@@ -141,6 +180,11 @@ class BetterStrifeLevelPostProcessor : LevelPostProcessor
 			AddThing(invisibleStick, (-2432, 4128, 0), 0);
 			AddThing(104, (-2560, 3808, 0), 0); // waterfall splashes
 			AddThing(104, (-2560, 4640, 0), 0); // waterfall splashes
+			break;
+
+		case '8DC5B4A41E35089C9789F7EC6393A015': // strife1.wad map05 - Prison
+		case 'F46DEB7B2ABEDB9677269B1539F7ABB8': // sve.wad map05 - Prison
+			AddThing(slime, (3744, 3712, 0), 0);
 			break;
 		}
 	}

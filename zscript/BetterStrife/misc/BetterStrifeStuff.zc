@@ -44,6 +44,28 @@ mixin class BetterStrifeLoopActiveSoundMixin
 
 //===========================================================================
 //
+// BetterStrifeSlimeAmbience
+//
+//===========================================================================
+
+class BetterStrifeSlimeAmbience : Actor
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	Default
+	{
+		ActiveSound "world/amb_sludge";
+		+NOBLOCKMAP
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 1 NoDelay A_BetterLoopActiveSound(vol: 0.42);
+		Loop;
+	}
+}
+
+//===========================================================================
+//
 // BetterStrifeStickInWater
 //
 //===========================================================================
