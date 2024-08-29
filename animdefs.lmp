@@ -1,9 +1,29 @@
-Flat P_VWATR1
+Flat F_VWATR3
 	Pic F_VWATR3 tics 5
 	Pic F_VWATR2 tics 5
 	Pic P_VWATR1 tics 5
+
+Flat F_VWATR2
+	Pic F_VWATR2 tics 5
+	Pic P_VWATR1 tics 5
+	Pic F_VWATR3 tics 5
+
+Flat P_VWATR1
+	Pic P_VWATR1 tics 5
+	Pic F_VWATR3 tics 5
+	Pic F_VWATR2 tics 5
 
 Flat F_HWATR3
 	Pic F_HWATR3 tics 5
 	Pic F_HWATR2 tics 5
 	Pic F_HWATR1 tics 5
+
+Flat F_HWATR2
+	Pic F_HWATR2 tics 5
+	Pic F_HWATR1 tics 5
+	Pic F_HWATR3 tics 5
+
+Flat F_HWATR1
+	Pic F_HWATR1 tics 5
+	Pic F_HWATR3 tics 5
+	Pic F_HWATR2 tics 5
