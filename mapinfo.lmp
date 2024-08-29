@@ -27,3 +27,368 @@ DoomEdNums
 	16666 = "BetterStrifeQuestMarker"
 	16667 = "BetterStrifePrisonMerchant"
 }
+
+map MAP01 LOOKUP "TXT_STRIFE_MAP01"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP02"
+	sky1 = "SKYMNT02"
+	music = "D_ACTION"
+	cluster = 1
+}
+
+map MAP02 LOOKUP "TXT_STRIFE_MAP02"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP03"
+	sky1 = "SKYMNT02"
+	music = "D_TAVERN"
+	cluster = 1
+}
+
+map MAP03 LOOKUP "TXT_STRIFE_MAP03"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP04"
+	sky1 = "SKYMNT02"
+	music = "D_DANGER"
+	cluster = 1
+	noallies
+	redirect = "Sigil", "map30"
+	slideshow = "Inter_Strife_MAP03"
+}
+
+map MAP04 LOOKUP "TXT_STRIFE_MAP04"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP05"
+	sky1 = "SKYMNT02"
+	music = "D_FAST"
+	cluster = 1
+	compat_railing
+}
+
+map MAP05 LOOKUP "TXT_STRIFE_MAP05"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP06"
+	sky1 = "SKYMNT02"
+	music = "D_INTRO"
+	cluster = 1
+}
+
+map MAP06 LOOKUP "TXT_STRIFE_MAP06"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP07"
+	sky1 = "SKYMNT02"
+	music = "D_DARKER"
+	cluster = 1
+}
+
+map MAP07 LOOKUP "TXT_STRIFE_MAP07"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP08"
+	sky1 = "SKYMNT02"
+	music = "D_STRIKE"
+	cluster = 1
+	redirect = "Sigil", "map10"
+}
+
+map MAP08 LOOKUP "TXT_STRIFE_MAP08"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP09"
+	sky1 = "SKYMNT02"
+	music = "D_SLIDE"
+	cluster = 1
+}
+
+map MAP09 LOOKUP "TXT_STRIFE_MAP09"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP10"
+	sky1 = "SKYMNT02"
+	music = "D_TRIBAL"
+	cluster = 1
+
+	// These are the sky changes for the first 8 maps
+
+	specialaction = "Programmer", "ACS_Execute", 0, 1, 256
+	specialaction = "Programmer", "ACS_Execute", 0, 2, 256
+	specialaction = "Programmer", "ACS_Execute", 0, 3, 256
+	specialaction = "Programmer", "ACS_Execute", 0, 4, 256
+	specialaction = "Programmer", "ACS_Execute", 0, 5, 256
+	specialaction = "Programmer", "ACS_Execute", 0, 6, 256
+	specialaction = "Programmer", "ACS_Execute", 0, 7, 256
+	specialaction = "Programmer", "ACS_Execute", 0, 8, 256
+
+	// It seems that Strife was originally going to print the text
+	// from the C1TEXT lump when you move from map 9 to map 10, but
+	// that idea apparently got scrapped as the game developed.
+}
+
+map MAP10 LOOKUP "TXT_STRIFE_MAP10"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP11"
+	sky1 = "SKYMNT01"
+	music = "D_MARCH"
+	cluster = 1
+	slideshow = "Inter_Strife_MAP10"
+}
+
+map MAP11 LOOKUP "TXT_STRIFE_MAP11"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP12"
+	sky1 = "SKYMNT01"
+	music = "D_DANGER"
+	cluster = 1
+}
+
+map MAP12 LOOKUP "TXT_STRIFE_MAP12"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP13"
+	sky1 = "SKYMNT01"
+	music = "D_MOOD"
+	cluster = 1
+}
+
+map MAP13 LOOKUP "TXT_STRIFE_MAP13"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP14"
+	sky1 = "SKYMNT01"
+	music = "D_CASTLE"
+	cluster = 1
+}
+
+map MAP14 LOOKUP "TXT_STRIFE_MAP14"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP15"
+	sky1 = "SKYMNT01"
+	music = "D_DARKER"
+	cluster = 1
+}
+
+map MAP15 LOOKUP "TXT_STRIFE_MAP15"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP16"
+	sky1 = "SKYMNT01"
+	music = "D_ACTION"
+	cluster = 1
+}
+
+map MAP16 LOOKUP "TXT_STRIFE_MAP16"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP17"
+	sky1 = "SKYMNT01"
+	music = "D_FIGHT"
+	cluster = 1
+}
+
+map MAP17 LOOKUP "TXT_STRIFE_MAP17"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP18"
+	sky1 = "SKYMNT01"
+	music = "D_SPENSE"
+	cluster = 1
+}
+
+map MAP18 LOOKUP "TXT_STRIFE_MAP18"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP19"
+	sky1 = "SKYMNT01"
+	music = "D_SLIDE"
+	cluster = 1
+}
+
+map MAP19 LOOKUP "TXT_STRIFE_MAP19"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP20"
+	sky1 = "SKYMNT01"
+	music = "D_STRIKE"
+	cluster = 1
+}
+
+map MAP20 LOOKUP "TXT_STRIFE_MAP20"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP21"
+	sky1 = "SKYMNT01"
+	music = "D_DARK"
+	cluster = 1
+}
+
+map MAP21 LOOKUP "TXT_STRIFE_MAP21"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP22"
+	sky1 = "SKYMNT01"
+	music = "D_TECH"
+	cluster = 1
+}
+
+map MAP22 LOOKUP "TXT_STRIFE_MAP22"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP23"
+	sky1 = "SKYMNT01"
+	music = "D_SLIDE"
+	cluster = 1
+}
+
+map MAP23 LOOKUP "TXT_STRIFE_MAP23"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP24"
+	sky1 = "SKYMNT01"
+	music = "D_DRONE"
+	cluster = 1
+}
+
+map MAP24 LOOKUP "TXT_STRIFE_MAP24"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP25"
+	sky1 = "SKYMNT01"
+	music = "D_PANTHR"
+	cluster = 1
+}
+
+map MAP25 LOOKUP "TXT_STRIFE_MAP25"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP26"
+	sky1 = "SKYMNT01"
+	music = "D_SAD"
+	cluster = 1
+}
+
+map MAP26 LOOKUP "TXT_STRIFE_MAP26"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP27"
+	sky1 = "SKYMNT01"
+	music = "D_INSTRY"
+	cluster = 1
+}
+
+map MAP27 LOOKUP "TXT_STRIFE_MAP27"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP28"
+	sky1 = "SKYMNT01"
+	music = "D_TECH"
+	cluster = 1
+}
+
+map MAP28 LOOKUP "TXT_STRIFE_MAP28"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP29"
+	sky1 = "SKYMNT01"
+	music = "D_ACTION"
+	cluster = 1
+}
+
+map MAP29 LOOKUP "TXT_STRIFE_MAP29"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "EndGameS"
+	sky1 = "SKYMNT01"
+	music = "D_INSTRY"
+	cluster = 1
+	deathsequence = "Inter_Strife_Lose"
+}
+
+map MAP30 LOOKUP "TXT_STRIFE_MAP30"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP31"
+	sky1 = "SKYMNT01"
+	music = "D_DRONE"
+	cluster = 1
+}
+
+map MAP31 LOOKUP "TXT_STRIFE_MAP31"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP01"
+	sky1 = "SKYMNT01"
+	music = "D_FIGHT"
+	cluster = 1
+}
+
+map MAP32 LOOKUP "TXT_STRIFE_MAP32"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP33"
+	sky1 = "SKYMNT02"
+	music = "D_MAP1"
+	cluster = 2
+}
+
+map MAP33 LOOKUP "TXT_STRIFE_MAP33"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP34"
+	sky1 = "SKYMNT02"
+	music = "D_MAP2"
+	cluster = 2
+}
+
+map MAP34 LOOKUP "TXT_STRIFE_MAP34"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "EndBuyStrife"
+	sky1 = "SKYMNT02"
+	music = "D_MAP3"
+	cluster = 2
+	noallies
+}
+
+map MAP35 LOOKUP "TXT_STRIFE_MAP35"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP01"
+	sky1 = "SKYMNT01"
+	music = "D_TRIBAL"
+	cluster = 1
+}
+
+map MAP36 LOOKUP "TXT_STRIFE_MAP36"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP37"
+	sky1 = "SKYMNT01"
+	music = "D_MARCH"
+	cluster = 3
+}
+
+map MAP37 LOOKUP "TXT_STRIFE_MAP37"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP38"
+	sky1 = "SKYMNT01"
+	music = "D_STRIKE"
+	cluster = 3
+}
+
+map MAP38 LOOKUP "TXT_STRIFE_MAP38"
+{
+	LightBlendMode = "Unclamped", "Linear"
+	next = "MAP36"
+	sky1 = "SKYMNT01"
+	music = "D_TRIBAL"
+	cluster = 3
+}

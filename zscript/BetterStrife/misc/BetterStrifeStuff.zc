@@ -105,7 +105,7 @@ mixin class BetterStrifeLoopActiveSoundMixin
 
 	void A_BetterLoopActiveSound(double vol = 1.0, double attn = 1.0)
 	{
-		A_OptimizedLoopingSound(ActiveSound, CHAN_VOICE, CHANF_LOOPING, vol, attn);
+		A_OptimizedLoopingSound(ActiveSound, CHAN_VOICE, CHANF_LOOPING, volume: vol, attenuation: attn);
 	}
 }
 
