@@ -6,6 +6,9 @@ $volume			world/waterfall 0.8
 $attenuation	world/waterfall 1.4
 $limit			world/waterfall 4
 
+// RIVER
+$limit			world/river 8
+
 // KLAXON ALARM
 misc/betteralarm DSALARM
 $attenuation	misc/betteralarm 1.75

@@ -44,6 +44,23 @@ mixin class BetterStrifeLoopActiveSoundMixin
 
 //===========================================================================
 //
+// BetterStrifeStickInWater
+//
+//===========================================================================
+
+class BetterStrifeStickInWater : StickInWater replaces StickInWater
+{
+	mixin BetterStrifeLoopActiveSoundMixin;
+	States
+	{
+	Spawn:
+		LOGW ABCD 5 A_BetterLoopActiveSound();
+		Loop;
+	}
+}
+
+//===========================================================================
+//
 // BetterStrifeWaterfallSplash
 //
 //===========================================================================
