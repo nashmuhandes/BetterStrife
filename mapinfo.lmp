@@ -22,6 +22,7 @@ GameInfo
 DoomEdNums
 {
 	15555 = "BetterStrifeTavernAmbience"
+	15556 = "BetterStrifeStickInWater2"
 	16666 = "BetterStrifeQuestMarker"
 	16667 = "BetterStrifePrisonMerchant"
 }

@@ -61,6 +61,21 @@ class BetterStrifeStickInWater : StickInWater replaces StickInWater
 
 //===========================================================================
 //
+// BetterStrifeStickInWater2
+// Just an invisible variant of the stick in water
+//
+//===========================================================================
+
+class BetterStrifeStickInWater2 : BetterStrifeStickInWater
+{
+	Default
+	{
+		RenderStyle "None";
+	}
+}
+
+//===========================================================================
+//
 // BetterStrifeWaterfallSplash
 //
 //===========================================================================
